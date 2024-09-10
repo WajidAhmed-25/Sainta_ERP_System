@@ -40,7 +40,7 @@ const Navbar = () => {
 
         {/* Menu Items */}
         <div
-          className={`lg:flex flex-col lg:flex-row lg:space-x-12 lg:mt-0 mt-4 mr-8 flex items-center  sm:mr-0 text-xl ${isOpen ? '' : 'hidden'}`}
+          className={`lg:flex flex-col lg:flex-row  lg:space-x-12 lg:mt-0 mt-4 mr-4 flex items-center  sm:mr-0 text-xl ${isOpen ? '' : 'hidden'}`}
         >
           <button
             onClick={toggleMenu}
