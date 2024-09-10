@@ -72,7 +72,7 @@ export default function Sainta_Homepage(){
       <h2 className="pt-8 mb-6 text-2xl font-bold text-left sm:mt-4">
       {section.title}
       </h2>
-      <p className="mb-6 text-left text-gray-600">
+      <p className="mb-24 text-left text-gray-600">
       {section.description}
       </p>
 
@@ -99,8 +99,8 @@ export default function Sainta_Homepage(){
       <p className="mb-6 text-left text-gray-600">
       With a variety of features including complex analysis functions, internal mail system, file tracking, talent recruitment, efficient customer support and more, we will revolutionize your business management! We put our customers first and want to provide you with a great business management experience. Our software is available for <span className='text-[#007AAF]'>25,000 yen per month, but we are offering the first month at a special price of 10,000 yen for new users ! </span> Try our service now.
       </p>
-      <div className="flex justify-start mb-4">
-      <button className="px-12 py-2 text-black font-semibold cursor-pointer  bg-white rounded-md hover:text-white hover:bg-[#007AAF] hover:scale-105 transition-all duration-300 border-2 border-[#007aafb0] shadow-xl group">
+      <div className="flex justify-start mb-24">
+      <button className="px-12 py-2  text-black font-semibold cursor-pointer  bg-white rounded-md hover:text-white hover:bg-[#007AAF] hover:scale-105 transition-all duration-300 border-2 border-[#007aafb0] shadow-xl group">
     <span className='text-black '>Discount Code</span> : 
     <span className='text-[#007AAF] font-bold group-hover:text-white pl-2'>SAINTA60</span>
   </button>
