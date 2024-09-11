@@ -49,7 +49,7 @@ export default function Sante_Homepage() {
 
 
 
-        <div className="mt-12 bg-white rounded-lg shadow-xl ">
+        <div className="mt-12 bg-white rounded-lg shadow-xl">
           <div className="flex flex-col items-start pl-2 pr-2 md:pl-8 md:flex-row md:items-center">
             <div className="pl-2 pr-2 md:pl-12 md:w-2/3">
               <h2 className="pt-8 mb-6 text-[26px] font-bold text-left md:text-4xl sm:mt-4">
