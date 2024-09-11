@@ -64,7 +64,7 @@ export default function Footer(){
       <div className="flex items-center space-x-2">
         <span className="text-2xl">Login</span>
         <div className="flex items-center justify-center w-8 h-8 border-2 border-white rounded-full">
-          <FaArrowRight className="w-8 h-8 transition-transform duration-200 cursor-pointer hover:scale-110" />
+          <FaArrowRight className="w-6 h-6 transition-transform duration-200 cursor-pointer hover:scale-110" />
         </div>
       </div>
     </div>
