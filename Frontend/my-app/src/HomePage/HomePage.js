@@ -228,7 +228,7 @@ export default function Sante_Homepage() {
             </div>
 
             {/* Right Section */}
-            <div className="grid w-full grid-cols-2 gap-6 mt-8 md:grid-cols-4 md:w-1/2 md:mt-0">
+            <div className="grid w-full grid-cols-2 gap-6 mt-8 space-y-0 md:space-y-4 md:grid-cols-4 md:w-1/2 md:mt-0">
               {features.map((feature, index) => (
                 <div key={index} className="flex flex-col items-center space-y-4 text-center transition-all duration-300 cursor-pointer hover:scale-125">
                   <img src={feature.icon} alt={feature.title} className="object-contain w-20 h-20" />
