@@ -20,12 +20,7 @@ import r6 from './r6.png'
 import r7 from './r7.png'
 import r8 from './r8.png'
 
-
-
-
 export default function Sante_Homepage() {
-
-
 
   const features = [
     { icon: r1, title: 'Payroll/BPO' },
@@ -38,17 +33,9 @@ export default function Sante_Homepage() {
     { icon: r8, title: 'Collaborative Solutions' },
   ];
 
-
-
   return (
     <>
-
-
       <div className="overflow-hidden App">
-
-
-
-
         <div className="mt-12 bg-white rounded-lg shadow-xl">
           <div className="flex flex-col items-start pl-2 pr-2 md:pl-8 md:flex-row md:items-center">
             <div className="pl-2 pr-2 md:pl-12 md:w-2/3">
@@ -69,9 +56,6 @@ export default function Sante_Homepage() {
             </div>
           </div>
         </div>
-
-
-
         <div className="flex flex-col items-start justify-between w-full p-8 mb-20 shadow-xl md:flex-row md:items-start md:justify-around">
           <div className="w-full -ml-4 mb-8  md:w-[45%]  justify-start  h-full md:mb-0 md:pl-12 pt-8 md:pt-52 ">
             <h2 className="mt-8 mb-8 text-3xl font-bold md:text-5xl ">What is Sante-ERP?</h2>
@@ -79,9 +63,7 @@ export default function Sante_Homepage() {
               Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
             </p>
           </div>
-          
           <div className="grid grid-cols-1 md:grid-cols-2 justify-center space-y-6 md:gap-6 w-[70%] mt-6  md:w-[40%] mx-auto mb-12">
-        
             <div className="flex flex-col items-center p-6 pt-8 mt-6 bg-white shadow-xl ">
               <img src={cloud} alt="Icon 1" className="w-24 h-20 mb-4" />
               <p className="mb-8 font-medium text-center text-gray-700">
@@ -108,169 +90,115 @@ export default function Sante_Homepage() {
             </div>
           </div>
         </div>
-
-
-
-
-<div className="mt-12 bg-white rounded-lg shadow-xl">
-  <div className="flex flex-col-reverse items-start pl-2 pr-2 md:flex-row md:pl-8 md:items-center">
-    <div className="flex justify-center md:w-1/3">
-      <img src={svg2} alt="Business person" className="h-auto max-w-full" />
-    </div>
-    <div className="pt-8 pl-2 pr-2 mb-2 md:pl-12 md:w-2/3">
-      <h2 className="pt-8 mb-6 text-[26px]  font-bold text-left md:text-4xl sm:mt-4">
-        A versatile system for a variety of industries
-      </h2>
-      <p className="mb-20 text-left text-gray-600">
-        Our system provides a wealth of tools to optimize business flows in various industries, including restaurants, retail stores, transportation services, and the IT industry. It allows you to centrally manage everything from sales management to customer relationship management, inventory and product management. It also has functions such as expense management and employee timesheet management, allowing you to operate efficiently. It can flexibly accommodate any business type and provide powerful support to take your business to the next level.
-      </p>
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-          <div className="mt-12 bg-white rounded-lg shadow-xl">
-            <div className="flex flex-col items-start pl-2 pr-2 md:pl-8 md:flex-row md:items-center">
-         
-            <div className="flex flex-col items-center justify-between w-full p-8 md:flex-row md:items-start">
-
-      <div className="w-full p-2 pt-10 mb-20 -ml-12 md:ml-0 md:w-1/2 md:mb-8">
-        <h2 className="mb-8 text-3xl font-bold md:text-4xl ">Modules</h2>
-        <p className="mb-6 text-gray-600 w-[80%]">
-          Sante-ERP covers all core business operations, including accounting, human resources and payroll, sales management, expenses, and attendance management. It is also possible to gradually introduce the necessary business systems and expand to groups.
-        </p>
-        <div className="flex justify-start mb-4">
-                <button className="px-6 py-2 text-black font-semibold cursor-pointer bg-white rounded-md hover:bg-[#007AAF] hover:text-white hover:scale-110 transition-all duration-300 border-2 border-[#007aafb0] shadow-xl">
-                  View Details
-                </button>
-              </div>
-      </div>
-
-     
-      <div className="grid w-[70%] grid-cols-1 gap-2 mt-0 mb-20 md:mt-16 md:grid-cols-3 md:w-1/2 md:space-y-0 space-y-6">
-    
-        <div className="flex flex-col items-center pt-6 bg-white rounded-md shadow-lg">
-          <img src={svg1} alt="Expenses Icon" className="h-24 mb-4 w-36" />
-          <p className="mb-6 font-semibold text-gray-700 md:mb-2">Expenses</p>
-        </div>
-
-   
-        <div className="flex flex-col items-center p-6 bg-white rounded-md shadow-lg">
-          <img src={svg2} alt="Sales Management Icon" className="h-24 mb-4 w-36" />
-          <p className="font-semibold text-gray-700">Sales Management</p>
-        </div>
-
-        <div className="flex flex-col items-center p-6 bg-white rounded-md shadow-lg">
-          <img src={svg5} alt="Accounting Icon" className="h-24 mb-4 w-36" />
-          <p className="font-semibold text-gray-700">Accounting</p>
-        </div>
-      </div>
-
-
-      
-    </div>
-
-
-
-    
+        <div className="mt-12 bg-white rounded-lg shadow-xl">
+          <div className="flex flex-col-reverse items-start pl-2 pr-2 md:flex-row md:pl-8 md:items-center">
+            <div className="flex justify-center md:w-1/3">
+              <img src={svg2} alt="Business person" className="h-auto max-w-full" />
             </div>
-          </div>
-
-
-
-
-
-
-
-          
-
-
-
-          <div className="mt-12 bg-white rounded-lg shadow-xl">
-            <div className="flex flex-col items-start pl-2 pr-2 md:pl-8 md:flex-row md:items-center">
-         
-              <div className="pl-2 pr-2 md:pl-8 md:w-2/3">
-                <h2 className="pt-12 mb-6 text-[26px]  font-bold text-left md:text-4xl sm:mt-4">
-                Software available to all employees of a company
-                </h2>
-                <p className="mb-20 text-left text-gray-600 md:mb-24">
-      
-                We offer unlimited user support, allowing you to add all your employees at no extra cost. Unlike other ERP systems that charge per user, efficient user management reduces costs. All your employees can start using the system immediately, as long as you add them in the system. This allows information sharing and work efficiency across the organization, making business operations run smoothly.
-                </p>
-              </div>
-
-
-              <div className="flex justify-center md:w-1/3">
-                <img src={svg3} alt="Business person" className="h-auto max-w-full" />
-              </div>
-
-            </div>
-          </div>
-
-
-
-
-
-          <div className="mt-12 rounded-lg shadow-xl">
-      <div className="flex flex-col items-start pl-0 pr-2 md:pl-8 md:flex-row md:items-center">
-        <div className="container px-4 py-16 mx-auto">
-          <div className="flex flex-col md:flex-row md:items-start">
-            {/* Left Section */}
-            <div className="pt-0 pl-2 space-y-4 md:w-1/2 md:pl-6">
-              <h2 className="pt-0 mb-8 text-3xl font-bold md:pt-20 md:text-4xl">Our Features</h2>
-              <p className="text-left text-gray-600 w-[80%] mb-12">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the era.
+            <div className="pt-8 pl-2 pr-2 mb-2 md:pl-12 md:w-2/3">
+              <h2 className="pt-8 mb-6 text-[26px]  font-bold text-left md:text-4xl sm:mt-4">
+                A versatile system for a variety of industries
+              </h2>
+              <p className="mb-20 text-left text-gray-600">
+                Our system provides a wealth of tools to optimize business flows in various industries, including restaurants, retail stores, transportation services, and the IT industry. It allows you to centrally manage everything from sales management to customer relationship management, inventory and product management. It also has functions such as expense management and employee timesheet management, allowing you to operate efficiently. It can flexibly accommodate any business type and provide powerful support to take your business to the next level.
               </p>
             </div>
+          </div>
+        </div>
+        <div className="mt-12 bg-white rounded-lg shadow-xl">
+          <div className="flex flex-col items-start pl-2 pr-2 md:pl-8 md:flex-row md:items-center">
 
-            {/* Right Section */}
-            <div className="grid w-full grid-cols-2 gap-6 mt-8 space-y-0 md:space-y-4 md:grid-cols-4 md:w-1/2 md:mt-0">
-              {features.map((feature, index) => (
-                <div key={index} className="flex flex-col items-center space-y-4 text-center transition-all duration-300 cursor-pointer hover:scale-125">
-                  <img src={feature.icon} alt={feature.title} className="object-contain w-20 h-20" />
-                  <p className="font-medium text-gray-800">{feature.title}</p>
+            <div className="flex flex-col items-center justify-between w-full p-8 md:flex-row md:items-start">
+
+              <div className="w-full p-2 pt-10 mb-20 -ml-12 md:ml-0 md:w-1/2 md:mb-8">
+                <h2 className="mb-8 text-3xl font-bold md:text-4xl ">Modules</h2>
+                <p className="mb-6 text-gray-600 w-[80%]">
+                  Sante-ERP covers all core business operations, including accounting, human resources and payroll, sales management, expenses, and attendance management. It is also possible to gradually introduce the necessary business systems and expand to groups.
+                </p>
+                <div className="flex justify-start mb-4">
+                  <button className="px-6 py-2 text-black font-semibold cursor-pointer bg-white rounded-md hover:bg-[#007AAF] hover:text-white hover:scale-110 transition-all duration-300 border-2 border-[#007aafb0] shadow-xl">
+                    View Details
+                  </button>
                 </div>
-              ))}
+              </div>
+              <div className="grid w-[70%] grid-cols-1 gap-2 mt-0 mb-20 md:mt-16 md:grid-cols-3 md:w-1/2 md:space-y-0 space-y-6">
+
+                <div className="flex flex-col items-center pt-6 bg-white rounded-md shadow-lg">
+                  <img src={svg1} alt="Expenses Icon" className="h-24 mb-4 w-36" />
+                  <p className="mb-6 font-semibold text-gray-700 md:mb-2">Expenses</p>
+                </div>
+                <div className="flex flex-col items-center p-6 bg-white rounded-md shadow-lg">
+                  <img src={svg2} alt="Sales Management Icon" className="h-24 mb-4 w-36" />
+                  <p className="font-semibold text-gray-700">Sales Management</p>
+                </div>
+                <div className="flex flex-col items-center p-6 bg-white rounded-md shadow-lg">
+                  <img src={svg5} alt="Accounting Icon" className="h-24 mb-4 w-36" />
+                  <p className="font-semibold text-gray-700">Accounting</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
 
-          
+        <div className="mt-12 bg-white rounded-lg shadow-xl">
+          <div className="flex flex-col items-start pl-2 pr-2 md:pl-8 md:flex-row md:items-center">
+            <div className="pl-2 pr-2 md:pl-8 md:w-2/3">
+              <h2 className="pt-12 mb-6 text-[26px]  font-bold text-left md:text-4xl sm:mt-4">
+                Software available to all employees of a company
+              </h2>
+              <p className="mb-20 text-left text-gray-600 md:mb-24">
 
+                We offer unlimited user support, allowing you to add all your employees at no extra cost. Unlike other ERP systems that charge per user, efficient user management reduces costs. All your employees can start using the system immediately, as long as you add them in the system. This allows information sharing and work efficiency across the organization, making business operations run smoothly.
+              </p>
+            </div>
+            <div className="flex justify-center md:w-1/3">
+              <img src={svg3} alt="Business person" className="h-auto max-w-full" />
+            </div>
 
+          </div>
+        </div>
 
+        <div className="mt-12 rounded-lg shadow-xl">
+          <div className="flex flex-col items-start pl-0 pr-2 md:pl-8 md:flex-row md:items-center">
+            <div className="container px-4 py-16 mx-auto">
+              <div className="flex flex-col md:flex-row md:items-start">
+                {/* Left Section */}
+                <div className="pt-0 pl-2 space-y-4 md:w-1/2 md:pl-6">
+                  <h2 className="pt-0 mb-8 text-3xl font-bold md:pt-20 md:text-4xl">Our Features</h2>
+                  <p className="text-left text-gray-600 w-[80%] mb-12">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the era.
+                  </p>
+                </div>
 
+                {/* Right Section */}
+                <div className="grid w-full grid-cols-2 gap-6 mt-8 space-y-0 md:space-y-4 md:grid-cols-4 md:w-1/2 md:mt-0">
+                  {features.map((feature, index) => (
+                    <div key={index} className="flex flex-col items-center space-y-4 text-center transition-all duration-300 cursor-pointer hover:scale-125">
+                      <img src={feature.icon} alt={feature.title} className="object-contain w-20 h-20" />
+                      <p className="font-medium text-gray-800">{feature.title}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-
-
-
-
-          <div className="mt-12 bg-white rounded-lg shadow-xl">
-  <div className="flex flex-col-reverse items-start pl-2 pr-2 md:flex-row md:pl-8 md:items-center">
-    <div className="flex justify-center md:w-1/3">
-      <img src={svg4} alt="Business person" className="h-auto max-w-full" />
-    </div>
-    <div className="pt-10 pl-2 pr-2 mb-12 md:pl-12 md:w-2/3">
-      <h2 className="pt-8 mb-6 text-[26px]  font-bold text-left md:text-4xl sm:mt-4">
-      Uncompromising data security.
-      </h2>
-      <p className="mb-8 text-left text-gray-600">
-      Sante uses cloud storage and encryption technology to keep all user and corporate data completely safe and protected. By making full use of cutting-edge encryption algorithms and security protocols, we minimize the risk of data leakage and unauthorized access. In addition, we always apply the latest security measures and continue to check for system vulnerabilities to protect our customers' valuable data. Based on a reliable cloud infrastructure, we also have a thorough data backup and recovery process. We provide a robust system to protect the data essential to your business operations from any eventuality.
-      </p>
-    </div>
-  </div>
-</div>
-
-
-
-
-
+        <div className="mt-12 bg-white rounded-lg shadow-xl">
+          <div className="flex flex-col-reverse items-start pl-2 pr-2 md:flex-row md:pl-8 md:items-center">
+            <div className="flex justify-center md:w-1/3">
+              <img src={svg4} alt="Business person" className="h-auto max-w-full" />
+            </div>
+            <div className="pt-10 pl-2 pr-2 mb-12 md:pl-12 md:w-2/3">
+              <h2 className="pt-8 mb-6 text-[26px]  font-bold text-left md:text-4xl sm:mt-4">
+                Uncompromising data security.
+              </h2>
+              <p className="mb-8 text-left text-gray-600">
+                Sante uses cloud storage and encryption technology to keep all user and corporate data completely safe and protected. By making full use of cutting-edge encryption algorithms and security protocols, we minimize the risk of data leakage and unauthorized access. In addition, we always apply the latest security measures and continue to check for system vulnerabilities to protect our customers' valuable data. Based on a reliable cloud infrastructure, we also have a thorough data backup and recovery process. We provide a robust system to protect the data essential to your business operations from any eventuality.
+              </p>
+            </div>
+          </div>
+        </div>
 
         <div className="mt-12 mb-24 bg-white rounded-lg shadow-xl">
           <div className="flex flex-col items-start pl-2 pr-2 md:pl-8 md:flex-row md:items-center">
@@ -293,20 +221,7 @@ export default function Sante_Homepage() {
             </div>
           </div>
         </div>
-
-
-
-
-
-
-
-
-
-
       </div>
-
-
-
     </>
   )
 }
