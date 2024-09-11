@@ -117,7 +117,7 @@ export default function Sante_Homepage() {
     <div className="flex justify-center md:w-1/3">
       <img src={svg2} alt="Business person" className="h-auto max-w-full" />
     </div>
-    <div className="pl-2 pr-2 md:pl-12 md:w-2/3">
+    <div className="pt-8 pl-2 pr-2 mb-12 md:pl-12 md:w-2/3">
       <h2 className="pt-8 mb-6 text-[26px]  font-bold text-left md:text-4xl sm:mt-4">
         A versatile system for a variety of industries
       </h2>
@@ -133,12 +133,12 @@ export default function Sante_Homepage() {
 
 
 
-          <div className="mt-12 bg-white rounded-lg shadow-xl">
+          <div className="mt-12 bg-pink-400 rounded-lg shadow-xl">
             <div className="flex flex-col items-start pl-2 pr-2 md:pl-8 md:flex-row md:items-center">
          
             <div className="flex flex-col items-center justify-between w-full p-8 md:flex-row md:items-start">
 
-      <div className="w-full p-2 pt-12 mb-20 md:w-1/2 md:mb-8">
+      <div className="w-full p-2 pt-10 mb-20 md:w-1/2 md:mb-8">
         <h2 className="mb-8 text-3xl font-bold md:text-4xl ">Modules</h2>
         <p className="mb-6 text-gray-600 w-[80%]">
           Sante-ERP covers all core business operations, including accounting, human resources and payroll, sales management, expenses, and attendance management. It is also possible to gradually introduce the necessary business systems and expand to groups.
@@ -151,9 +151,9 @@ export default function Sante_Homepage() {
       </div>
 
      
-      <div className="grid w-[70%] grid-cols-1 gap-2 mt-0 mb-20 md:mt-16 md:grid-cols-3 md:w-1/2 space-y-6">
+      <div className="grid w-[70%] grid-cols-1 gap-2 mt-0 mb-20 md:mt-16 md:grid-cols-3 md:w-1/2 md:space-y-0 space-y-6">
     
-        <div className="flex flex-col items-center p-6 bg-white rounded-md shadow-lg">
+        <div className="flex flex-col items-center pt-6 bg-white rounded-md shadow-lg">
           <img src={svg1} alt="Expenses Icon" className="h-24 mb-4 w-36" />
           <p className="font-semibold text-gray-700">Expenses</p>
         </div>
@@ -193,7 +193,7 @@ export default function Sante_Homepage() {
           <div className="mt-12 bg-white rounded-lg shadow-xl">
             <div className="flex flex-col items-start pl-2 pr-2 md:pl-8 md:flex-row md:items-center">
          
-              <div className="pl-2 pr-2 md:pl-12 md:w-2/3">
+              <div className="pl-2 pr-2 md:pl-8 md:w-2/3">
                 <h2 className="pt-8 mb-6 text-[26px]  font-bold text-left md:text-4xl sm:mt-4">
                 Software available to all employees of a company
                 </h2>
@@ -220,17 +220,17 @@ export default function Sante_Homepage() {
         <div className="container px-4 py-16 mx-auto">
           <div className="flex flex-col md:flex-row md:items-start">
             {/* Left Section */}
-            <div className="pt-8 pl-2 space-y-4 md:w-1/2 md:pl-10">
+            <div className="pt-8 pl-2 space-y-4 md:w-1/2 md:pl-6">
               <h2 className="mb-12 text-4xl font-bold">Our Features</h2>
-              <p className="text-left text-gray-600">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the ...
+              <p className="text-left text-gray-600 w-[80%]">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the
               </p>
             </div>
 
             {/* Right Section */}
             <div className="grid w-full grid-cols-2 gap-6 mt-8 md:grid-cols-4 md:w-1/2 md:mt-0">
               {features.map((feature, index) => (
-                <div key={index} className="flex flex-col items-center space-y-4 text-center">
+                <div key={index} className="flex flex-col items-center space-y-4 text-center transition-all duration-300 cursor-pointer hover:scale-125">
                   <img src={feature.icon} alt={feature.title} className="object-contain w-20 h-20" />
                   <p className="font-medium text-gray-800">{feature.title}</p>
                 </div>
@@ -256,11 +256,11 @@ export default function Sante_Homepage() {
     <div className="flex justify-center md:w-1/3">
       <img src={svg4} alt="Business person" className="h-auto max-w-full" />
     </div>
-    <div className="pl-2 pr-2 md:pl-12 md:w-2/3">
+    <div className="pt-12 pl-2 pr-2 mb-12 md:pl-12 md:w-2/3">
       <h2 className="pt-8 mb-6 text-[26px]  font-bold text-left md:text-4xl sm:mt-4">
       Uncompromising data security.
       </h2>
-      <p className="mb-24 text-left text-gray-600">
+      <p className="mb-20 text-left text-gray-600">
       Signta uses cloud storage and encryption technology to keep all user and corporate data completely safe and protected. By making full use of cutting-edge encryption algorithms and security protocols, we minimize the risk of data leakage and unauthorized access. In addition, we always apply the latest security measures and continue to check for system vulnerabilities to protect our customers' valuable data. Based on a reliable cloud infrastructure, we also have a thorough data backup and recovery process. We provide a robust system to protect the data essential to your business operations from any eventuality.
       </p>
     </div>
@@ -274,7 +274,7 @@ export default function Sante_Homepage() {
 
         <div className="mt-12 mb-24 bg-white rounded-lg shadow-xl">
           <div className="flex flex-col items-start pl-2 pr-2 md:pl-8 md:flex-row md:items-center">
-            <div className="pl-2 pr-2 md:pl-12 md:w-2/3">
+            <div className="pt-12 pl-2 pr-2 mb-8 md:pl-12 md:w-2/3">
               <h2 className="pt-8 mb-6 text-[26px]  font-bold text-left md:text-4xl sm:mt-4">
                 Start improving your business efficiency today!
               </h2>
@@ -284,7 +284,7 @@ export default function Sante_Homepage() {
               <div className="flex justify-start mb-24">
                 <button className="px-12 py-2  text-black font-semibold cursor-pointer  bg-white rounded-md hover:text-white hover:bg-[#007AAF] hover:scale-105 transition-all duration-300 border-2 border-[#007aafb0] shadow-xl group">
                   <span className='text-black '>Discount Code</span> :
-                  <span className='text-[#007AAF] font-bold group-hover:text-white pl-2'>Sante60</span>
+                  <span className='text-[#007AAF] font-bold group-hover:text-white pl-2'>SANTE60</span>
                 </button>
               </div>
             </div>
