@@ -216,11 +216,11 @@ export default function Sante_Homepage() {
 
 
           <div className="mt-12 rounded-lg shadow-xl">
-      <div className="flex flex-col items-start pl-2 pr-2 md:pl-8 md:flex-row md:items-center">
+      <div className="flex flex-col items-start pl-0 pr-2 md:pl-8 md:flex-row md:items-center">
         <div className="container px-4 py-16 mx-auto">
           <div className="flex flex-col md:flex-row md:items-start">
             {/* Left Section */}
-            <div className="pt-8 space-y-4 md:w-1/2">
+            <div className="pt-8 pl-2 space-y-4 md:w-1/2 md:pl-10">
               <h2 className="mb-12 text-4xl font-bold">Our Features</h2>
               <p className="text-left text-gray-600">
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the ...
