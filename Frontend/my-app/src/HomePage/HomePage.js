@@ -194,10 +194,10 @@ export default function Sante_Homepage() {
             <div className="flex flex-col items-start pl-2 pr-2 md:pl-8 md:flex-row md:items-center">
          
               <div className="pl-2 pr-2 md:pl-8 md:w-2/3">
-                <h2 className="pt-8 mb-6 text-[26px]  font-bold text-left md:text-4xl sm:mt-4">
+                <h2 className="pt-12 mb-6 text-[26px]  font-bold text-left md:text-4xl sm:mt-4">
                 Software available to all employees of a company
                 </h2>
-                <p className="mb-24 text-left text-gray-600">
+                <p className="mb-20 text-left text-gray-600 md:mb-24">
       
                 We offer unlimited user support, allowing you to add all your employees at no extra cost. Unlike other ERP systems that charge per user, efficient user management reduces costs. All your employees can start using the system immediately, as long as you add them in the system. This allows information sharing and work efficiency across the organization, making business operations run smoothly.
                 </p>
@@ -221,7 +221,7 @@ export default function Sante_Homepage() {
           <div className="flex flex-col md:flex-row md:items-start">
             {/* Left Section */}
             <div className="pt-0 pl-2 space-y-4 md:w-1/2 md:pl-6">
-              <h2 className="pt-0 mb-8 text-3xl font-bold md:pt-16 md:text-4xl">Our Features</h2>
+              <h2 className="pt-0 mb-8 text-3xl font-bold md:pt-20 md:text-4xl">Our Features</h2>
               <p className="text-left text-gray-600 w-[80%]">
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the
               </p>
@@ -261,7 +261,7 @@ export default function Sante_Homepage() {
       Uncompromising data security.
       </h2>
       <p className="mb-20 text-left text-gray-600">
-      Signta uses cloud storage and encryption technology to keep all user and corporate data completely safe and protected. By making full use of cutting-edge encryption algorithms and security protocols, we minimize the risk of data leakage and unauthorized access. In addition, we always apply the latest security measures and continue to check for system vulnerabilities to protect our customers' valuable data. Based on a reliable cloud infrastructure, we also have a thorough data backup and recovery process. We provide a robust system to protect the data essential to your business operations from any eventuality.
+      Sante uses cloud storage and encryption technology to keep all user and corporate data completely safe and protected. By making full use of cutting-edge encryption algorithms and security protocols, we minimize the risk of data leakage and unauthorized access. In addition, we always apply the latest security measures and continue to check for system vulnerabilities to protect our customers' valuable data. Based on a reliable cloud infrastructure, we also have a thorough data backup and recovery process. We provide a robust system to protect the data essential to your business operations from any eventuality.
       </p>
     </div>
   </div>
