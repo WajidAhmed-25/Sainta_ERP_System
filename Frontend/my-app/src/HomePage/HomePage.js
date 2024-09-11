@@ -222,8 +222,8 @@ export default function Sante_Homepage() {
             {/* Left Section */}
             <div className="pt-0 pl-2 space-y-4 md:w-1/2 md:pl-6">
               <h2 className="pt-0 mb-8 text-3xl font-bold md:pt-20 md:text-4xl">Our Features</h2>
-              <p className="text-left text-gray-600 w-[80%]">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the
+              <p className="text-left text-gray-600 w-[80%] mb-12">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the era.
               </p>
             </div>
 
