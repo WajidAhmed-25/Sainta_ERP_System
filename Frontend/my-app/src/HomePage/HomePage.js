@@ -133,7 +133,7 @@ export default function Sante_Homepage() {
 
 
 
-          <div className="mt-12 bg-pink-400 rounded-lg shadow-xl">
+          <div className="mt-12 bg-white rounded-lg shadow-xl">
             <div className="flex flex-col items-start pl-2 pr-2 md:pl-8 md:flex-row md:items-center">
          
             <div className="flex flex-col items-center justify-between w-full p-8 md:flex-row md:items-start">
