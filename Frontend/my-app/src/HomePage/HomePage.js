@@ -165,7 +165,7 @@ export default function Sante_Homepage() {
         </div>
 
         <div className="flex flex-col items-center p-6 bg-white rounded-md shadow-lg">
-          <img src={svg5} alt="Accounting Icon" className="mb-4 w-36 h-28" />
+          <img src={svg5} alt="Accounting Icon" className="h-24 mb-4 w-36" />
           <p className="font-semibold text-gray-700">Accounting</p>
         </div>
       </div>
