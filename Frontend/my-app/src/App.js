@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Navbar from './Navbar/Navbar';
 import Sainta_Homepage from './HomePage/HomePage';
 import Footer from './Footer/Footer';
+import Testing_Class from './Testing/Test';
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
 
     <Routes>
         <Route path="/" element={<Sainta_Homepage />} />
+        <Route path="/test" element={<Testing_Class/>}/>
       </Routes>
 
  
