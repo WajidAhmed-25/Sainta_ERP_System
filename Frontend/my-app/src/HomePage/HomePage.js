@@ -117,11 +117,11 @@ export default function Sante_Homepage() {
     <div className="flex justify-center md:w-1/3">
       <img src={svg2} alt="Business person" className="h-auto max-w-full" />
     </div>
-    <div className="pt-8 pl-2 pr-2 mb-12 md:pl-12 md:w-2/3">
+    <div className="pt-8 pl-2 pr-2 mb-2 md:pl-12 md:w-2/3">
       <h2 className="pt-8 mb-6 text-[26px]  font-bold text-left md:text-4xl sm:mt-4">
         A versatile system for a variety of industries
       </h2>
-      <p className="mb-24 text-left text-gray-600">
+      <p className="mb-20 text-left text-gray-600">
         Our system provides a wealth of tools to optimize business flows in various industries, including restaurants, retail stores, transportation services, and the IT industry. It allows you to centrally manage everything from sales management to customer relationship management, inventory and product management. It also has functions such as expense management and employee timesheet management, allowing you to operate efficiently. It can flexibly accommodate any business type and provide powerful support to take your business to the next level.
       </p>
     </div>
@@ -155,7 +155,7 @@ export default function Sante_Homepage() {
     
         <div className="flex flex-col items-center pt-6 bg-white rounded-md shadow-lg">
           <img src={svg1} alt="Expenses Icon" className="h-24 mb-4 w-36" />
-          <p className="font-semibold text-gray-700">Expenses</p>
+          <p className="mb-6 font-semibold text-gray-700 md:mb-2">Expenses</p>
         </div>
 
    
@@ -256,11 +256,11 @@ export default function Sante_Homepage() {
     <div className="flex justify-center md:w-1/3">
       <img src={svg4} alt="Business person" className="h-auto max-w-full" />
     </div>
-    <div className="pt-12 pl-2 pr-2 mb-12 md:pl-12 md:w-2/3">
+    <div className="pt-10 pl-2 pr-2 mb-12 md:pl-12 md:w-2/3">
       <h2 className="pt-8 mb-6 text-[26px]  font-bold text-left md:text-4xl sm:mt-4">
       Uncompromising data security.
       </h2>
-      <p className="mb-20 text-left text-gray-600">
+      <p className="mb-8 text-left text-gray-600">
       Sante uses cloud storage and encryption technology to keep all user and corporate data completely safe and protected. By making full use of cutting-edge encryption algorithms and security protocols, we minimize the risk of data leakage and unauthorized access. In addition, we always apply the latest security measures and continue to check for system vulnerabilities to protect our customers' valuable data. Based on a reliable cloud infrastructure, we also have a thorough data backup and recovery process. We provide a robust system to protect the data essential to your business operations from any eventuality.
       </p>
     </div>
@@ -281,7 +281,7 @@ export default function Sante_Homepage() {
               <p className="mb-6 text-left text-gray-600">
                 With a variety of features including complex analysis functions, internal mail system, file tracking, talent recruitment, efficient customer support and more, we will revolutionize your business management! We put our customers first and want to provide you with a great business management experience. Our software is available for <span className='text-[#007AAF]'>25,000 yen per month, but we are offering the first month at a special price of 10,000 yen for new users ! </span> Try our service now.
               </p>
-              <div className="flex justify-start mb-24">
+              <div className="flex justify-start mb-8">
                 <button className="px-12 py-2  text-black font-semibold cursor-pointer  bg-white rounded-md hover:text-white hover:bg-[#007AAF] hover:scale-105 transition-all duration-300 border-2 border-[#007aafb0] shadow-xl group">
                   <span className='text-black '>Discount Code</span> :
                   <span className='text-[#007AAF] font-bold group-hover:text-white pl-2'>SANTE60</span>
