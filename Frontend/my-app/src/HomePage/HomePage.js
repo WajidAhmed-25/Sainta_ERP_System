@@ -73,7 +73,7 @@ export default function Sante_Homepage() {
 
 
         <div className="flex flex-col items-start justify-between w-full p-8 mb-20 shadow-xl md:flex-row md:items-start md:justify-around">
-          <div className="w-full pl-4 mb-8  md:w-[45%]  h-full md:mb-0 md:pl-12 pt-8 md:pt-52 ">
+          <div className="w-full -ml-4 mb-8  md:w-[45%]  justify-start  h-full md:mb-0 md:pl-12 pt-8 md:pt-52 ">
             <h2 className="mt-8 mb-8 text-3xl font-bold md:text-5xl ">What is Sante-ERP?</h2>
             <p className="tracking-normal text-gray-600 leading-16 md:w-[80%]  w-[90%] ">
               Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
@@ -138,7 +138,7 @@ export default function Sante_Homepage() {
          
             <div className="flex flex-col items-center justify-between w-full p-8 md:flex-row md:items-start">
 
-      <div className="w-full p-2 pt-10 mb-20 md:w-1/2 md:mb-8">
+      <div className="w-full p-2 pt-10 mb-20 -ml-12 md:ml-0 md:w-1/2 md:mb-8">
         <h2 className="mb-8 text-3xl font-bold md:text-4xl ">Modules</h2>
         <p className="mb-6 text-gray-600 w-[80%]">
           Sante-ERP covers all core business operations, including accounting, human resources and payroll, sales management, expenses, and attendance management. It is also possible to gradually introduce the necessary business systems and expand to groups.
@@ -220,8 +220,8 @@ export default function Sante_Homepage() {
         <div className="container px-4 py-16 mx-auto">
           <div className="flex flex-col md:flex-row md:items-start">
             {/* Left Section */}
-            <div className="pt-8 pl-2 space-y-4 md:w-1/2 md:pl-6">
-              <h2 className="mb-12 text-4xl font-bold">Our Features</h2>
+            <div className="pt-2 pl-2 space-y-4 md:w-1/2 md:pl-6">
+              <h2 className="mb-8 text-3xl font-bold md:text-4xl">Our Features</h2>
               <p className="text-left text-gray-600 w-[80%]">
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the
               </p>
