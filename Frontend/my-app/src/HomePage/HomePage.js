@@ -220,8 +220,8 @@ export default function Sante_Homepage() {
         <div className="container px-4 py-16 mx-auto">
           <div className="flex flex-col md:flex-row md:items-start">
             {/* Left Section */}
-            <div className="pt-2 pl-2 space-y-4 md:w-1/2 md:pl-6">
-              <h2 className="mb-8 text-3xl font-bold md:text-4xl">Our Features</h2>
+            <div className="pt-0 pl-2 space-y-4 md:w-1/2 md:pl-6">
+              <h2 className="pt-0 mb-8 text-3xl font-bold md:pt-16 md:text-4xl">Our Features</h2>
               <p className="text-left text-gray-600 w-[80%]">
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the
               </p>
