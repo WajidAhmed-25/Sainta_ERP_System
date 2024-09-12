@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import Logo from "../assets/img/saintaLOGO.png"
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -11,8 +13,8 @@ const Navbar = () => {
     <nav className="p-4 shadow-xl " style={{ background: 'linear-gradient(to right, #f4fcfe 0%, #f4fcfe 100%)' }}>
 
       <div className="container flex flex-col items-center justify-between mx-auto lg:flex-row">
-        <div className="mb-4 lg:pl-20 text-2xl font-bold  sm:pl-0 text-[#007AAF] lg:mb-0  hover:cursor-pointer ">
-          Sante-ERP
+        <div className="mb-4 lg:pl-20 text-2xl font-bold  sm:pl-0 text-[#007AAF] lg:mb-0 ">
+          <img src={Logo} alt="Sainta ERP System" className="w-20" />
         </div>
 
         {/* Burger Button */}
@@ -61,10 +63,18 @@ const Navbar = () => {
               ></path>
             </svg>
           </button>
-          <a href="/" className="px-4 py-2  text-[#007AAF] hover:scale-110 transition-all duration-300">Our Strengths</a>
-          <a href="#Projects" className="px-4 py-2  text-[#007AAF] hover:scale-110 transition-all duration-300">Our Features</a>
-          <a href="/" className="px-4 py-2  text-[#007AAF] hover:scale-110 transition-all duration-300">Registration Process</a>
-          <a href="/" className="px-4 py-2  text-[#007AAF] hover:scale-110 transition-all duration-300">Costs</a>
+          <a href="/" className="px-4 py-2  text-[#007AAF] hover:scale-110 transition-all duration-300">
+          私たちの強み
+          </a>
+          <a href="#Projects" className="px-4 py-2  text-[#007AAF] hover:scale-110 transition-all duration-300">
+          機能
+          </a>
+          <a href="/" className="px-4 py-2  text-[#007AAF] hover:scale-110 transition-all duration-300">
+          価格
+          </a>
+          <a href="/" className="px-4 py-2  text-[#007AAF] hover:scale-110 transition-all duration-300">
+          登録・相談
+          </a>
         </div>
       </div>
     </nav>
