@@ -19,11 +19,11 @@ export default function Footer() {
           {/* Registration and Login in the center */}
           <div className="flex items-center space-x-16">
             <div className="flex items-center space-x-2">
-              <span className="text-xl font-semibold">Registration</span>
+              <a href="/register" className="text-xl font-semibold">Registration</a>
               <FontAwesomeIcon icon={faUserPen} className="w-8 h-8 transition-transform duration-200 cursor-pointer hover:scale-110" />
             </div>
             <div className="flex items-center space-x-2">
-              <span className="text-xl font-semibold">Login</span>
+              <a href="/login" className="text-xl font-semibold">Login</a>
               <div className="flex items-center justify-center w-8 h-8 border-2 border-white rounded-full">
                 <FaArrowRight className="w-8 h-8 transition-transform duration-200 cursor-pointer hover:scale-110" />
               </div>
@@ -44,11 +44,11 @@ export default function Footer() {
           {/* Registration and Login on top */}
           <div className="flex justify-between w-full mb-6">
             <div className="flex items-center space-x-2">
-              <span className="text-2xl">Registration</span>
+              <a href="/register" className="text-2xl">Registration</a>
               <FontAwesomeIcon icon={faUserPen} className="w-8 h-8 transition-transform duration-200 cursor-pointer hover:scale-110" />
             </div>
             <div className="flex items-center space-x-2">
-              <span className="text-2xl">Login</span>
+              <a href="/login" className="text-2xl">Login</a>
               <div className="flex items-center justify-center w-8 h-8 border-2 border-white rounded-full">
                 <FaArrowRight className="w-6 h-6 transition-transform duration-200 cursor-pointer hover:scale-110" />
               </div>

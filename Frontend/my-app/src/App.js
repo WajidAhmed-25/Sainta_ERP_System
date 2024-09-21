@@ -7,6 +7,8 @@ import Navbar from './Navbar/Navbar';
 import Sainta_Homepage from './HomePage/HomePage';
 import Footer from './Footer/Footer';
 import Testing_Class from './Testing/Test';
+import Registration from './Registration/Registration';
+import Login from './Login/Login';
 
 function App() {
 
@@ -30,6 +32,8 @@ function App() {
     <Routes>
         <Route path="/" element={<Sainta_Homepage />} />
         <Route path="/test" element={<Testing_Class/>}/>
+        <Route path="/register" element={<Registration/>}/>
+        <Route path='/login' element={<Login/>}/>
       </Routes>
 
  
