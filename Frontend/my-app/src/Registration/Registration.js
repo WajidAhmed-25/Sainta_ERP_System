@@ -271,17 +271,20 @@ export default function Registration() {
         </div>
       </div>
       <div className="mb-4">
-        <label className="block mb-1 text-sm font-medium text-gray-700">
-          Period
-        </label>
-        <input
-          type="text"
-          placeholder="Period"
-          value={period}
-          onChange={(e) => setPeriod(e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#007AAFF7]"
-        />
-      </div>
+      <label className="block mb-1 text-sm font-medium text-gray-700">
+        Period
+      </label>
+      <select
+        value={period}
+        onChange={(e) => setPeriod(e.target.value)} 
+        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#007AAFF7]"
+      >
+        <option value="" disabled>Select contract period</option> 
+        <option value="Monthly Contract">Monthly Contract</option>
+        <option value="Weekly Contract">Weekly Contract</option>
+        <option value="Yearly Contract">Yearly Contract</option>
+      </select>
+    </div>
       <div className="mb-8">
         <label className="block mb-1 text-sm font-medium text-gray-700">
           Contact Email Address

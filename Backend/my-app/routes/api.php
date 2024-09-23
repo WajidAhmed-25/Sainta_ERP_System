@@ -25,6 +25,34 @@ Route::post('/send-otp', [OtpController::class, 'sendOtp']);
 Route::post('/verify-otp', [OtpController::class, 'verifyOtp']);
 
 
+
+
+
+
+use App\Http\Controllers\CustomerManagementController;
+
+Route::get('/customers', [CustomerManagementController::class, 'index']);         // Get all customers
+Route::post('/customers', [CustomerManagementController::class, 'store']);        // Create new customer
+Route::get('/customers/{id}', [CustomerManagementController::class, 'show']);     // Get customer by ID
+Route::put('/customers/{id}', [CustomerManagementController::class, 'update']);   // Update customer by ID
+Route::delete('/customers/{id}', [CustomerManagementController::class, 'destroy']);  // Delete customer by ID
+
+
+
+
+
+use App\Http\Controllers\SalesManagementController;
+
+
+Route::get('/sales-management', [SalesManagementController::class, 'index']);
+Route::get('/sales-management/{id}', [SalesManagementController::class, 'show']);
+Route::post('sales-management', [SalesManagementController::class, 'store']);
+Route::put('/sales-management/{id}', [SalesManagementController::class, 'update']);
+Route::delete('/sales-management/{id}', [SalesManagementController::class, 'destroy']);
+
+
+
+
 /*
 |--------------------------------------------------------------------------
 | API Routes

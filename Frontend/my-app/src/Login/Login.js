@@ -159,23 +159,26 @@
 
 // ------------------------------------------------------------------------------------------------------------------------//
 
+
+
 import React, { useState } from 'react';
 import { ChevronDown, Building2, User, Lock, Eye, EyeOff } from 'lucide-react';
 import lock from './zc.png';
 import { ToastContainer, toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom'; 
 import 'react-toastify/dist/ReactToastify.css';
-
+import { faLock } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 export default function Login() {
+    const navigate = useNavigate(); 
     const [service, setService] = useState('');
     const [businessId, setBusinessId] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [passwordVisible, setPasswordVisible] = useState(false);
-
     const togglePasswordVisibility = () => {
         setPasswordVisible(!passwordVisible);
     };
-
     const handleBusinessIdChange = (e) => {
         const value = e.target.value;
         if (!/^\d*$/.test(value) || value.length > 6) {
@@ -184,68 +187,51 @@ export default function Login() {
         }
         setBusinessId(value);
     };
-
     const handleSubmit = async (e) => {
-        e.preventDefault(); 
-    
-        // Hash the password first
+        e.preventDefault();
         const hash = await hashPassword(password);
-    
-    
-        // Check if any field is missing
         if (!service || !businessId || !username || !password) {
             toast.error("Please fill all fields.");
             return;
         }
-    
-        // Fetch data from the API
         try {
             const response = await fetch('http://localhost:8000/api/admin-info');
             const apiData = await response.json();
-    
-            // Ensure the response contains an array and use the first object
             if (Array.isArray(apiData) && apiData.length > 0) {
-                const userData = apiData[0]; // Assuming the first user in the array is the one you're validating
-    
-                console.log('Data from API:', userData);
-    
-                // Match data from the form with the API data
-                const isBusinessIdMatch = userData.business_id.toString() === businessId;
-                const isUsernameMatch = userData.email === username;
-                const isPasswordMatch = userData.password === hash;
-                const isServiceMatch = userData.selectedService === service;
-    
-                // Print individual match results
-                if (isBusinessIdMatch) {
-                    console.log("Business ID matches.");
-                } else {
-                    console.log(`Business ID does not match. Entered: ${businessId}, Expected: ${userData.business_id}`);
-                }
-    
-                if (isUsernameMatch) {
-                    console.log("Username matches.");
-                } else {
-                    console.log(`Username does not match. Entered: ${username}, Expected: ${userData.email}`);
-                }
-    
-                if (isPasswordMatch) {
-                    console.log("Password matches.");
-                    console.log("Entered Password:",hash)
-                    console.log("DB Password: ",userData.password)
-                } else {
-                    console.log(`Password does not match. Entered Hash: ${hash}, Expected Hash: ${userData.password}`);
-                }
-    
-                if (isServiceMatch) {
-                    console.log("Service matches.");
-                } else {
-                    console.log(`Service does not match. Entered: ${service}, Expected: ${userData.selectedService}`);
-                }
-    
-            
-                if (isBusinessIdMatch && isUsernameMatch && isPasswordMatch && isServiceMatch) {
+                const matchingUser = apiData.find(userData => {
+                    const isBusinessIdMatch = userData.business_id.toString() === businessId;
+                    const isUsernameMatch = userData.email === username;
+                    const isPasswordMatch = userData.password === hash;
+                    const isServiceMatch = userData.selectedService === service;
+                    console.log(`Checking data for user: ${userData.email}`);
+                    if (isBusinessIdMatch) {
+                        console.log("Business ID matches.");
+                    } else {
+                        console.log(`Business ID does not match. Entered: ${businessId}, Expected: ${userData.business_id}`);
+                    }
+                    if (isUsernameMatch) {
+                        console.log("Username matches.");
+                    } else {
+                        console.log(`Username does not match. Entered: ${username}, Expected: ${userData.email}`);
+                    }
+                    if (isPasswordMatch) {
+                        console.log("Password matches.");
+                        console.log("Entered Password Hash:", hash);
+                        console.log("DB Password Hash:", userData.password);
+                    } else {
+                        console.log(`Password does not match. Entered Hash: ${hash}, Expected Hash: ${userData.password}`);
+                    }
+                    if (isServiceMatch) {
+                        console.log("Service matches.");
+                    } else {
+                        console.log(`Service does not match. Entered: ${service}, Expected: ${userData.selectedService}`);
+                    }
+                    return isBusinessIdMatch && isUsernameMatch && isPasswordMatch && isServiceMatch;
+                });
+                if (matchingUser) {
+                    console.log('Data from API:', matchingUser);
                     toast.success('Login successful!');
-                    
+                    navigate('/modules');
                 } else {
                     toast.error('Invalid credentials. Please check your input.');
                 }
@@ -253,17 +239,11 @@ export default function Login() {
                 console.error('Unexpected API response format.');
                 toast.error('Invalid API response.');
             }
-    
         } catch (error) {
             console.error('Error fetching data from API:', error);
             toast.error('An error occurred while fetching data.');
         }
     };
-    
-    
-    
-
-    // Function to hash the password
     const hashPassword = async (password) => {
         const encoder = new TextEncoder();
         const data = encoder.encode(password);
@@ -272,14 +252,14 @@ export default function Login() {
         const hashHex = hashArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
         return hashHex;
     };
-
     return (
         <>
             <ToastContainer />
             <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-                <div className='text-black bg-green-300 w-[46%] font-semibold p-4 -mt-4 mb-8'>
-                    <p>Enter the Credentials you received on the email you entered. And Login to the System!!!</p>
-                </div>
+    <div className='text-black bg-green-300 w-[46%] font-semibold p-4 -mt-16 mb-8 flex items-center'>
+      <FontAwesomeIcon icon={faLock} className="mr-4 text-black" />
+      <p>Enter the Credentials you received on the email you entered. And Login to the System!!!</p>
+    </div>
                 <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-md">
                     <div className="flex items-center mb-6">
                         <div className="flex items-center justify-center w-10 h-10 mr-2 border-2 rounded-full">
@@ -292,14 +272,14 @@ export default function Login() {
                         <div className="space-y-4">
                             <div className="relative">
                                 <select
-                                    className="w-full p-3 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    className="w-full p-3 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-2 focus:ring-[#007AAF]"
                                     value={service}
                                     onChange={(e) => setService(e.target.value)}
                                 >
-                                    <option value="">YOUR SERVICE</option>
-                                    <option value="Business">Business</option>
-                                    <option value="Recruitment">Recruitment</option>
-                                    <option value="Lab">Lab</option>
+                                    <option value="" className='text-[#007AAF] '>YOUR SERVICE</option>
+                                    <option value="Business" className='text-[#007AAF] hover:bg-[#007AAF]'>Business</option>
+                                    <option value="Recruitment" className='text-[#007AAF]'>Recruitment</option>
+                                    <option value="Lab" className='text-[#007AAF]'>Lab</option>
                                 </select>
                                 <ChevronDown className="absolute w-5 h-5 text-gray-400 transform -translate-y-1/2 pointer-events-none right-3 top-1/2" />
                             </div>
@@ -316,7 +296,7 @@ export default function Login() {
                             <div className="relative">
                                 <input
                                     type="email"
-                                    placeholder="USERNAME"
+                                    placeholder="USER EMAIL"
                                     className="w-full p-3 pl-10 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                                     value={username}
                                     onChange={(e) => setUsername(e.target.value)}
@@ -356,7 +336,6 @@ export default function Login() {
         </>
     );
 }
-
 
 
 

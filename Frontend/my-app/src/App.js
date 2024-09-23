@@ -9,6 +9,8 @@ import Footer from './Footer/Footer';
 import Testing_Class from './Testing/Test';
 import Registration from './Registration/Registration';
 import Login from './Login/Login';
+import Module from './Modules/Module';
+import Customer_Management from './Modules/Customer_Management/Customer_Management';
 
 function App() {
 
@@ -34,6 +36,9 @@ function App() {
         <Route path="/test" element={<Testing_Class/>}/>
         <Route path="/register" element={<Registration/>}/>
         <Route path='/login' element={<Login/>}/>
+        <Route path="/modules" element={<Module/>}/>
+
+        <Route path='/customer_management' element={<Customer_Management/>}/>
       </Routes>
 
  
