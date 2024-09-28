@@ -329,7 +329,7 @@ export default function Login() {
                         </button>
                     </form>
                     <div className="mt-4 text-end">
-                        <a href="#" className="text-blue-500 hover:underline">Forgot Password?</a>
+                        {/* <a href="#" className="text-[#007AAFF7] hover:underline">Forgot Password?</a> */}
                     </div>
                 </div>
             </div>
