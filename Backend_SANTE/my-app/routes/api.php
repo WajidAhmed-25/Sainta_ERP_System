@@ -60,13 +60,34 @@ Route::delete('/employees/{id}', [EmployeeController::class, 'destroy']);
 
 
 
-use App\Http\Controllers\TimeSheetController;
+use App\Http\Controllers\EmployeesTimesheetController;
 
-Route::get('/timesheets', [TimeSheetController::class, 'index']);            
-Route::get('/timesheets/{id}', [TimeSheetController::class, 'show']);         
-Route::post('/timesheets', [TimeSheetController::class, 'store']);           
-Route::put('/timesheets/{id}', [TimeSheetController::class, 'update']);       
-Route::delete('/timesheets/{id}', [TimeSheetController::class, 'destroy']);  
+Route::get('/employees_timesheets', [EmployeesTimesheetController::class, 'index']);            
+Route::get('/employees_timesheets/{id}', [EmployeesTimesheetController::class, 'show']);    
+Route::get('employees_timesheets/employee/{employee_id}', [EmployeesTimesheetController::class, 'get_by_Employee_id']);
+Route::post('/employees_timesheets', [EmployeesTimesheetController::class, 'store']);           
+Route::put('/employees_timesheets/{id}', [EmployeesTimesheetController::class, 'update']);       
+Route::delete('/employees_timesheets/{id}', [EmployeesTimesheetController::class, 'destroy']);  
+Route::delete('/employees_timesheets/delete-employee/{employee_id}', [EmployeesTimesheetController::class, 'deleteByEmployeeId']);
+
+
+
+
+
+
+use App\Http\Controllers\EmployeeDailyAttendanceController;
+
+
+Route::post('/attendance', [EmployeeDailyAttendanceController::class, 'store']); // Create attendance record
+Route::get('/attendance', [EmployeeDailyAttendanceController::class, 'index']); // Get all attendance records
+Route::get('/attendance/{id}', [EmployeeDailyAttendanceController::class, 'show']); // Get attendance by ID
+Route::get('/attendance/employee/{employee_id}', [EmployeeDailyAttendanceController::class, 'getByEmployeeId']); // Get attendance by employee ID
+Route::put('/attendance/{id}', [EmployeeDailyAttendanceController::class, 'update']); // Update attendance by ID
+Route::delete('/attendance/{id}', [EmployeeDailyAttendanceController::class, 'destroy']); // Delete attendance by ID
+Route::delete('/attendance/employee/{employee_id}', [EmployeeDailyAttendanceController::class, 'destroyByEmployeeId']); // Delete attendance by employee ID
+
+
+
 
 
 /*

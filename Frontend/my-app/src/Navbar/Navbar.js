@@ -10,7 +10,7 @@ const Navbar = () => {
   return (
     <nav className="p-4 shadow-xl " style={{ background: 'linear-gradient(to right, #f4fcfe 0%, #f4fcfe 100%)' }}>
 
-      <div className="container flex flex-col items-center justify-between mx-auto lg:flex-row">
+      <div className="container flex flex-col items-center justify-between mx-auto lg:flex-row ">
         <div className="mb-4 lg:pl-20 text-2xl font-bold  sm:pl-0 text-[#007AAF] lg:mb-0  hover:cursor-pointer ">
           Sante-ERP
         </div>

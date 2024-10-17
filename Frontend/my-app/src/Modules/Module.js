@@ -22,10 +22,10 @@ export default function Module(){
     const servicesData = [
         { image: img1, label: 'Customer Management', route: '/customer_management' },
         { image: img2, label: 'Sales Management', route: '/sales_management' },
-        { image: img3, label: 'Employee', route: '/employee' },
+        { image: img3, label: 'Employee', route: '/employee_management' },
         { image: img4, label: 'Invoice', route: '/invoice' },
         { image: img5, label: 'Analysis', route: '/analysis' },
-        { image: img6, label: 'Timesheet', route: '/timesheet' },
+        { image: img6, label: 'Timesheet', route: '/timesheet_management' },
         { image: img7, label: 'Inventory Management', route: '/inventory_management' },
         { image: img8, label: 'Product Management', route: '/product_management' },
         { image: img9, label: 'Expenses', route: '/expenses' },
@@ -44,20 +44,49 @@ export default function Module(){
 </div>
 
 
-      <div className="grid grid-cols-1 gap-8 mt-4 mb-16 sm:grid-cols-2 md:grid-cols-3">
+      {/* <div className="grid grid-cols-1 gap-8 mt-4 mb-16 sm:grid-cols-2 md:grid-cols-3">
         {servicesData.map((service, index) => (
-          <div
+         <>
+         <div
             key={index}
             onClick={() => handleNavigation(service.route)}
-            className="flex flex-col hover:scale-110 transition-all duration-300 items-center p-6 cursor-pointer border border-[#007AAF] rounded-lg shadow-2xl hover:border-[#007AAF]"
+            className="flex flex-col w-40 h-40 hover:scale-110 transition-all duration-300 items-center p-6 cursor-pointer border border-[#007AAF] rounded-full shadow-2xl hover:border-[#007AAF]"
           >
-            <img src={service.image} alt={service.label} className="w-20 h-20 mb-4" />
-            <h3 className="font-semibold text-black text-md">{service.label}</h3>
+            <img src={service.image} alt={service.label
+          } className="object-cover w-16 h-16 mb-4" />
+          
           </div>
+            <h3 className="font-semibold text-center text-black text-md">{service.label}</h3>
+            </>
         ))}
+      </div> */}
+
+
+<div className="grid grid-cols-1 gap-8 mt-4 mb-8 sm:grid-cols-2 md:grid-cols-3">
+  {servicesData.map((service, index) => (
+    <div key={index} className="flex flex-col items-center space-x-8">
+      <div
+        onClick={() => handleNavigation(service.route)}
+        className="flex justify-center items-center w-40 h-40 hover:scale-110 transition-all duration-300 cursor-pointer border border-[#007AAF] rounded-full shadow-2xl hover:border-[#007AAF]"
+      >
+        <img
+          src={service.image}
+          alt={service.label}
+          className="object-cover w-[80%] h-[80%] p-6"
+        />
       </div>
+      <h3 className="mt-4 font-semibold text-center text-black/70 text-md">{service.label}</h3>
+    </div>
+  ))}
+</div>
+
+
+      
     </div>
         
+
+ 
+
         
         
         </>

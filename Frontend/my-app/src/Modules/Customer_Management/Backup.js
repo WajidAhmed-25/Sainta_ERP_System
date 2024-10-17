@@ -351,8 +351,6 @@ import { X, Trash2 } from 'lucide-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
-import Back_Btn from "../Module_Back_Btn/Back_Btn";
-
 const formFields = {
   "Basic Information": [
     { label: "Name", key: "Customer_name" },
@@ -603,17 +601,10 @@ const Customer_Management = () => {
     }
   };
 
-
-
   return (
-    <div className="container pt-4 mt-[1px] pb-12 mx-auto  ">
-
-
-<Back_Btn/>
-
-
+    <div className="container pt-6 mt-[1px] pb-12 mx-auto ">
       <ToastContainer />
-      <div className="grid grid-cols-1 py-4 mt-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 py-4 -mt-6 lg:grid-cols-3">
        
         <div className="col-span-1 p-6  w-[90%] rounded-lg shadow-md mb-12 ">
           <div className="flex justify-between mb-4 ">
@@ -629,7 +620,7 @@ const Customer_Management = () => {
             type="text"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            placeholder="Search by Customer Name"
+            placeholder="Search by name"
             className="w-full p-2 mb-4 border rounded-lg"
           />
           <ul className="space-y-2">
@@ -705,7 +696,7 @@ const Customer_Management = () => {
 
 </div>
 
-              <div className="flex justify-end gap-4 mt-4 mr-6">
+              <div className="flex justify-end gap-4 mt-4 mb-2 mr-6">
                 <button
                   onClick={handleUpdate}
                   className="px-4 py-2 bg-[#007AAF] text-white font-semibold rounded-lg hover:cursor-pointer hover:scale-110 hover:transition-all hover:duration-300"
@@ -714,7 +705,7 @@ const Customer_Management = () => {
                 </button>
                 <button
                   onClick={() => setDeleteConfirmation(selectedCustomer)}
-                  className="px-4 py-2 ml-2 font-semibold text-white bg-red-700 rounded-lg hover:cursor-pointer hover:scale-110 hover:transition-all hover:duration-300"
+                  className="px-4 py-2 ml-2 font-semibold text-white bg-red-500 rounded-lg hover:cursor-pointer hover:scale-110 hover:transition-all hover:duration-300"
                 >
                   <Trash2 size={18} className="inline-block mr-2" />
                   Delete Customer
