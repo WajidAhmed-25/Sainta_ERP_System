@@ -112,10 +112,10 @@ class AdminInfoController extends Controller
         $htmlContent = "
         <html>
         <head>
-            <title>SANTE Account Details</title>
+            <title>Sainta Account Details</title>
         </head>
         <body>
-            <h1>Welcome to SANTE !</h1>
+            <h1>Welcome to Sainta !</h1>
             <br/>
             <p>Here are your account details:</p>
             <ul>
@@ -134,7 +134,7 @@ class AdminInfoController extends Controller
             // Send email with user details
             Mail::html($htmlContent, function ($message) use ($email) {
                 $message->to($email)
-                    ->subject('SANTE Account Details');
+                    ->subject('Sainta Account Details');
             });
 
             return response()->json(['message' => 'User details sent to email']);

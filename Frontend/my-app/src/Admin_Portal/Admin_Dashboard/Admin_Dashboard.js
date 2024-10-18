@@ -36,7 +36,7 @@ const Admin_Dashboard = () => {
   const fetchCustomerData = async () => {
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:8000/api/customers/2');
+      const response = await fetch('http://apisanta.devcir.co/api/customers/2');
       const data = await response.json();
       setCustomerData(data);
     } catch (error) {
@@ -88,7 +88,7 @@ const Admin_Dashboard = () => {
       {/* Sidebar */}
       <aside className={`bg-[#007AAF] text-white w-16 md:w-64 ${sidebarOpen ? 'block' : 'hidden'} md:block transition-all duration-300 ease-in-out`}>
         <div className="flex items-center justify-between p-4">
-          <h1 className="hidden text-2xl font-bold md:block">Sante Admin</h1>
+          <h1 className="hidden text-2xl font-bold md:block">Sainta Admin</h1>
           <button onClick={toggleSidebar} className="md:hidden">
             <X className="w-6 h-6" />
           </button>
@@ -143,7 +143,7 @@ const Admin_Dashboard = () => {
         {/* Page Content */}
         <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100">
           <div className="container px-6 py-8 mx-auto">
-            <h3 className="text-3xl font-bold text-[#007AAF]">Sante ERP</h3>
+            <h3 className="text-3xl font-bold text-[#007AAF]">Sainta ERP</h3>
             <div className="w-full mt-8 bg-white rounded-md shadow-lg">
               {/* FAQ Section */}
               <div className="p-4">

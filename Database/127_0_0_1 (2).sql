@@ -18,10 +18,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `sante_erp_system`
+-- Database: `Sainta_erp_system`
 --
-CREATE DATABASE IF NOT EXISTS `sante_erp_system` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `sante_erp_system`;
+CREATE DATABASE IF NOT EXISTS `Sainta_erp_system` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `Sainta_erp_system`;
 
 -- --------------------------------------------------------
 

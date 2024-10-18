@@ -33,7 +33,7 @@ class OtpController extends Controller
         // Send OTP via email
         Mail::raw("Verification OTP : $otp", function ($message) use ($request) {
             $message->to($request->email)
-                ->subject('SANTE VERIFICATION OTP');
+                ->subject('Sainta VERIFICATION OTP');
         });
 
         return response()->json(['message' => 'OTP sent to your email']);

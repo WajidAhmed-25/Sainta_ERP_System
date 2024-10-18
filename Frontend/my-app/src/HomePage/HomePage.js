@@ -20,7 +20,7 @@
 // import r7 from './r7.png'
 // import r8 from './r8.png'
 
-// export default function Sante_Homepage() {
+// export default function Sainta_Homepage() {
 
 //   const features = [
 //     { icon: r1, title: 'Payroll/BPO' },
@@ -43,7 +43,7 @@
 //                 A range of multi-functional business tools to meet all your business needs.
 //               </h2>
 //               <p className="mb-6 text-left text-gray-600">
-//                 Sante is equipped with various tools such as customer management, sales management, employee management, inventory management, and product management, and covers everything you need to run your business. The intuitive and easy-to-use user interface makes it easier than ever to organize, manage, and change information. With Sante, your daily work will run smoother and more efficiently. It is the strongest partner to optimize your business and lead it to success.
+//                 Sainta is equipped with various tools such as customer management, sales management, employee management, inventory management, and product management, and covers everything you need to run your business. The intuitive and easy-to-use user interface makes it easier than ever to organize, manage, and change information. With Sainta, your daily work will run smoother and more efficiently. It is the strongest partner to optimize your business and lead it to success.
 //               </p>
 //               <div className="flex justify-start mb-24">
 //                 <button className="px-6 py-2 text-black font-semibold cursor-pointer bg-white rounded-md hover:bg-[#007AAF] hover:text-white hover:scale-110 transition-all duration-300 border-2 border-[#007aafb0] shadow-xl">
@@ -58,7 +58,7 @@
 //         </div>
 //         <div className="flex flex-col items-start justify-between w-full p-8 mb-20 shadow-xl md:flex-row md:items-start md:justify-around">
 //           <div className="w-full -ml-4 mb-8  md:w-[45%]  justify-start  h-full md:mb-0 md:pl-12 pt-8 md:pt-52 ">
-//             <h2 className="mt-8 mb-8 text-3xl font-bold md:text-5xl ">What is Sante-ERP?</h2>
+//             <h2 className="mt-8 mb-8 text-3xl font-bold md:text-5xl ">What is Sainta-ERP?</h2>
 //             <p className="tracking-normal text-gray-600 leading-16 md:w-[80%]  w-[90%] ">
 //               Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
 //             </p>
@@ -113,7 +113,7 @@
 //               <div className="w-full p-2 pt-10 mb-20 -ml-12 md:ml-0 md:w-1/2 md:mb-8">
 //                 <h2 className="mb-8 text-3xl font-bold md:text-4xl ">Modules</h2>
 //                 <p className="mb-6 text-gray-600 w-[80%]">
-//                   Sante-ERP covers all core business operations, including accounting, human resources and payroll, sales management, expenses, and attendance management. It is also possible to gradually introduce the necessary business systems and expand to groups.
+//                   Sainta-ERP covers all core business operations, including accounting, human resources and payroll, sales management, expenses, and attendance management. It is also possible to gradually introduce the necessary business systems and expand to groups.
 //                 </p>
 //                 <div className="flex justify-start mb-4">
 //                   <button className="px-6 py-2 text-black font-semibold cursor-pointer bg-white rounded-md hover:bg-[#007AAF] hover:text-white hover:scale-110 transition-all duration-300 border-2 border-[#007aafb0] shadow-xl">
@@ -194,7 +194,7 @@
 //                 Uncompromising data security.
 //               </h2>
 //               <p className="mb-8 text-left text-gray-600">
-//                 Sante uses cloud storage and encryption technology to keep all user and corporate data completely safe and protected. By making full use of cutting-edge encryption algorithms and security protocols, we minimize the risk of data leakage and unauthorized access. In addition, we always apply the latest security measures and continue to check for system vulnerabilities to protect our customers' valuable data. Based on a reliable cloud infrastructure, we also have a thorough data backup and recovery process. We provide a robust system to protect the data essential to your business operations from any eventuality.
+//                 Sainta uses cloud storage and encryption technology to keep all user and corporate data completely safe and protected. By making full use of cutting-edge encryption algorithms and security protocols, we minimize the risk of data leakage and unauthorized access. In addition, we always apply the latest security measures and continue to check for system vulnerabilities to protect our customers' valuable data. Based on a reliable cloud infrastructure, we also have a thorough data backup and recovery process. We provide a robust system to protect the data essential to your business operations from any eventuality.
 //               </p>
 //             </div>
 //           </div>
@@ -212,7 +212,7 @@
 //               <div className="flex justify-start mb-8">
 //                 <button className="px-12 py-2  text-black font-semibold cursor-pointer  bg-white rounded-md hover:text-white hover:bg-[#007AAF] hover:scale-105 transition-all duration-300 border-2 border-[#007aafb0] shadow-xl group">
 //                   <span className='text-black '>Discount Code</span> :
-//                   <span className='text-[#007AAF] font-bold group-hover:text-white pl-2'>SANTE60</span>
+//                   <span className='text-[#007AAF] font-bold group-hover:text-white pl-2'>Sainta60</span>
 //                 </button>
 //               </div>
 //             </div>
@@ -250,7 +250,7 @@ import r8 from './r8.png'
 import Trans_Btn from '../Navbar/Trans_Btn';
 
 
-export default function Sante_Homepage() {
+export default function Sainta_Homepage() {
   const { t } = useTranslation();
 
   const features = [

@@ -12,7 +12,7 @@ const Admin_Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    if (email === 'Rishi52873@sante.com' && password === 'WaJId@1225') {
+    if (email === 'Rishi52873@Sainta.com' && password === 'WaJId@1225') {
         toast.success('Login successful! Redirecting to dashboard...', {
           position: "top-right",
         });

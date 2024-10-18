@@ -15,7 +15,7 @@
 
 //       <div className="container flex flex-col items-center justify-between mx-auto lg:flex-row ">
 //         <div className="mb-4 lg:pl-20 text-2xl font-bold  sm:pl-0 text-[#007AAF] lg:mb-0  hover:cursor-pointer ">
-//           Sante-ERP
+//           Sainta-ERP
 //         </div>
 
 //         {/* Burger Button */}
