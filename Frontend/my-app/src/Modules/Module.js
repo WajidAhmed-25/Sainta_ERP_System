@@ -168,12 +168,12 @@ export default function Module() {
 
   return (
     <>
-<div className='flex items-end justify-end w-full'>
+{/* <div className='flex items-end justify-end w-full'>
 <Trans_Btn />
 </div>
+   */}
   
-  
-      <div className="flex flex-col items-center justify-center mb-6 -mt-8">   
+      <div className="flex flex-col items-center justify-center mt-8 mb-6">   
         <div className="flex flex-row items-center mt-8 mb-4 space-x-6">
           <h2 className="text-2xl font-bold text-[#007AAF] md:text-3xl">
             {t('modules.title')}
