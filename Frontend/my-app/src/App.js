@@ -1,7 +1,5 @@
 import logo from './logo.svg';
 import './App.css';
-
-
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Navbar from './Navbar/Navbar';
 import Sainta_Homepage from './HomePage/HomePage';
@@ -20,70 +18,40 @@ import Download_TimeSheet from './Modules/TimeSheet_Management/Download_TimeShee
 import TimeSheet_Management2 from './Modules/TimeSheet_Management/Add_Attendance';
 import Admin_Login from './Admin_Portal/Admin_Login/Admin_Login';
 import Admin_Dashboard from './Admin_Portal/Admin_Dashboard/Admin_Dashboard';
+import Trans_Btn from './Navbar/Trans_Btn';
+
+
+import { I18nextProvider } from 'react-i18next';
+import i18n from './i18n';
+
 
 function App() {
-
-
-
-
-
-
-
-
-
   return (
-   
-
-    
-        
-
+    // <I18nextProvider i18n={i18n}>
+      
 <Router>
 <Navbar/>
-
+{/* <Trans_Btn/> */}
     <Routes>
         <Route path="/" element={<Sainta_Homepage />} />
         <Route path="/test" element={<Testing_Class/>}/>
         <Route path="/register" element={<Registration/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path="/modules" element={<Module/>}/>
-
         <Route path='/customer_management' element={<Customer_Management/>}/>
         <Route path='/employee_management' element={<Employee_Management/>}/>
         <Route path='/timesheet_management' element={<TimeSheet_Management/>}/>
-
         <Route path='/create_excel' element={<Download_TimeSheet/>}/>
         <Route path='/add_attendance' element={<TimeSheet_Management2/>}/>
-
         <Route path='/add_employee' element={<Add_Employee/>}/>
-
-
-
 {/* Admin Login */}
-
         <Route path='/admin_login' element={<Admin_Login/>}/>
-
         <Route path='/admin_dashboard' element={<Admin_Dashboard/>}/>
-        
-
-
-
-
-
-        
-
-
-{/*  <Route path='/back_employe' element={<Employee_Management1/>}/>
- <Route path='/Back' element={<Customer_Management1/>}/> */}
       </Routes>
-
- 
  <Footer/>
 </Router>
 
-  
-  // <Sainta_Homepage/>
-
-
+// </I18nextProvider>
   );
 }
 
