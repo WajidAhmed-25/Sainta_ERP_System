@@ -195,7 +195,7 @@ export default function Login() {
             return;
         }
         try {
-            const response = await fetch('http://apisanta.devcir.co/api/admin-info');
+            const response = await fetch('https://apisanta.devcir.co/api/admin-info');
             const apiData = await response.json();
             if (Array.isArray(apiData) && apiData.length > 0) {
                 const matchingUser = apiData.find(userData => {

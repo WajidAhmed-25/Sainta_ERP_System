@@ -58,7 +58,7 @@
 //   useEffect(() => {
 //     const fetchCustomers = async () => {
 //       try {
-//         const response = await axios.get("http://apisanta.devcir.co/api/customers");
+//         const response = await axios.get("https://apisanta.devcir.co/api/customers");
 //         setCustomers(response.data);
 //         if (response.data.length > 0) {
 //           selectCustomer(response.data[0]);
@@ -144,7 +144,7 @@
 //         Note: formData["Other information"].Note,
 //       };
 //       await axios.put(
-//         `http://apisanta.devcir.co/api/customers/${selectedCustomer.Customer_ID}`,
+//         `https://apisanta.devcir.co/api/customers/${selectedCustomer.Customer_ID}`,
 //         updatedCustomer
 //       );
 //       toast.success("Customer updated successfully");
@@ -160,7 +160,7 @@
 
 //   const handleDeleteCustomer = async (customerId, customerName) => {
 //     try {
-//       await axios.delete(`http://apisanta.devcir.co/api/customers/${customerId}`);
+//       await axios.delete(`https://apisanta.devcir.co/api/customers/${customerId}`);
 //       setCustomers(prevCustomers =>
 //         prevCustomers.filter(c => c.Customer_ID !== customerId)
 //       );
@@ -406,7 +406,7 @@ const useCustomerModal = (formFields) => {
       e.preventDefault();
       try {
         const response = await axios.post(
-          "http://apisanta.devcir.co/api/customers",
+          "https://apisanta.devcir.co/api/customers",
           formDataa
         );
         onAddCustomer(response.data);
@@ -482,7 +482,7 @@ const Customer_Management = () => {
   useEffect(() => {
     const fetchCustomers = async () => {
       try {
-        const response = await axios.get("http://apisanta.devcir.co/api/customers");
+        const response = await axios.get("https://apisanta.devcir.co/api/customers");
         setCustomers(response.data);
         if (response.data.length > 0) {
           selectCustomer(response.data[0]);
@@ -572,7 +572,7 @@ const Customer_Management = () => {
         Note: formData["Other Information"].Note,
       };
       await axios.put(
-        `http://apisanta.devcir.co/api/customers/${selectedCustomer.Customer_ID}`,
+        `https://apisanta.devcir.co/api/customers/${selectedCustomer.Customer_ID}`,
         updatedCustomer
       );
       setCustomers((prevCustomers) =>
@@ -590,7 +590,7 @@ const Customer_Management = () => {
 
   const handleDeleteCustomer = async (Customer_ID, Customer_name) => {
     try {
-      await axios.delete(`http://apisanta.devcir.co/api/customers/${Customer_ID}`);
+      await axios.delete(`https://apisanta.devcir.co/api/customers/${Customer_ID}`);
       setCustomers((prevCustomers) =>
         prevCustomers.filter((customer) => customer.Customer_ID !== Customer_ID)
       );

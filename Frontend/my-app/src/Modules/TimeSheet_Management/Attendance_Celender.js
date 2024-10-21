@@ -23,7 +23,7 @@
 //   useEffect(() => {
 //     const fetchData = async () => {
 //       try {
-//         const response = await fetch('http://apisanta.devcir.co/api/attendance');
+//         const response = await fetch('https://apisanta.devcir.co/api/attendance');
 //         if (!response.ok) {
 //           throw new Error('Failed to fetch data');
 //         }
@@ -394,7 +394,7 @@ const Attendance_Calendar = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://apisanta.devcir.co/api/attendance');
+        const response = await fetch('https://apisanta.devcir.co/api/attendance');
         if (!response.ok) {
           throw new Error('Failed to fetch data');
         }

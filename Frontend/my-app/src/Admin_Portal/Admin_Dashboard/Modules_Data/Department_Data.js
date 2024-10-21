@@ -18,7 +18,7 @@ const Department_Data = () => {
   const [formData, setFormData] = useState({});
 
   useEffect(() => {
-    axios.get('http://apisanta.devcir.co/api/departments')
+    axios.get('https://apisanta.devcir.co/api/departments')
       .then((response) => {
         setDepartments(response.data);
       })
@@ -41,7 +41,7 @@ const Department_Data = () => {
   };
 
   const handleUpdate = (departmentId) => {
-    axios.put(`http://apisanta.devcir.co/api/departments/${departmentId}`, formData)
+    axios.put(`https://apisanta.devcir.co/api/departments/${departmentId}`, formData)
       .then(() => {
         toast.success('Department updated successfully!', {
           position: "top-right",
@@ -60,7 +60,7 @@ const Department_Data = () => {
   };
 
   const handleDelete = (departmentId) => {
-    axios.delete(`http://apisanta.devcir.co/api/departments/${departmentId}`)
+    axios.delete(`https://apisanta.devcir.co/api/departments/${departmentId}`)
       .then(() => {
         toast.success('Department deleted successfully!', {
           position: "top-right",

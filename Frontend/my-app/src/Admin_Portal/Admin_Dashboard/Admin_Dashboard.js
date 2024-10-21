@@ -36,7 +36,7 @@ const Admin_Dashboard = () => {
   const fetchCustomerData = async () => {
     setLoading(true);
     try {
-      const response = await fetch('http://apisanta.devcir.co/api/customers/2');
+      const response = await fetch('https://apisanta.devcir.co/api/customers/2');
       const data = await response.json();
       setCustomerData(data);
     } catch (error) {

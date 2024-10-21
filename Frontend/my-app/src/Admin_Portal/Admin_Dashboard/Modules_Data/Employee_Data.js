@@ -15,7 +15,7 @@ const Employee_Data = () => {
   const [employeeToDelete, setEmployeeToDelete] = useState(null);
 
   useEffect(() => {
-    axios.get('http://apisanta.devcir.co/api/employees')
+    axios.get('https://apisanta.devcir.co/api/employees')
       .then((response) => {
         setEmployees(response.data);
       })
@@ -45,7 +45,7 @@ const Employee_Data = () => {
   };
 
   const handleUpdate = (employeeId) => {
-    axios.put(`http://apisanta.devcir.co/api/employees/${employeeId}`, formData)
+    axios.put(`https://apisanta.devcir.co/api/employees/${employeeId}`, formData)
       .then(() => {
         toast.success('Employee updated successfully!', {
           position: "top-right",
@@ -70,7 +70,7 @@ const Employee_Data = () => {
 
   const handleDelete = () => {
     const employeeId = employeeToDelete.Employee_ID;
-    axios.delete(`http://apisanta.devcir.co/api/employees/${employeeId}`)
+    axios.delete(`https://apisanta.devcir.co/api/employees/${employeeId}`)
       .then(() => {
         toast.success('Employee deleted successfully!', {
           position: "top-right",

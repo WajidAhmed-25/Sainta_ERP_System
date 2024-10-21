@@ -35,7 +35,7 @@
 //   const [deleteEmployeeConfirmation, setDeleteEmployeeConfirmation] = useState(null);
 //   const handleDeleteEmployee = async (employeeId, employeeName) => {
 //     try {
-//       await axios.delete(`http://apisanta.devcir.co/api/employees/${employeeId}`);
+//       await axios.delete(`https://apisanta.devcir.co/api/employees/${employeeId}`);
 //       setEmployees((prevEmployees) =>
 //         prevEmployees.filter((emp) => emp.Employee_ID !== employeeId)
 //       );
@@ -53,7 +53,7 @@
 //   useEffect(() => {
 //     const fetchDepartments = async () => {
 //       try {
-//         const response = await axios.get('http://apisanta.devcir.co/api/departments');
+//         const response = await axios.get('https://apisanta.devcir.co/api/departments');
 //         setDepartmentsData(response.data);
 //       } catch (error) {
 //         console.error('Error fetching departments:', error);
@@ -758,7 +758,7 @@
 //   };
 //   const handleDeleteDepartment = async (departmentId, departmentName) => {
 //     try {
-//       await axios.delete(`http://apisanta.devcir.co/api/departments/${departmentId}`);
+//       await axios.delete(`https://apisanta.devcir.co/api/departments/${departmentId}`);
 //       setDepartments((prevDepartments) =>
 //         prevDepartments.filter((dept) => dept.Department_ID !== departmentId)
 //       );
@@ -771,7 +771,7 @@
 //   useEffect(() => {
 //     const fetchDepartments = async () => {
 //       try {
-//         const response = await axios.get("http://apisanta.devcir.co/api/departments");
+//         const response = await axios.get("https://apisanta.devcir.co/api/departments");
 //         setDepartments(response.data);
 //       } catch (error) {
 //         toast.error("Failed to load departments");
@@ -782,7 +782,7 @@
 //   useEffect(() => {
 //     const fetchEmployees = async () => {
 //       try {
-//         const response = await axios.get("http://apisanta.devcir.co/api/employees");
+//         const response = await axios.get("https://apisanta.devcir.co/api/employees");
 //         setEmployees(response.data);
 //       } catch (error) {
 //         toast.error("Failed to load employees");
@@ -799,7 +799,7 @@
 //   };
 //   const addDepartment = async () => {
 //     try {
-//       const response = await axios.post("http://apisanta.devcir.co/api/departments", {
+//       const response = await axios.post("https://apisanta.devcir.co/api/departments", {
 //         Department_Name: newDepartmentName,
 //         Department_Description: newDepartmentDescription,
 //       });
@@ -816,7 +816,7 @@
 //   const editDepartment = async () => {
 //     if (!editingDepartment) return;
 //     try {
-//       const response = await axios.put(`http://apisanta.devcir.co/api/departments/${editingDepartment.Department_ID}`, {
+//       const response = await axios.put(`https://apisanta.devcir.co/api/departments/${editingDepartment.Department_ID}`, {
 //         Department_Name: editDepartmentName,
 //         Department_Description: editDepartmentDescription,
 //       });
@@ -856,7 +856,7 @@
 //       if (files.Personal_Information) formDataToSend.append('Personal_Information', files.Personal_Information);
 //       if (files.Resume) formDataToSend.append('Resume', files.Resume);
 //       console.log("Data to Update: ", formData);
-//       const response = await axios.put(`http://apisanta.devcir.co/api/employees/${formData.Employee_ID}`, formData);
+//       const response = await axios.put(`https://apisanta.devcir.co/api/employees/${formData.Employee_ID}`, formData);
 //       // Update the employees state
 //       setEmployees(prevEmployees => 
 //         prevEmployees.map(emp => 
@@ -1223,7 +1223,7 @@ const Employee_Management = () => {
   const [deleteEmployeeConfirmation, setDeleteEmployeeConfirmation] = useState(null);
   const handleDeleteEmployee = async (employeeId, employeeName) => {
     try {
-      await axios.delete(`http://apisanta.devcir.co/api/employees/${employeeId}`);
+      await axios.delete(`https://apisanta.devcir.co/api/employees/${employeeId}`);
       setEmployees((prevEmployees) =>
         prevEmployees.filter((emp) => emp.Employee_ID !== employeeId)
       );
@@ -1241,7 +1241,7 @@ const Employee_Management = () => {
   useEffect(() => {
     const fetchDepartments = async () => {
       try {
-        const response = await axios.get('http://apisanta.devcir.co/api/departments');
+        const response = await axios.get('https://apisanta.devcir.co/api/departments');
         setDepartmentsData(response.data);
       } catch (error) {
         console.error('Error fetching departments:', error);
@@ -1981,7 +1981,7 @@ const togglePasswordVisibility = () => {
   };
   const handleDeleteDepartment = async (departmentId, departmentName) => {
     try {
-      await axios.delete(`http://apisanta.devcir.co/api/departments/${departmentId}`);
+      await axios.delete(`https://apisanta.devcir.co/api/departments/${departmentId}`);
       setDepartments((prevDepartments) =>
         prevDepartments.filter((dept) => dept.Department_ID !== departmentId)
       );
@@ -1994,7 +1994,7 @@ const togglePasswordVisibility = () => {
   useEffect(() => {
     const fetchDepartments = async () => {
       try {
-        const response = await axios.get("http://apisanta.devcir.co/api/departments");
+        const response = await axios.get("https://apisanta.devcir.co/api/departments");
         setDepartments(response.data);
       } catch (error) {
         toast.error("Failed to load departments");
@@ -2005,7 +2005,7 @@ const togglePasswordVisibility = () => {
   useEffect(() => {
     const fetchEmployees = async () => {
       try {
-        const response = await axios.get("http://apisanta.devcir.co/api/employees");
+        const response = await axios.get("https://apisanta.devcir.co/api/employees");
         setEmployees(response.data);
       } catch (error) {
         toast.error("Failed to load employees");
@@ -2032,7 +2032,7 @@ const togglePasswordVisibility = () => {
   
   const addDepartment = async () => {
     try {
-      const response = await axios.post("http://apisanta.devcir.co/api/departments", {
+      const response = await axios.post("https://apisanta.devcir.co/api/departments", {
         Department_Name: newDepartmentName,
         Department_Description: newDepartmentDescription,
       });
@@ -2051,7 +2051,7 @@ const togglePasswordVisibility = () => {
   const editDepartment = async () => {
     if (!editingDepartment) return;
     try {
-      const response = await axios.put(`http://apisanta.devcir.co/api/departments/${editingDepartment.Department_ID}`, {
+      const response = await axios.put(`https://apisanta.devcir.co/api/departments/${editingDepartment.Department_ID}`, {
         Department_Name: editDepartmentName,
         Department_Description: editDepartmentDescription,
       });
@@ -2086,7 +2086,7 @@ const togglePasswordVisibility = () => {
   // const editDepartment = async () => {
   //   if (!editingDepartment) return;
   //   try {
-  //     const response = await axios.put(`http://apisanta.devcir.co/api/departments/${editingDepartment.Department_ID}`, {
+  //     const response = await axios.put(`https://apisanta.devcir.co/api/departments/${editingDepartment.Department_ID}`, {
   //       Department_Name: editDepartmentName,
   //       Department_Description: editDepartmentDescription,
   //     });
@@ -2138,7 +2138,7 @@ const togglePasswordVisibility = () => {
       if (files.Personal_Information) formDataToSend.append('Personal_Information', files.Personal_Information);
       if (files.Resume) formDataToSend.append('Resume', files.Resume);
       console.log("Data to Update: ", formData);
-      const response = await axios.put(`http://apisanta.devcir.co/api/employees/${formData.Employee_ID}`, formData);
+      const response = await axios.put(`https://apisanta.devcir.co/api/employees/${formData.Employee_ID}`, formData);
       // Update the employees state
       setEmployees(prevEmployees => 
         prevEmployees.map(emp => 
