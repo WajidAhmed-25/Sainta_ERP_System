@@ -55,6 +55,12 @@ const Navbar = ({ setCurrentElement }) => {
     { id: 's4', label: '常に進化中' }
   ];
 
+  const dropdownSupport = [
+    { id: 'r1', label: '登録・相談・サポート' },
+    { id: 'r2', label: '購入前と購入後' },
+    { id: 'r3', label: 'サインタ・フォーラム' },
+  ];
+
   return (
     <nav className="bg-white shadow-md">
       <div className="container flex items-center justify-between p-4 mx-auto">
@@ -125,10 +131,46 @@ const Navbar = ({ setCurrentElement }) => {
             </a>
             <Dropdown isOpen={hoveredElement === "我々の強み"} items={dropdownStrengths} setCurrentElement={setCurrentElement} handleMouseLeave={handleMouseLeave} targetElement="strengths" />
           </div>
+        <div
+          className="relative group"
+          onMouseEnter={() => {
+            setIsOpen(true);
+            handleMouseEnter({ target: { innerText: "登録・相談・サポート" } });
+            setTimeout(() => {
+              setIsOpen(false);
+            }, 2000);
+          }}
+        >
+          <a className="px-4 py-2 text-gray-700 hover:text-blue-500 transition-colors duration-300 flex items-center cursor-pointer" onClick={() => setCurrentElement("register")}>
+            <img src={LogoSmall} alt="Logo Small" className="h-7 mr-2" />
+            登録・相談・サポート
+            <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </a>
+          <Dropdown isOpen={hoveredElement === "登録・相談・サポート"} items={dropdownSupport} setCurrentElement={setCurrentElement} handleMouseLeave={handleMouseLeave} targetElement="register" />
         </div>
+
+        <a href="/login" className="px-4 py-2 text-gray-700 hover:text-blue-500 transition-colors duration-300" onClick={() => setCurrentElement("login")}>
+          <div className="flex items-center">
+            <img src={LogoSmall} alt="Logo Small" className="h-7 mr-2" />
+            ログイン
+          </div>
+        </a>
+
+        <a href="/register" className="px-4 py-2 text-gray-700 hover:text-blue-500 transition-colors duration-300" onClick={() => setCurrentElement("register")}>
+          <div className="flex items-center">
+            <img src={LogoSmall} alt="Logo Small" className="h-7 mr-2" />
+            登録
+          </div>
+        </a>
       </div>
+    </div>
+
+
     </nav>
   );
 };
 
 export default Navbar;
+

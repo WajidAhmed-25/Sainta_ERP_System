@@ -32,13 +32,9 @@ import st1 from '../assets/img/landing/strengths/st1.png';
 import st2 from '../assets/img/landing/strengths/st2.png';
 import st3 from '../assets/img/landing/strengths/st3.png';
 
-// Essentially want to go for a style where there is a main div, that has a header, caption, and then an image
-// that displays on the right side. so like
-// HEADER          >>> IMAGE
-// CAPTION
+import sap1 from '../assets/img/landing/regisup/sap1.png';
+import sap2 from '../assets/img/landing/regisup/sap2.png';
 
-// And that's for the main div. Then after that div, it's just mostly text. So I can just have a bunch of those divs
-// and then just have text after them.
 
 export default function Sainta_Homepage({ currentElement }) {
   const { t } = useTranslation();
@@ -241,10 +237,68 @@ export default function Sainta_Homepage({ currentElement }) {
               <img src={st3} alt="Sainta Illustration" className="w-96" />
             </div>
           </div>
+        </>
+      )}
 
+      {/* Now for register */}
+      {currentElement === "register" && (
+        <>
+          <div className="flex flex-col lg:flex-row justify-between items-center bg-white shadow-lg rounded-lg p-8" id="r1">
+            <div className="flex-1 mb-6 lg:mb-0 text-center lg:text-left">
+              <h1 className="text-4xl font-bold text-gray-800">
+                登録・相談・サポート
+              </h1>
+              <p className="text-xl text-gray-600 mt-2 mb-4 lg:mb-8 lg:mt-4">
+              株式会社サインタでは、お客様がビジネスに最適なツールを選ぶプロセスを導くことを目指しています。弊社の製品への登録を検討されている方々には、様々な資料提供や、登録と一般的な使用方法をご案内するスタッフとの相談を提供できます。
+              </p>
+              <p className="text-xl text-gray-600 mt-2 mb-4 lg:mb-8 lg:mt-4">
+              我々の目標は、優れたカスタマーサポートを提供することです。そのため、すべての質問や懸念に対応し、状況に応じてオフィス訪問も行います。サインタは、お客様のビジネスがスムーズに機能するための全面的なサポートを提供いたします。
+              </p>
+            </div>
+            <div className="flex justify-center lg:justify-end w-full lg:w-auto" style={{marginLeft: "50px"}}>
+              <img src={svg3} alt="Sainta Illustration" className="w-96" />
+            </div>
+          </div>
+
+          <div className="flex flex-col lg:flex-row justify-between items-center bg-white shadow-lg rounded-lg p-8 mt-8" id="r2">
+            <div className="flex-1 mb-6 lg:mb-0 text-center lg:text-left">
+              <h1 className="text-4xl font-bold text-gray-800">
+                購入前と購入後のサポート
+              </h1>
+              <p className="text-xl text-gray-600 mt-2 mb-4 lg:mb-8 lg:mt-4">
+              サインタ・業務に興味をお持ちの方、またはすでに購入されたお客様に対して、私たちは面談やオフィス訪問、オンラインミーティングなど、様々な方法で個別のカスタマーサポートを提供しています。取り扱いが難しい事案に遭遇した場合には、詳細な対応プランに従って解決に努めます。
+              </p>
+              <p className="text-xl text-gray-600 mt-2 mb-4 lg:mb-8 lg:mt-4">
+              解決が困難な場合には、社長自らがオフィスを訪問し、問題を分析し、最適な解決策を提案するまで全力を尽くします。お客様のビジネスがスムーズに運営できるよう、サインタは全力を尽くしてサポートいたします。
+              </p>
+            </div>
+            <div className="flex justify-center lg:justify-end w-full lg:w-auto" style={{marginLeft: "50px"}}>
+              {/* make the svg bigger */}
+              <img src={sap1} alt="Sainta Illustration" className="w-96" />
+            </div>
+          </div>
+
+          <div className="flex flex-col lg:flex-row justify-between items-center bg-white shadow-lg rounded-lg p-8 mt-8" id="r3">
+            <div className="flex-1 mb-6 lg:mb-0 text-center lg:text-left">
+              <h1 className="text-4xl font-bold text-gray-800">
+                サインタ・フォーラム
+              </h1>
+              <p className="text-xl text-gray-600 mt-2 mb-4 lg:mb-8 lg:mt-4">
+              ユーザーの皆様だけでなく、非ユーザーの方々にも、当社の「サインタ・フォーラム」をご提供しています。このフォーラムでは、スタッフや他のユーザーと交流し、サインタに関連する様々な話題について議論することができます。フォーラムへの参加は、ユーザーに報酬をもたらすだけでなく、我々にとってもサインタに対する一般的な認識を理解する機会となります。
+              </p>
+              <p className="text-xl text-gray-600 mt-2 mb-4 lg:mb-8 lg:mt-4">
+              多くの企業はフォーラム型のアプローチを採用していませんが、我々の目標は皆様の意見を聞き、ただのユーザーのコミュニティではなく、人間のコミュニティを築くことです。
+              </p>
+            </div>
+            <div className="flex justify-center lg:justify-end w-full lg:w-auto" style={{marginLeft: "50px"}}>
+              {/* make the svg bigger */}
+              <img src={sap2} alt="Sainta Illustration" className="w-96" />
+            </div>
+          </div>
 
         </>
       )}
+
 
       </div>
   );
