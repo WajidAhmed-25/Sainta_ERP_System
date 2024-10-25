@@ -1,198 +1,126 @@
-// import React, { useState } from 'react';
-
-// const Navbar = () => {
-//   const [isOpen, setIsOpen] = useState(false);
-
-//   const toggleMenu = () => {
-//     setIsOpen(!isOpen);
-//   };
-
-//   return (
-//     <div className='bg-yellow-300'>
-
-
-//     <nav className="p-4 shadow-xl " style={{ background: 'linear-gradient(to right, #f4fcfe 0%, #f4fcfe 100%)' }}>
-
-//       <div className="container flex flex-col items-center justify-between mx-auto lg:flex-row ">
-//         <div className="mb-4 lg:pl-20 text-2xl font-bold  sm:pl-0 text-[#007AAF] lg:mb-0  hover:cursor-pointer ">
-//           Sainta-ERP
-//         </div>
-
-//         {/* Burger Button */}
-//         <div className="lg:hidden">
-//           <button
-//             onClick={toggleMenu}
-//             className="text-[#007AAF] focus:outline-none"
-//           >
-//             <svg
-//               className="w-6 h-6"
-//               fill="none"
-//               stroke="currentColor"
-//               viewBox="0 0 24 24"
-//               xmlns="http://www.w3.org/2000/svg"
-//             >
-//               <path
-//                 strokeLinecap="round"
-//                 strokeLinejoin="round"
-//                 strokeWidth="2"
-//                 d="M4 6h16M4 12h16m-7 6h7"
-//               ></path>
-//             </svg>
-//           </button>
-//         </div>
-
-//         {/* Menu Items */}
-//         <div
-//           className={`lg:flex flex-col lg:flex-row  lg:space-x-12 lg:mt-0 mt-4 mr-4 flex items-center  sm:mr-0 text-xl ${isOpen ? '' : 'hidden'}`}
-//         >
-//           <button
-//             onClick={toggleMenu}
-//             className="absolute text-3xl text-[#007AAF] lg:hidden top-4 right-4"
-//           >
-//             <svg
-//               className="w-6 h-6"
-//               fill="none"
-//               stroke="currentColor"
-//               viewBox="0 0 24 24"
-//               xmlns="http://www.w3.org/2000/svg"
-//             >
-//               <path
-//                 strokeLinecap="round"
-//                 strokeLinejoin="round"
-//                 strokeWidth="2"
-//                 d="M6 18L18 6M6 6l12 12"
-//               ></path>
-//             </svg>
-//           </button>
-//           <a href="/" className="px-4 py-2  text-[#007AAF] hover:scale-110 transition-all duration-300">Our Strengths</a>
-//           <a href="#Projects" className="px-4 py-2  text-[#007AAF] hover:scale-110 transition-all duration-300">Our Features</a>
-//           <a href="/" className="px-4 py-2  text-[#007AAF] hover:scale-110 transition-all duration-300">Registration Process</a>
-//           <a href="/" className="px-4 py-2  text-[#007AAF] hover:scale-110 transition-all duration-300">Costs</a>
-//         </div>
-//       </div>
-//     </nav>
-
-
-
-
-
-//     </div>
-//   );
-// };
-
-// export default Navbar;
-
-
-
-
-
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import Trans_Btn from './Trans_Btn';
+import Logo from '../assets/img/landing/mainlogo.png';
+import LogoSmall from '../assets/img/landing/logosmall.png';
 
-const Navbar = () => {
+const Dropdown = ({ isOpen, items, setCurrentElement, handleMouseLeave }) => (
+  isOpen && (
+    <div
+      className="absolute left-0 mt-2 w-40 bg-white shadow-lg rounded-md border border-gray-200"
+      onMouseLeave={() => {
+        handleMouseLeave();
+      }
+      }
+    >
+      {items.map((item, index) => (
+        <a
+          key={index}
+          href={`#${item.id}`}
+          className="block px-8 py-4 text-sm text-gray-700 hover:bg-gray-100"
+          onClick={() => setCurrentElement("default")}
+        >
+          {item.label}
+        </a>
+      ))}
+    </div>
+  )
+);
+
+const Navbar = ({ setCurrentElement }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [hoveredElement, setHoveredElement] = useState("");
   const { t } = useTranslation();
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
+  const handleMouseEnter = (e) => {
+    setHoveredElement(e.target.innerText);
   };
 
+  const handleMouseLeave = () => {
+    setHoveredElement("");
+  };
+
+  const dropdownItems = [
+    { id: 'about1', label: t('about1') },
+    { id: 'about2', label: t('about2') },
+    { id: 'about3', label: t('about3') },
+    { id: 'about4', label: t('about4') },
+    { id: 'about5', label: t('about5') },
+  ];
+
   return (
-    <div className=''>
-      <nav className="p-4 shadow-xl" style={{ background: 'linear-gradient(to right, #f4fcfe 0%, #f4fcfe 100%)' }}>
-        <div className="container flex flex-col items-center justify-between mx-auto lg:flex-row">
-          <div className="mb-4 lg:pl-20 text-2xl font-bold sm:pl-0 text-[#007AAF] lg:mb-0 hover:cursor-pointer">
-            {t('navbar.brand')}
-          </div>
-          
-          {/* Burger Button */}
-          <div className="lg:hidden">
-            <button
-              onClick={toggleMenu}
-              className="text-[#007AAF] focus:outline-none"
-              aria-label="Toggle menu"
-            >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16m-7 6h7"
-                ></path>
-              </svg>
-            </button>
-          </div>
+    <nav className="bg-white shadow-md">
+      <div className="container flex items-center justify-between p-4 mx-auto">
+        <a href="/" className="flex items-center" onClick={() => setCurrentElement("default")}>
+          <img src={Logo} alt="Logo" className="h-14" />
+        </a>
 
-          {/* Menu Items */}
-          <div
-            className={`lg:flex flex-col lg:flex-row lg:space-x-12 lg:mt-0 mt-4 mr-4 flex items-center sm:mr-0 text-xl ${
-              isOpen ? '' : 'hidden'
-            }`}
+        <div className="lg:hidden">
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="text-gray-700 focus:outline-none"
+            aria-label="Toggle menu"
+            aria-expanded={isOpen}
           >
-            <button
-              onClick={toggleMenu}
-              className="absolute text-3xl text-[#007AAF] lg:hidden top-4 right-4"
-              aria-label="Close menu"
-            >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M6 18L18 6M6 6l12 12"
-                ></path>
-              </svg>
-            </button>
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+          </button>
+        </div>
 
-            <a href="/" className="px-4 py-2 text-[#007AAF] hover:scale-110 transition-all duration-300">
-              {t('navbar.strengths')}
+        <div className={`lg:flex lg:items-center lg:w-auto ${isOpen ? 'block' : 'hidden'}`}>
+          <div
+            className="relative group"
+            onMouseEnter={() => {
+              // Keep the dropdown open
+              setIsOpen(true);
+              handleMouseEnter({ target: { innerText: "サインタとは？" } });
+
+              // Close the dropdown after 2 seconds
+              setTimeout(() => {
+                setIsOpen(false);
+              }
+              , 2000);
+            }
+            }
+          >
+            <a className="px-4 py-2 text-gray-700 hover:text-blue-500 transition-colors duration-300 flex items-center cursor-pointer" onClick={() => setCurrentElement("about")}>
+              <img src={LogoSmall} alt="Logo Small" className="h-7 mr-2" />
+              サインタとは？
+              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
             </a>
-            <a href="#Projects" className="px-4 py-2 text-[#007AAF] hover:scale-110 transition-all duration-300">
-              {t('navbar.features')}
+            <Dropdown isOpen={hoveredElement === "サインタとは？"} items={dropdownItems} setCurrentElement={setCurrentElement} handleMouseLeave={handleMouseLeave} />
+          </div>
+
+          <div
+            className="relative group"
+            onMouseEnter={() => {
+              // Keep the dropdown open
+              setIsOpen(true);
+              handleMouseEnter({ target: { innerText: "我々の強み" } });
+
+              // Close the dropdown after 2 seconds
+              setTimeout(() => {
+                setIsOpen(false);
+              }
+              , 2000);
+            }
+            }
+          >
+            <a className="px-4 py-2 text-gray-700 hover:text-blue-500 transition-colors duration-300 flex items-center cursor-pointer" onClick={() => setCurrentElement("strengths")}>
+              <img src={LogoSmall} alt="Logo Small" className="h-7 mr-2" />
+              我々の強み
+              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
             </a>
-            <a href="/" className="px-4 py-2 text-[#007AAF] hover:scale-110 transition-all duration-300">
-              {t('navbar.registration')}
-            </a>
-            <a href="/" className="px-4 py-2 text-[#007AAF] hover:scale-110 transition-all duration-300">
-              {t('navbar.costs')}
-            </a>
+            <Dropdown isOpen={hoveredElement === "我々の強み"} items={dropdownItems} setCurrentElement={setCurrentElement} handleMouseLeave={handleMouseLeave} />
           </div>
         </div>
-      </nav>
-      {/* <Trans_Btn/> */}
-    </div>
+      </div>
+    </nav>
   );
 };
 
 export default Navbar;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
