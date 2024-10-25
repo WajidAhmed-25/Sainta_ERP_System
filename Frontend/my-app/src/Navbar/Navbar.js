@@ -3,10 +3,10 @@ import { useTranslation } from 'react-i18next';
 import Logo from '../assets/img/landing/mainlogo.png';
 import LogoSmall from '../assets/img/landing/logosmall.png';
 
-const Dropdown = ({ isOpen, items, setCurrentElement, handleMouseLeave }) => (
+const Dropdown = ({ isOpen, items, setCurrentElement, handleMouseLeave, targetElement }) => (
   isOpen && (
     <div
-      className="absolute left-0 mt-2 w-40 bg-white shadow-lg rounded-md border border-gray-200"
+      className="absolute left-0 mt-2 w-70 bg-white shadow-lg rounded-md border border-gray-200"
       onMouseLeave={() => {
         handleMouseLeave();
       }
@@ -16,8 +16,8 @@ const Dropdown = ({ isOpen, items, setCurrentElement, handleMouseLeave }) => (
         <a
           key={index}
           href={`#${item.id}`}
-          className="block px-8 py-4 text-sm text-gray-700 hover:bg-gray-100"
-          onClick={() => setCurrentElement("default")}
+          className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-500 hover:text-white"
+          onClick={() => setCurrentElement(targetElement)}
         >
           {item.label}
         </a>
@@ -39,12 +39,20 @@ const Navbar = ({ setCurrentElement }) => {
     setHoveredElement("");
   };
 
-  const dropdownItems = [
-    { id: 'about1', label: t('about1') },
-    { id: 'about2', label: t('about2') },
-    { id: 'about3', label: t('about3') },
-    { id: 'about4', label: t('about4') },
-    { id: 'about5', label: t('about5') },
+  const dropdownHome = [
+    { id: 'h1', label: 'サインタとは？' },
+    { id: 'h2', label: '代表取締役について' },
+    { id: 'h3', label: '企業資源計画とは？' },
+    { id: 'h4', label: '多機能性と汎用性' },
+    { id: 'h5', label: 'ユーザー向け'} ,
+    { id: 'h6', label: '一緒に未来を実現しましょう'}
+  ];
+
+  const dropdownStrengths = [
+    { id: 's1', label: '我々の強み' },
+    { id: 's2', label: '最新技術' },
+    { id: 's3', label: '使い勝手の良さ' },
+    { id: 's4', label: '常に進化中' }
   ];
 
   return (
@@ -83,14 +91,14 @@ const Navbar = ({ setCurrentElement }) => {
             }
             }
           >
-            <a className="px-4 py-2 text-gray-700 hover:text-blue-500 transition-colors duration-300 flex items-center cursor-pointer" onClick={() => setCurrentElement("about")}>
+            <a className="px-4 py-2 text-gray-700 hover:text-blue-500 transition-colors duration-300 flex items-center cursor-pointer" onClick={() => setCurrentElement("default")}>
               <img src={LogoSmall} alt="Logo Small" className="h-7 mr-2" />
               サインタとは？
               <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </a>
-            <Dropdown isOpen={hoveredElement === "サインタとは？"} items={dropdownItems} setCurrentElement={setCurrentElement} handleMouseLeave={handleMouseLeave} />
+            <Dropdown isOpen={hoveredElement === "サインタとは？"} items={dropdownHome} setCurrentElement={setCurrentElement} handleMouseLeave={handleMouseLeave} targetElement="default" />
           </div>
 
           <div
@@ -115,7 +123,7 @@ const Navbar = ({ setCurrentElement }) => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </a>
-            <Dropdown isOpen={hoveredElement === "我々の強み"} items={dropdownItems} setCurrentElement={setCurrentElement} handleMouseLeave={handleMouseLeave} />
+            <Dropdown isOpen={hoveredElement === "我々の強み"} items={dropdownStrengths} setCurrentElement={setCurrentElement} handleMouseLeave={handleMouseLeave} targetElement="strengths" />
           </div>
         </div>
       </div>

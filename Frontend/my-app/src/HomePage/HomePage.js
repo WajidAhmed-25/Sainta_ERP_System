@@ -28,6 +28,10 @@ import sth2 from '../assets/img/landing/whatissainta/gyoumu2.png';
 import sth3 from '../assets/img/landing/whatissainta/gyoumu3.png';
 import sth5 from '../assets/img/landing/whatissainta/sth5.png';
 
+import st1 from '../assets/img/landing/strengths/st1.png';
+import st2 from '../assets/img/landing/strengths/st2.png';
+import st3 from '../assets/img/landing/strengths/st3.png';
+
 // Essentially want to go for a style where there is a main div, that has a header, caption, and then an image
 // that displays on the right side. so like
 // HEADER          >>> IMAGE
@@ -51,11 +55,14 @@ export default function Sainta_Homepage({ currentElement }) {
     );
   }
 
+  // Since we're going to add id's to autonavigate, we will add an id field.
+  // Basically for home, h1, h2 etc.
+
   return (
     <div className="container mx-auto px-4 py-8">
       {currentElement === "default" && (
         <>
-          <div className="flex flex-col lg:flex-row justify-between items-center bg-white shadow-lg rounded-lg p-8">
+          <div className="flex flex-col lg:flex-row justify-between items-center bg-white shadow-lg rounded-lg p-8" id="h1">
             <div className="flex-1 mb-6 lg:mb-0 text-center lg:text-left">
               <h1 className="text-4xl font-bold text-gray-800">
                 サインタとは？
@@ -72,7 +79,7 @@ export default function Sainta_Homepage({ currentElement }) {
             </div>
           </div>
 
-          <div className="flex flex-col lg:flex-row justify-between items-center bg-white shadow-lg rounded-lg p-8 mt-8">
+          <div className="flex flex-col lg:flex-row justify-between items-center bg-white shadow-lg rounded-lg p-8 mt-8" id="h2">
             <div className="flex-1 mb-6 lg:mb-0 text-center lg:text-left">
               <h1 className="text-4xl font-bold text-gray-800">
                 代表取締役について
@@ -91,7 +98,7 @@ export default function Sainta_Homepage({ currentElement }) {
             </div>
           </div>
 
-          <div className="flex flex-col lg:flex-row justify-between items-center bg-white shadow-lg rounded-lg p-8 mt-8">
+          <div className="flex flex-col lg:flex-row justify-between items-center bg-white shadow-lg rounded-lg p-8 mt-8" id="h3">
             <div className="flex-1 mb-6 lg:mb-0 text-center lg:text-left">
               <h1 className="text-4xl font-bold text-gray-800">
                 企業資源計画とは？
@@ -108,7 +115,7 @@ export default function Sainta_Homepage({ currentElement }) {
             </div>
           </div>
 
-          <div className="flex flex-col lg:flex-row justify-between items-center bg-white shadow-lg rounded-lg p-8 mt-8">
+          <div className="flex flex-col lg:flex-row justify-between items-center bg-white shadow-lg rounded-lg p-8 mt-8" id="h4">
             <div className="flex-1 mb-6 lg:mb-0 text-center lg:text-left">
               <h1 className="text-4xl font-bold text-gray-800">
               多機能性と汎用性
@@ -125,7 +132,7 @@ export default function Sainta_Homepage({ currentElement }) {
             </div>
           </div>
 
-          <div className="flex flex-col lg:flex-row justify-between items-center bg-white shadow-lg rounded-lg p-8 mt-8">
+          <div className="flex flex-col lg:flex-row justify-between items-center bg-white shadow-lg rounded-lg p-8 mt-8" id="h5">
             <div className="flex-1 mb-6 lg:mb-0 text-center lg:text-left">
               <h1 className="text-4xl font-bold text-gray-800">
               ユーザー向け
@@ -142,7 +149,7 @@ export default function Sainta_Homepage({ currentElement }) {
             </div>
           </div>
 
-          <div className="flex flex-col lg:flex-row justify-between items-center bg-white shadow-lg rounded-lg p-8 mt-8">
+          <div className="flex flex-col lg:flex-row justify-between items-center bg-white shadow-lg rounded-lg p-8 mt-8" id="h6">
             <div className="flex-1 mb-6 lg:mb-0 text-center lg:text-left">
               <h1 className="text-4xl font-bold text-gray-800">
               一緒に未来を実現しましょう！
@@ -160,7 +167,86 @@ export default function Sainta_Homepage({ currentElement }) {
           </div>
         </>
       )}
-    </div>
+
+      {/* Now for strengths */}
+      {currentElement === "strengths" && (
+        <>
+          <div className="flex flex-col lg:flex-row justify-between items-center bg-white shadow-lg rounded-lg p-8" id="s1">
+            <div className="flex-1 mb-6 lg:mb-0 text-center lg:text-left">
+              <h1 className="text-4xl font-bold text-gray-800">
+                我々の強み
+              </h1>
+              <p className="text-xl text-gray-600 mt-2 mb-4 lg:mb-8 lg:mt-4">
+              自社の業務に最適なソフトウェアを選定する際、最も重要な要素の一つはソフトウェアの強度比較です。各ビジネスには独自のニーズがありますが、当社のERPツールは多岐にわたる業種に対応可能であり、さまざまなビジネス要件に柔軟に適応します。
+              </p>
+              <p className="text-xl text-gray-600 mt-2 mb-4 lg:mb-8 lg:mt-4">
+              プロセスの最適化からデータ管理、効率的なリソース配分まで、サインタはあらゆる面でお客様のビジネスをサポートします。
+              </p>
+            </div>
+            <div className="flex justify-center lg:justify-end w-full lg:w-auto" style={{marginLeft: "50px"}}>
+              <img src={svg4} alt="Sainta Illustration" className="w-96" />
+            </div>
+          </div>
+
+          <div className="flex flex-col lg:flex-row justify-between items-center bg-white shadow-lg rounded-lg p-8 mt-8" id="s2">
+            <div className="flex-1 mb-6 lg:mb-0 text-center lg:text-left">
+              <h1 className="text-4xl font-bold text-gray-800">
+                最新技術
+              </h1>
+              <p className="text-xl text-gray-600 mt-2 mb-4 lg:mb-8 lg:mt-4">
+              株式会社サインタは比較的新しい会社であり、使用しているソフトウェアは最新技術で開発されています。一般の方にとって「最新技術」とは何かというと、簡単に説明すると、より高速なロード時間、迅速なデータ伝送、待ち時間の削減を意味します。
+              </p>
+              <p className="text-xl text-gray-600 mt-2 mb-4 lg:mb-8 lg:mt-4">
+              他のソフトウェアでは特定のブラウザを使用したり、使用前に特定のものをインストールする必要がある場合がありますが、当社のソフトウェアは必要なときにすぐに使える状態で提供されます。また、常に更新を重ねており、何かエラーが発生した場合には、可能な限り迅速に対応します。
+              </p>
+            </div>
+            <div className="flex justify-center lg:justify-end w-full lg:w-auto" style={{marginLeft: "50px"}}>
+              {/* make the svg bigger */}
+              <img src={st1} alt="Sainta Illustration" className="w-96" />
+            </div>
+          </div>
+
+          <div className="flex flex-col lg:flex-row justify-between items-center bg-white shadow-lg rounded-lg p-8 mt-8" id="s3">
+            <div className="flex-1 mb-6 lg:mb-0 text-center lg:text-left">
+              <h1 className="text-4xl font-bold text-gray-800">
+                使い勝手の良さ
+              </h1>
+              <p className="text-xl text-gray-600 mt-2 mb-4 lg:mb-8 lg:mt-4">
+              新しいソフトウェアに移行する際、またはERPツールを使用した経験がない場合でも、サインタはあなたにとって最適な選択です！当社の初期ユーザー調査によると、平均的なユーザーは日常の業務でサインタを自信を持って使用できるようになるまで、約2週間かかったと報告されています。
+              </p>
+              <p className="text-xl text-gray-600 mt-2 mb-4 lg:mb-8 lg:mt-4">
+              アメリカのトップソフトウェア企業のデザイン技法を取り入れ、頻繁なユーザースタディを実施することで、我々はどの年代の人でも大きな困難なく使用できるソフトウェアを創造しました！もちろん、すぐに理解できないような複雑なタスクについては、当社のフォーラムや教育ビデオを利用してサインタの操作方法を理解するための豊富な情報があります。
+              </p>
+            </div>
+            <div className="flex justify-center lg:justify-end w-full lg:w-auto" style={{marginLeft: "50px"}}>
+              {/* make the svg bigger */}
+              <img src={st2} alt="Sainta Illustration" className="w-96" />
+            </div>
+          </div>
+
+          <div className="flex flex-col lg:flex-row justify-between items-center bg-white shadow-lg rounded-lg p-8 mt-8" id="s4">
+            <div className="flex-1 mb-6 lg:mb-0 text-center lg:text-left">
+              <h1 className="text-4xl font-bold text-gray-800">
+                常に進化中
+              </h1>
+              <p className="text-xl text-gray-600 mt-2 mb-4 lg:mb-8 lg:mt-4">
+              新しい企業として、我々は絶えずソフトウェアの開発を進め、新機能を追加しています。我々はサインタに投資していただいた方々と良好な関係を維持するため、フォーラムを活用して全てのサインタ利用者とコミュニケーションを取り、新機能や会社に関するその他の事項について皆様の意見を受け入れます。
+              </p>
+              <p className="text-xl text-gray-600 mt-2 mb-4 lg:mb-8 lg:mt-4">
+              社長として、透明性のある会社を運営することを目指しております。そのため、ユーザーと常に対話を行い、意見を交流するために全ユーザーを招待する会議やカンファレンスを実施します。
+              </p>
+            </div>
+            <div className="flex justify-center lg:justify-end w-full lg:w-auto" style={{marginLeft: "50px"}}>
+              {/* make the svg bigger */}
+              <img src={st3} alt="Sainta Illustration" className="w-96" />
+            </div>
+          </div>
+
+
+        </>
+      )}
+
+      </div>
   );
 }
 
