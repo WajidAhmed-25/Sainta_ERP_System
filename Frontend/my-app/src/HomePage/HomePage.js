@@ -51,8 +51,6 @@ export default function Sainta_Homepage({ currentElement }) {
     );
   }
 
-  // Since we're going to add id's to autonavigate, we will add an id field.
-  // Basically for home, h1, h2 etc.
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -69,30 +67,18 @@ export default function Sainta_Homepage({ currentElement }) {
               <p className="text-xl text-gray-600 mt-2 mb-4 lg:mb-8 lg:mt-4">
               2025年3月に設立されたサインタは、最新の技術とデザイン原則を活用する新しい企業で、ビジネス運営を効率化することができる一方で、企業の全メンバーが容易に使用できるように設計されています。
               </p>
-            </div>
-            <div className="flex justify-center lg:justify-end w-full lg:w-auto" style={{marginLeft: "50px"}}>
-              <img src={Logo} alt="Sainta Illustration" className="w-64" />
-            </div>
-          </div>
-
-          <div className="flex flex-col lg:flex-row justify-between items-center bg-white shadow-lg rounded-lg p-8 mt-8" id="h2">
-            <div className="flex-1 mb-6 lg:mb-0 text-center lg:text-left">
-              <h1 className="text-4xl font-bold text-gray-800">
-                代表取締役について
-              </h1>
               <p className="text-xl text-gray-600 mt-2 mb-4 lg:mb-8 lg:mt-4">
-              サンタナム{furigana("理志", "りし")}は、株式会社サインタの創業者であり社長です。アメリカ生まれの理志さんは、アメリカ及び日本の企業でソフトウェアエンジニアとして働いていました。
-              日本のソフトウェアに改善の余地があると気づいた理志さんは、自らのソフトウェアを開発し、日本市場に提供したいと考えました。
+              サンタナム{furigana("理志", "りし")}は、株式会社サインタの創業者であり社長です。アメリカ生まれの理志さんは、アメリカ及び日本の企業でソフトウェアエンジニアとして働いていました。日本のソフトウェアに改善の余地があると気づいた理志さんは、自らのソフトウェアを開発し、日本市場に提供したいと考えました。
               </p>
               <p className="text-xl text-gray-600 mt-2 mb-4 lg:mb-8 lg:mt-4">
               日本で生活し働く中で日本語を学んだ理志さんは、日本文化を深く敬愛しています。彼の哲学は「ユーザー・ファースト」で、内部は複雑でも外面は直感的に使えるものを作ることを意味しています。
               </p>
             </div>
             <div className="flex justify-center lg:justify-end w-full lg:w-auto" style={{marginLeft: "50px"}}>
-              {/* make the svg bigger */}
               <img src={svg1} alt="Sainta Illustration" className="w-96" />
             </div>
           </div>
+
 
           <div className="flex flex-col lg:flex-row justify-between items-center bg-white shadow-lg rounded-lg p-8 mt-8" id="h3">
             <div className="flex-1 mb-6 lg:mb-0 text-center lg:text-left">

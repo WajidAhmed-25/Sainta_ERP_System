@@ -289,7 +289,7 @@ export default function Registration() {
         type="submit"
         className="w-full px-4 py-2 mt-4 font-semibold text-black border-[#007AAFF7] border-2 pt-4 pb-4 bg-white rounded-md hover:bg-[#007AAFF7] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#007AAFF7] focus:ring-offset-2"
       >
-        Verify Me
+        登録
       </button>
     </form>
   );

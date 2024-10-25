@@ -3,33 +3,43 @@ import { useTranslation } from 'react-i18next';
 import Logo from '../assets/img/landing/mainlogo.png';
 import LogoSmall from '../assets/img/landing/logosmall.png';
 
-const Dropdown = ({ isOpen, items, setCurrentElement, handleMouseLeave, targetElement }) => (
-  isOpen && (
-    <div
-      className="absolute left-0 mt-2 w-70 bg-white shadow-lg rounded-md border border-gray-200"
-      onMouseLeave={() => {
-        handleMouseLeave();
-      }
-      }
-    >
-      {items.map((item, index) => (
-        <a
-          key={index}
-          href={`#${item.id}`}
-          className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-500 hover:text-white"
-          onClick={() => setCurrentElement(targetElement)}
-        >
-          {item.label}
-        </a>
-      ))}
-    </div>
-  )
-);
+// Use react browser router to navigate to different pages
+import { useNavigate } from 'react-router-dom';
+
+
 
 const Navbar = ({ setCurrentElement }) => {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [hoveredElement, setHoveredElement] = useState("");
   const { t } = useTranslation();
+
+  const Dropdown = ({ isOpen, items, setCurrentElement, handleMouseLeave, targetElement }) => (
+
+    isOpen && (
+      <div
+        className="absolute left-0 mt-2 w-70 bg-white shadow-lg rounded-md border border-gray-200"
+        onMouseLeave={() => {
+          handleMouseLeave();
+        }
+        }
+      >
+        {items.map((item, index) => (
+          <a
+            key={index}
+            href={`#${item.id}`}
+            className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-500 hover:text-white"
+            onClick={() => {
+              setCurrentElement(targetElement);
+              navigate('./');
+            }}
+          >
+            {item.label}
+          </a>
+        ))}
+      </div>
+    )
+  );
 
   const handleMouseEnter = (e) => {
     setHoveredElement(e.target.innerText);
@@ -41,7 +51,6 @@ const Navbar = ({ setCurrentElement }) => {
 
   const dropdownHome = [
     { id: 'h1', label: 'サインタとは？' },
-    { id: 'h2', label: '代表取締役について' },
     { id: 'h3', label: '企業資源計画とは？' },
     { id: 'h4', label: '多機能性と汎用性' },
     { id: 'h5', label: 'ユーザー向け'} ,
@@ -60,6 +69,8 @@ const Navbar = ({ setCurrentElement }) => {
     { id: 'r2', label: '購入前と購入後' },
     { id: 'r3', label: 'サインタ・フォーラム' },
   ];
+
+  // Return to the homepage when any of the navbar items are clicked
 
   return (
     <nav className="bg-white shadow-md">
@@ -122,7 +133,10 @@ const Navbar = ({ setCurrentElement }) => {
             }
             }
           >
-            <a className="px-4 py-2 text-gray-700 hover:text-blue-500 transition-colors duration-300 flex items-center cursor-pointer" onClick={() => setCurrentElement("strengths")}>
+            <a className="px-4 py-2 text-gray-700 hover:text-blue-500 transition-colors duration-300 flex items-center cursor-pointer" onClick={() => {
+              setCurrentElement("strengths");
+              navigate('./');
+            }}>
               <img src={LogoSmall} alt="Logo Small" className="h-7 mr-2" />
               我々の強み
               <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -141,7 +155,10 @@ const Navbar = ({ setCurrentElement }) => {
             }, 2000);
           }}
         >
-          <a className="px-4 py-2 text-gray-700 hover:text-blue-500 transition-colors duration-300 flex items-center cursor-pointer" onClick={() => setCurrentElement("register")}>
+          <a className="px-4 py-2 text-gray-700 hover:text-blue-500 transition-colors duration-300 flex items-center cursor-pointer" onClick={() => {
+            setCurrentElement("register");
+            navigate('./');
+          }}>
             <img src={LogoSmall} alt="Logo Small" className="h-7 mr-2" />
             登録・相談・サポート
             <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -158,7 +175,10 @@ const Navbar = ({ setCurrentElement }) => {
           </div>
         </a>
 
-        <a href="/register" className="px-4 py-2 text-gray-700 hover:text-blue-500 transition-colors duration-300" onClick={() => setCurrentElement("register")}>
+        <a href="/register" className="px-4 py-2 text-gray-700 hover:text-blue-500 transition-colors duration-300" onClick={() => {
+          setCurrentElement("register");
+          navigate('./');
+        }}>
           <div className="flex items-center">
             <img src={LogoSmall} alt="Logo Small" className="h-7 mr-2" />
             登録
