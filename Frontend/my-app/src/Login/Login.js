@@ -19,7 +19,7 @@ import { useAuth } from '../AuthContext';
 export default function Login() {
     const navigate = useNavigate(); 
     
-    const { setIsAuthenticated } = useAuth();
+    // const { setIsAuthenticated } = useAuth();
    
     const [service, setService] = useState('');
     const [businessId, setBusinessId] = useState('');
@@ -81,10 +81,10 @@ export default function Login() {
                 if (matchingUser) {
                     console.log('Data from API:', matchingUser);
                     toast.success('Login successful!');
-                    setIsAuthenticated(true);
 
                     localStorage.setItem('username', matchingUser.name);
                     navigate('/modules');
+                    window.location.reload()
                 } else {
                     toast.error('Invalid credentials. Please check your input.');
                 }
