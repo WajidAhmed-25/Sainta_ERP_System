@@ -53,33 +53,33 @@ export default function Login() {
                     const isUsernameMatch = userData.email === username;
                     const isPasswordMatch = userData.password === hash;
                     const isServiceMatch = userData.selectedService === service;
-                    console.log(`Checking data for user: ${userData.email}`);
+                 //   console.log(`Checking data for user: ${userData.email}`);
                     if (isBusinessIdMatch) {
-                        console.log("Business ID matches.");
+                     //   console.log("Business ID matches.");
                     } else {
-                        console.log(`Business ID does not match. Entered: ${businessId}, Expected: ${userData.business_id}`);
+                     //   console.log(`Business ID does not match. Entered: ${businessId}, Expected: ${userData.business_id}`);
                     }
                     if (isUsernameMatch) {
-                        console.log("Username matches.");
+                    //    console.log("Username matches.");
                     } else {
-                        console.log(`Username does not match. Entered: ${username}, Expected: ${userData.email}`);
+                     //   console.log(`Username does not match. Entered: ${username}, Expected: ${userData.email}`);
                     }
                     if (isPasswordMatch) {
-                        console.log("Password matches.");
-                        console.log("Entered Password Hash:", hash);
-                        console.log("DB Password Hash:", userData.password);
+                     //   console.log("Password matches.");
+                      //  console.log("Entered Password Hash:", hash);
+                       // console.log("DB Password Hash:", userData.password);
                     } else {
-                        console.log(`Password does not match. Entered Hash: ${hash}, Expected Hash: ${userData.password}`);
+                  //      console.log(`Password does not match. Entered Hash: ${hash}, Expected Hash: ${userData.password}`);
                     }
                     if (isServiceMatch) {
-                        console.log("Service matches.");
+                     //   console.log("Service matches.");
                     } else {
-                        console.log(`Service does not match. Entered: ${service}, Expected: ${userData.selectedService}`);
+                    //    console.log(`Service does not match. Entered: ${service}, Expected: ${userData.selectedService}`);
                     }
                     return isBusinessIdMatch && isUsernameMatch && isPasswordMatch && isServiceMatch;
                 });
                 if (matchingUser) {
-                    console.log('Data from API:', matchingUser);
+                //    console.log('Data from API:', matchingUser);
                     toast.success('Login successful!');
 
                     localStorage.setItem('username', matchingUser.name);

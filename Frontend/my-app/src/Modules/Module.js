@@ -109,6 +109,7 @@ import img9 from './g9.png';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Trans_Btn from '../Navbar/Trans_Btn';
+import { useEffect } from 'react';
 
 export default function Module() {
   const navigate = useNavigate();
@@ -117,6 +118,11 @@ export default function Module() {
   const handleNavigation = (route) => {
     navigate(route);
   };
+
+  useEffect(() => {
+
+    window.scrollTo(0, 0);
+  }, []);
 
   const servicesData = [
     { 
