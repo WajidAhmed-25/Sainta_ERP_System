@@ -154,7 +154,7 @@ const Add_Employee = () => {
   useEffect(() => {
     const fetchDepartments = async () => {
       try {
-        const response = await axios.get('https://apisanta.devcir.co/api/departments');
+        const response = await axios.get('http://localhost:8000/api/departments');
         setDepartments(response.data);
       } catch (error) {
         console.error('Error fetching departments:', error);
@@ -223,7 +223,7 @@ const Add_Employee = () => {
 
     try {
       console.log(files)
-      const response = await axios.post('https://apisanta.devcir.co/api/employees', formDataToSend, {
+      const response = await axios.post('http://localhost:8000/api/employees', formDataToSend, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }

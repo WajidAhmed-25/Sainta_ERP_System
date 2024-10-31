@@ -77,7 +77,7 @@ const useCustomerModal = (formFields) => {
       console.log("My Data: ", formDataa); 
       try {
         const response = await axios.post(
-          "https://apisanta.devcir.co/api/customers",
+          "http://localhost:8000/api/customers",
           formDataa
         );
         onAddCustomer(response.data);
@@ -162,7 +162,7 @@ const Customer_Management = () => {
   useEffect(() => {
     const fetchCustomers = async () => {
       try {
-        const response = await axios.get("https://apisanta.devcir.co/api/customers");
+        const response = await axios.get("http://localhost:8000/api/customers");
         setCustomers(response.data);
         if (response.data.length > 0) {
           selectCustomer(response.data[0]);
@@ -209,7 +209,7 @@ const Customer_Management = () => {
         other_information: formData["Other information"],
       };
       await axios.put(
-        `https://apisanta.devcir.co/api/customers/${selectedCustomer.customer_id}`,
+        `http://localhost:8000/api/customers/${selectedCustomer.customer_id}`,
         updatedCustomer
       );
       toast.success("Customer updated successfully");

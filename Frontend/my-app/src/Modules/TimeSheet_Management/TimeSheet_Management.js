@@ -35,7 +35,7 @@
 //       Employee_ID: selectedEmployee.Employee_ID,
 //     };
 //     try {
-//       const response = await axios.post('https://apisanta.devcir.co/api/employees_timesheets', completeFormData);
+//       const response = await axios.post('http://localhost:8000/api/employees_timesheets', completeFormData);
 //       console.log('API Response:', response);
 //       toast.success('Timesheet submitted successfully!');
 //       setTimeout(() => {
@@ -360,7 +360,7 @@
 //   const confirmDelete = async () => {
 //     if (!employeeToDelete) return;
 //     try {
-//       await axios.delete(`https://apisanta.devcir.co/api/employees_timesheets/delete-employee/${employeeToDelete.Employee_ID}`);
+//       await axios.delete(`http://localhost:8000/api/employees_timesheets/delete-employee/${employeeToDelete.Employee_ID}`);
 //       toast.success(`Timesheet for ${employeeToDelete.Employee_Name} deleted successfully!`);
 //       // Remove the deleted employee from the list
 //       setTimesheetEmployees(prev => prev.filter(te => te.employee.Employee_ID !== employeeToDelete.Employee_ID));
@@ -375,7 +375,7 @@
 //   useEffect(() => {
 //     const fetchEmployees = async () => {
 //       try {
-//         const response = await axios.get('https://apisanta.devcir.co/api/employees_timesheets');
+//         const response = await axios.get('http://localhost:8000/api/employees_timesheets');
 //         setTimesheetEmployees(response.data);
 //       } catch (error) {
 //         console.error('Error fetching timesheet employees:', error);
@@ -387,7 +387,7 @@
 //   useEffect(() => {
 //     const fetchAllEmployees = async () => {
 //       try {
-//         const response = await axios.get('https://apisanta.devcir.co/api/employees');
+//         const response = await axios.get('http://localhost:8000/api/employees');
 //         setAllEmployees(response.data);
 //       } catch (error) {
 //         console.error('Error fetching all employees:', error);
@@ -401,7 +401,7 @@
 //     setLoading(true);
 //     setError(null);
 //     try {
-//       const response = await axios.get(`https://apisanta.devcir.co/api/employees_timesheets/employee/${employee.Employee_ID}`);
+//       const response = await axios.get(`http://localhost:8000/api/employees_timesheets/employee/${employee.Employee_ID}`);
 //       console.log("API Response:", response.data);
 //       if (response.data && response.data.length > 0) {
 //         setTimesheetData(response.data[0]);
@@ -423,7 +423,7 @@
 //       return;
 //     }
 //     try {
-//       await axios.put(`https://apisanta.devcir.co/api/employees_timesheets/${updatedData.TimeSheet_ID}`, updatedData);
+//       await axios.put(`http://localhost:8000/api/employees_timesheets/${updatedData.TimeSheet_ID}`, updatedData);
 //       toast.success('Timesheet updated successfully!');
 //       // Refresh the employee list or update the local state as needed
 //     } catch (error) {
@@ -586,7 +586,7 @@ const EmployeeModal = ({ isOpen, onClose, employees }) => {
       Employee_ID: selectedEmployee.Employee_ID,
     };
     try {
-      const response = await axios.post('https://apisanta.devcir.co/api/employees_timesheets', completeFormData);
+      const response = await axios.post('http://localhost:8000/api/employees_timesheets', completeFormData);
       console.log('API Response:', response);
       toast.success('Timesheet submitted successfully!');
       setTimeout(() => {
@@ -929,7 +929,7 @@ const openAddTimesheetModal = (employee) => {
       console.log("Submitting Data:", dataToSend); 
 
       try {
-        const response = await axios.post('https://apisanta.devcir.co/api/attendance', dataToSend);
+        const response = await axios.post('http://localhost:8000/api/attendance', dataToSend);
   
         toast.success("Timesheet submitted successfully!", {
           position: "top-right",
@@ -1107,7 +1107,7 @@ const openAddTimesheetModal = (employee) => {
   const confirmDelete = async () => {
     if (!employeeToDelete) return;
     try {
-      await axios.delete(`https://apisanta.devcir.co/api/employees_timesheets/delete-employee/${employeeToDelete.Employee_ID}`);
+      await axios.delete(`http://localhost:8000/api/employees_timesheets/delete-employee/${employeeToDelete.Employee_ID}`);
       toast.success(`Timesheet for ${employeeToDelete.Employee_Name} deleted successfully!`);
       // Remove the deleted employee from the list
       setTimesheetEmployees(prev => prev.filter(te => te.employee.Employee_ID !== employeeToDelete.Employee_ID));
@@ -1122,7 +1122,7 @@ const openAddTimesheetModal = (employee) => {
   useEffect(() => {
     const fetchEmployees = async () => {
       try {
-        const response = await axios.get('https://apisanta.devcir.co/api/employees_timesheets');
+        const response = await axios.get('http://localhost:8000/api/employees_timesheets');
         setTimesheetEmployees(response.data);
       } catch (error) {
         console.error('Error fetching timesheet employees:', error);
@@ -1134,7 +1134,7 @@ const openAddTimesheetModal = (employee) => {
   useEffect(() => {
     const fetchAllEmployees = async () => {
       try {
-        const response = await axios.get('https://apisanta.devcir.co/api/employees');
+        const response = await axios.get('http://localhost:8000/api/employees');
         setAllEmployees(response.data);
       } catch (error) {
         console.error('Error fetching all employees:', error);
@@ -1148,7 +1148,7 @@ const openAddTimesheetModal = (employee) => {
     setLoading(true);
     setError(null);
     try {
-      const response = await axios.get(`https://apisanta.devcir.co/api/employees_timesheets/employee/${employee.Employee_ID}`);
+      const response = await axios.get(`http://localhost:8000/api/employees_timesheets/employee/${employee.Employee_ID}`);
       console.log("API Response:", response.data);
       if (response.data && response.data.length > 0) {
         setTimesheetData(response.data[0]);
@@ -1170,7 +1170,7 @@ const openAddTimesheetModal = (employee) => {
       return;
     }
     try {
-      await axios.put(`https://apisanta.devcir.co/api/employees_timesheets/${updatedData.TimeSheet_ID}`, updatedData);
+      await axios.put(`http://localhost:8000/api/employees_timesheets/${updatedData.TimeSheet_ID}`, updatedData);
       toast.success('Timesheet updated successfully!');
       // Refresh the employee list or update the local state as needed
     } catch (error) {

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 18, 2024 at 11:15 PM
+-- Generation Time: Oct 30, 2024 at 08:49 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `sainta_erp_system`
 --
-CREATE DATABASE IF NOT EXISTS `sainta_erp_system` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `sainta_erp_system`;
 
 -- --------------------------------------------------------
 
@@ -49,7 +47,8 @@ CREATE TABLE `admin_info` (
 --
 
 INSERT INTO `admin_info` (`id`, `name`, `email`, `contact`, `password`, `selectedService`, `period`, `contactEmail`, `Bussiness_ID`, `created_at`, `updated_at`, `business_id`) VALUES
-(1, 'Wajid Ahmed', 'wajidsaleem693@gmail.com', '03103506305', '7520c3a63aef2728b7ce90cd400d1057a8e5dcec37ab52f722ba614e9d3662e8', 'Business', 'Weekly Contract', 'wajidsaleem693@gmail.com', NULL, '2024-09-28 17:07:57', '2024-09-28 17:07:57', 430303);
+(1, 'Wajid Ahmed', 'wajidsaleem693@gmail.com', '03103506305', '7520c3a63aef2728b7ce90cd400d1057a8e5dcec37ab52f722ba614e9d3662e8', 'Business', 'Weekly Contract', 'wajidsaleem693@gmail.com', NULL, '2024-09-28 17:07:57', '2024-09-28 17:07:57', 430303),
+(2, 'Wajid Ahmed', 'ahsanzafar300@gmail.com', '0434234312', '7520c3a63aef2728b7ce90cd400d1057a8e5dcec37ab52f722ba614e9d3662e8', 'Lab', 'Yearly Contract', 'wajidsaleem693@gmail.com', NULL, '2024-10-21 12:49:45', '2024-10-21 12:49:45', 425573);
 
 -- --------------------------------------------------------
 
@@ -281,7 +280,8 @@ CREATE TABLE `otps` (
 --
 
 INSERT INTO `otps` (`id`, `email`, `otp`, `created_at`, `updated_at`) VALUES
-(4, 'wajidsaleem693@gmail.com', '883234', '2024-09-28 17:07:28', '2024-09-28 17:07:28');
+(4, 'wajidsaleem693@gmail.com', '883234', '2024-09-28 17:07:28', '2024-09-28 17:07:28'),
+(5, 'ahsanzafar300@gmail.com', '754860', '2024-10-21 12:48:14', '2024-10-21 12:48:14');
 
 -- --------------------------------------------------------
 
@@ -375,7 +375,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `admin_info`
 --
 ALTER TABLE `admin_info`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `customer_management`
@@ -417,7 +417,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `otps`
 --
 ALTER TABLE `otps`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
