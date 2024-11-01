@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+
+    <link rel="stylesheet" href="my_styles.css">
+    
+    <!-- Link to Font Awesome for the Globe Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <title>Sainta ERP</title>
+    
+    <style>
+
+      #google_translate_element .skiptranslate,
+      .goog-te-gadget-icon {
+        display: none;
+      }
+      #google_translate_element select {
+        display: none;
+      }
+
+      /* Styling for the custom language button */
+      #custom-language-btn {
+        cursor: pointer;
+        font-size: 34px;
+        color: #333;
+        position: absolute; /* Positioning if needed */
+        top: 90px; /* Adjust as necessary */
+        right: 37px; /* Adjust as necessary */
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+
+    <!-- Google Translate Element (Hidden) -->
+    <!-- <div id="google_translate_element"></div> -->
+
+    <!-- Custom Language Button with Globe Icon -->
+    <!-- <div id="custom-language-btn" onclick="toggleLanguage()">
+      <i class="fas fa-globe"></i>
+    </div> -->
+
+    <!-- Google Translate Script -->
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+      }
+
+      function toggleLanguage() {
+        // Get the select element created by Google Translate
+        const select = document.querySelector("#google_translate_element select");
+        
+        if (select) {
+          // Toggle between English ('en') and Japanese ('ja') based on the current selection
+          select.value = select.value === 'en' ? 'ja' : 'en';
+          select.dispatchEvent(new Event('change')); // Trigger the change event
+        }
+      }
+    </script>
+
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

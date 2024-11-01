@@ -92,57 +92,207 @@ class AdminInfoController extends Controller
     }
     
 
-    public function sendUserDetails(Request $request)
-    {
-        $validator = Validator::make($request->all(), [
-            'email' => 'required|email',
-            'password' => 'required',
-            'businessId' => 'required|integer',
-        ]);
+//     public function sendUserDetails(Request $request)
+//     {
+//         $validator = Validator::make($request->all(), [
+//             'email' => 'required|email',
+//             'password' => 'required',
+//             'businessId' => 'required|integer',
+//             'name' => 'required'
+//         ]);
 
-        if ($validator->fails()) {
-            return response()->json(['message' => 'Invalid data', 'errors' => $validator->errors()], 400);
-        }
+//         if ($validator->fails()) {
+//             return response()->json(['message' => 'Invalid data', 'errors' => $validator->errors()], 400);
+//         }
 
-        $email = $request->email;
-        $password = $request->password;
-        $businessId = $request->businessId;
+//         $email = $request->email;
+//         $password = $request->password;
+//         $businessId = $request->businessId;
+//         $name=$request->name;
 
-        // Create HTML content for the email
-        $htmlContent = "
-        <html>
-        <head>
-            <title>Sainta Account Details</title>
-        </head>
-        <body>
-            <h1>Welcome to Sainta !</h1>
-            <br/>
-            <p>Here are your account details:</p>
-            <ul>
-                <li><b>Email:</b> {$email}</li>
-                <li><b>Password:</b> {$password}</li>
-                <li><b>Business ID:</b> {$businessId}</li>
-                <br/>
-                <li><b>Login URL:</b>  <a>http://localhost:3000/login</a> </li>
-            </ul>
-            <p><b>Note:</b> Please keep this information safe and secure. We recommend changing your password after your first login.</p>
-        </body>
-        </html>
-        ";
+//         // Create HTML content for the email
+      
 
-        try {
-            // Send email with user details
-            Mail::html($htmlContent, function ($message) use ($email) {
-                $message->to($email)
-                    ->subject('Sainta Account Details');
-            });
+//         $htmlContent = "
+// <html>
+// <head>
+//     <title>サインタ アカウント情報</title>
+//     <meta charset='utf-8'>
+//     <style>
+//         body {
+//             font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+//             line-height: 1.6;
+//             color: #333333;
+//         }
+//         .logo {
+//             text-align: right;
+//             margin-bottom: 20px;
+//         }
+//         .header {
+//             font-size: 24px;
+//             border-bottom: 1px solid #0066cc;
+//             padding-bottom: 10px;
+//             margin-bottom: 20px;
+//         }
+//         .content {
+//             margin: 20px 0;
+//         }
+//         .account-info {
+//             margin: 20px 0;
+//         }
+//         .note {
+//             margin-top: 30px;
+//             font-size: 14px;
+//         }
+//         .footer {
+//             margin-top: 40px;
+//             border-top: 1px solid #cccccc;
+//             padding-top: 20px;
+//         }
+//     </style>
+// </head>
+// <body>
+//     <div class='logo'>サインタ</div>
+    
+//     <div class='header'>登録完了のお知らせ</div>
+    
+//     <div class='content'>
+//         {$name}様、
+//         <p>サインタ・業務へのご登録を有難う御座います。サインタ・業務のアカウント情報は以下の通りです。</p>
+        
+//         <div class='account-info'>
+//             <p>・ビジネスID: {$businessId}</p>
+//             <p>・ユーザー名: {$email}</p>
+//             <p>・パスワード: {$password}</p>
+//         </div>
+        
+//         <p>サインタのご利用を有難う御座います。何かご不明点があれば、お気軽にお問い合わせください。</p>
+//     </div>
+    
+//     <div class='footer'>
+//         <h3>アカウント情報の変更</h3>
+//         <p>ご登録いただいたアカウント情報は、ビジネスIDを除いて変更可能です。ビジネスIDは、企業のデータを当社のサーバーにリンクするために使用されるため、一定でなければなりません。ユーザー名やパスワードはいつでも変更できます。</p>
+//     </div>
+// </body>
+// </html>
+// ";
 
-            return response()->json(['message' => 'User details sent to email']);
-        } catch (\Exception $e) {
-            \Log::error('Failed to send email: ' . $e->getMessage());
-            return response()->json(['message' => 'Failed to send email'], 500);
-        }
+
+//         try {
+//             // Send email with user details
+//             Mail::html($htmlContent, function ($message) use ($email) {
+//                 $message->to($email)
+//                     ->subject('Sainta Account Details');
+//             });
+
+//             return response()->json(['message' => 'User details sent to email']);
+//         } catch (\Exception $e) {
+//             \Log::error('Failed to send email: ' . $e->getMessage());
+//             return response()->json(['message' => 'Failed to send email'], 500);
+//         }
+//     }
+
+
+
+
+public function sendUserDetails(Request $request)
+{
+    $validator = Validator::make($request->all(), [
+        'email' => 'required|email',
+        'password' => 'required',
+        'businessId' => 'required|integer',
+        'name' => 'required|string|max:255', 
+    ]);
+
+    if ($validator->fails()) {
+        return response()->json(['message' => 'Invalid data', 'errors' => $validator->errors()], 400);
     }
+
+    $email = $request->input('email');
+    $password = $request->input('password');
+    $businessId = $request->input('businessId');
+    $name = $request->input('name');
+
+ 
+    $htmlContent = "
+    <html>
+    <head>
+        <title>サインタ アカウント情報</title>
+        <meta charset='utf-8'>
+        <style>
+            body {
+                font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+                line-height: 1.6;
+                color: #333333;
+            }
+            .logo {
+                text-align: right;
+                margin-bottom: 20px;
+            }
+            .header {
+                font-size: 24px;
+                border-bottom: 1px solid #0066cc;
+                padding-bottom: 10px;
+                margin-bottom: 20px;
+            }
+            .content {
+                margin: 20px 0;
+            }
+            .account-info {
+                margin: 20px 0;
+            }
+            .note {
+                margin-top: 30px;
+                font-size: 14px;
+            }
+            .footer {
+                margin-top: 40px;
+                border-top: 1px solid #cccccc;
+                padding-top: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class='logo'>サインタ</div>
+        
+        <div class='header'>登録完了のお知らせ</div>
+        
+        <div class='content'>
+            {$name}様、
+            <p>サインタ・ビジネスへのご登録を有難う御座います。サインタ・ビジネスのアカウント情報は以下の通りです。</p>
+            
+            <div class='account-info'>
+                <p>・ビジネスID: {$businessId}</p>
+                <p>・ユーザー名: {$email}</p>
+                <p>・パスワード: {$password}</p>
+            </div>
+            
+            <p>サインタのご利用を有難う御座います。何かご不明点があれば、お気軽にお問い合わせください。</p>
+        </div>
+        
+        <div class='footer'>
+            <h3>アカウント情報の変更</h3>
+            <p>ご登録いただいたアカウント情報は、ビジネスIDを除いて変更可能です。ビジネスIDは、企業のデータを当社のサーバーにリンクするために使用されるため、一定でなければなりません。ユーザー名やパスワードはいつでも変更できます。</p>
+        </div>
+    </body>
+    </html>
+    
+"; 
+
+
+    
+    try {
+        Mail::html($htmlContent, function ($message) use ($email) {
+            $message->to($email)
+                ->subject('Sainta Account Details');
+        });
+
+        return response()->json(['message' => 'User details sent to email']);
+    } catch (\Exception $e) {
+        \Log::error('Failed to send email: ' . $e->getMessage());
+        return response()->json(['message' => 'Failed to send email'], 500);
+    }
+}
 
 
 

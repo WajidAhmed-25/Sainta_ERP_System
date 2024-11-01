@@ -36,38 +36,102 @@ class EmployeeController extends Controller
 
 
 
+    // public function store(Request $request)
+    // {
+    //     // $employee = Employee::create($request->all());
+    //     $requestss=$request->all();
+
+    //     $username = $request->input('Username');
+    //     $basePath = "employees/{$username}";
+
+    //     $filePaths = [];
+
+    //     // Define the file types and their corresponding folder names
+    //     $fileTypes = [
+    //         'Employment_Contract' => 'employment_contract',
+    //         'Personal_Information' => 'personal_information',
+    //         'Resume' => 'resume'
+    //     ];
+
+    //     foreach ($fileTypes as $fileKey => $folderName) {
+    //         if ($request->hasFile($fileKey)) {
+    //             $file = $request->file($fileKey);
+    //             $filePaths[$fileKey] = $this->storeFile($file, "{$basePath}/{$folderName}");
+    //         }
+    //     }
+    //     $requestss["Employment_Contract"]=$filePaths['Employment_Contract'];
+    //     $requestss["Personal_Information"]=$filePaths['Personal_Information'];
+    //     $requestss["Resume"]=$filePaths['Resume'];
+    //     Employee::create($requestss);
+    //     return response()->json([
+    //         'message' => 'Employee added successfully',
+    //         'filePaths' => $filePaths
+    //     ]);
+    // }
+
+
+
+
+
+
     public function store(Request $request)
-    {
-        // $employee = Employee::create($request->all());
-        $requestss=$request->all();
+{
+    // $employee = Employee::create($request->all());
+    $requestss = $request->all();
 
-        $username = $request->input('Username');
-        $basePath = "employees/{$username}";
+    $username = $request->input('Username');
+    $basePath = "employees/{$username}";
 
-        $filePaths = [];
+    // Define the file paths with default null values
+    $filePaths = [
+        'Employment_Contract' => null,
+        'Personal_Information' => null,
+        'Resume' => null
+    ];
 
-        // Define the file types and their corresponding folder names
-        $fileTypes = [
-            'Employment_Contract' => 'employment_contract',
-            'Personal_Information' => 'personal_information',
-            'Resume' => 'resume'
-        ];
+    // Define the file types and their corresponding folder names
+    $fileTypes = [
+        'Employment_Contract' => 'employment_contract',
+        'Personal_Information' => 'personal_information',
+        'Resume' => 'resume'
+    ];
 
-        foreach ($fileTypes as $fileKey => $folderName) {
-            if ($request->hasFile($fileKey)) {
-                $file = $request->file($fileKey);
-                $filePaths[$fileKey] = $this->storeFile($file, "{$basePath}/{$folderName}");
-            }
+    foreach ($fileTypes as $fileKey => $folderName) {
+        if ($request->hasFile($fileKey)) {
+            $file = $request->file($fileKey);
+            $filePaths[$fileKey] = $this->storeFile($file, "{$basePath}/{$folderName}");
         }
-        $requestss["Employment_Contract"]=$filePaths['Employment_Contract'];
-        $requestss["Personal_Information"]=$filePaths['Personal_Information'];
-        $requestss["Resume"]=$filePaths['Resume'];
-        Employee::create($requestss);
-        return response()->json([
-            'message' => 'Employee added successfully',
-            'filePaths' => $filePaths
-        ]);
     }
+
+    // Add file paths to the request data, ensuring null for missing files
+    $requestss["Employment_Contract"] = $filePaths['Employment_Contract'];
+    $requestss["Personal_Information"] = $filePaths['Personal_Information'];
+    $requestss["Resume"] = $filePaths['Resume'];
+
+    Employee::create($requestss);
+
+    return response()->json([
+        'message' => 'Employee added successfully',
+        'filePaths' => $filePaths
+    ]);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     // private function storeFile($file, $directory)
     // {

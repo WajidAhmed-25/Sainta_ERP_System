@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 30, 2024 at 08:49 PM
+-- Generation Time: Nov 01, 2024 at 07:13 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -47,8 +47,8 @@ CREATE TABLE `admin_info` (
 --
 
 INSERT INTO `admin_info` (`id`, `name`, `email`, `contact`, `password`, `selectedService`, `period`, `contactEmail`, `Bussiness_ID`, `created_at`, `updated_at`, `business_id`) VALUES
-(1, 'Wajid Ahmed', 'wajidsaleem693@gmail.com', '03103506305', '7520c3a63aef2728b7ce90cd400d1057a8e5dcec37ab52f722ba614e9d3662e8', 'Business', 'Weekly Contract', 'wajidsaleem693@gmail.com', NULL, '2024-09-28 17:07:57', '2024-09-28 17:07:57', 430303),
-(2, 'Wajid Ahmed', 'ahsanzafar300@gmail.com', '0434234312', '7520c3a63aef2728b7ce90cd400d1057a8e5dcec37ab52f722ba614e9d3662e8', 'Lab', 'Yearly Contract', 'wajidsaleem693@gmail.com', NULL, '2024-10-21 12:49:45', '2024-10-21 12:49:45', 425573);
+(2, 'Wajid Ahmed', 'ahsanzafar300@gmail.com', '0434234312', '7520c3a63aef2728b7ce90cd400d1057a8e5dcec37ab52f722ba614e9d3662e8', 'Lab', 'Yearly Contract', 'wajidsaleem693@gmail.com', NULL, '2024-10-21 12:49:45', '2024-10-21 12:49:45', 425573),
+(3, 'Wajid', 'wajidsaleem693@gmail.com', '23231', '7520c3a63aef2728b7ce90cd400d1057a8e5dcec37ab52f722ba614e9d3662e8', 'Business', 'Weekly Contract', 'wajidsaleem693@gmail.com', NULL, '2024-10-30 15:55:28', '2024-10-30 15:55:28', 193716);
 
 -- --------------------------------------------------------
 
@@ -86,9 +86,7 @@ CREATE TABLE `customer_management` (
 --
 
 INSERT INTO `customer_management` (`Customer_ID`, `Customer_name`, `Furigana`, `Telephone_number`, `Email_address`, `Address`, `Company_name`, `Post`, `First_meeting_date`, `Last_contact_date`, `Next_contact_date`, `Date_of_birth`, `Preferred_language`, `Preferred_Contact_method`, `Support`, `Supporting_details`, `Satisfaction`, `Encounter`, `I_learnt`, `Note`, `created_at`, `updated_at`) VALUES
-(5, 'Muhammad Faraz', 'ジョン・ドウ', 3103506305, 'wajidsaleem693@gmail.com', 'House # L 307/1 Bufferzone, Karachi', 'Devcir Co', 'Full Stack Developer', '2024-10-21', '2024-10-18', '2024-10-22', '2024-10-25', 'English', 'Email', '31', 'Starters', 10, 'Qyaud', 'Mathematics', 'Note Noos', '2024-10-09 15:23:08', '2024-10-17 13:11:34'),
-(6, 'Wajid', 'ジョン・ドウ', 3103506305, 'wajidsaleem693@gmail.com', 'House # L 307/1 Bufferzone, Karachi', 'Devcir Co', 'Full Stack Developer', '2024-10-18', '2024-10-31', '2024-10-22', '2024-10-18', 'English', 'Email', 'Wajid Ahmed', 'Starter', 8, 'Qyaud', 'Mathematics', 'Waiting for Notes', '2024-10-16 16:38:13', '2024-10-17 12:58:42'),
-(7, 'Marium', 'Azhars', 3103506305, 'wajidsaleem693@gmail.com', 'House # L 307/1 Bufferzone, Karachi', 'Devcir Co', 'Full Stack Developer', '2024-10-22', '2024-10-18', '2024-10-25', '2024-10-29', 'English', 'Email', 'Wajid Ahmed', 'Starter', 6, 'Qyaud', 'Mathematics', 'Note No', '2024-10-16 16:39:37', '2024-10-17 13:32:38');
+(9, 'Wajids', 'ジョン・ドウ', 3103506305, 'wajidsaleem693@gmail.com', 'House # L 307/1 Bufferzone, Karachi', 'Devcir Co', 'Full Stack Developer', '2024-10-28', '2024-10-25', '2024-10-23', '2024-10-22', 'English', 'Email', 'Wajid Ahmed', 'Starters', 7, 'Wajid', 'Mathematics', 'Waiting for Notes', '2024-10-31 12:52:37', '2024-10-31 15:04:46');
 
 -- --------------------------------------------------------
 
@@ -109,7 +107,7 @@ CREATE TABLE `departments` (
 --
 
 INSERT INTO `departments` (`Department_ID`, `Department_Name`, `Department_Description`, `created_at`, `updated_at`) VALUES
-(18, 'SQA Department', 'Here we test the Systems', '2024-10-02 16:05:50', '2024-10-16 16:58:19'),
+(18, 'SQA Department', 'Here we test the Systems', '2024-10-02 16:05:50', '2024-10-31 15:05:03'),
 (22, 'Marketings', 'This is Marketing', '2024-10-09 14:40:55', '2024-10-09 14:41:02'),
 (23, 'Software Development', 'Where Ideas meet technology', '2024-10-16 15:03:44', '2024-10-16 15:03:44'),
 (24, 'HR Departments', 'This is HR resource Planning', '2024-10-16 15:04:13', '2024-10-16 16:30:05');
@@ -164,10 +162,11 @@ CREATE TABLE `employees` (
 --
 
 INSERT INTO `employees` (`Employee_ID`, `Department_ID`, `Employee_Name`, `Furigana`, `Gender`, `Nationality`, `Date_Of_Birth`, `Telephone_Number`, `Email_Address`, `Address`, `Deploy`, `Employment_Status`, `Post`, `Hiring_Date`, `Payroll_Interval`, `Payday`, `Salary`, `Deduction_rate`, `Total_Deduction_Amount`, `Health_Insurance_Number`, `Employee_Pension_Insurance_Number`, `Employment_Insurance_Number`, `Working_Days_Count`, `Absent_Days_Count`, `Absence_History`, `Performance_Evaluation`, `Last_Meeting_Date`, `Other_Notes`, `Employment_Contract`, `Personal_Information`, `Resume`, `Username`, `Password`, `Authority`, `created_at`, `updated_at`) VALUES
-(19, 18, 'Wajid Ahmeds', 'ジョン・ドウ', 'Male', 'American', '2024-10-23', 3103506305, 'wajidahmed907@gmail.com', 'House # L 307/1 Bufferzone, Karachi', '20', 'Full-Time Contract', 'Full Stack Developer', '2024-10-22', 'Weekly', 'Wednesday', 54000, 12.00, 6480, 423423423423, 3242342342332, 3423423432434, 42, 12, 'Medical Leave', 4, '2024-10-25', 'This is a Note', 'employees/WajidAhmed/employment_contract/BJryovlINOsKXIIs58YDpIrsLIbrgeRA2xHE4QQb.jpg', 'employees/WajidAhmed/personal_information/I7XcU3oBaDhwY3C1eg1d8Rh50apy3TsmcrmpBqnu.jpg', 'employees/WajidAhmed/resume/L6ERLh57rWnSwUbSfsiwJNuOFaoufyyEJubjgkli.pdf', 'WajidAhmed', 'WAJID12345', 'Administrator', '2024-10-16 14:33:09', '2024-10-17 12:38:14'),
-(20, 22, 'Bilal Hashmi', 'ジョン・ドウ', 'Female', 'American', '2024-10-19', 3103506305, 'wajidahmed907@gmail.com', 'House # L 307/1 Bufferzone, Karachi', '0', 'Part-Time Contract', 'Full Stack Developer', '2024-10-25', 'Weekly', 'Wednesday', 54000, 20.00, 6480, 34324234324234, 3424234234234, 893243983298, 42, 12, 'Medical leave', 4, '2024-10-30', 'This is me', 'employees/BilalHashmi/employment_contract/Noj2fNJkTM8oQDTIxKLcxk1T9b0lA0SidpIauGJd.jpg', 'employees/BilalHashmi/personal_information/xzxaX2y2SX6T9KgwHRYj1pGThpM3rb8MWkaoUtBr.jpg', 'employees/BilalHashmi/resume/VZ3UV4g265GkgjTu1W3bVI8Vsl6eVOH0nWUfCEca.jpg', 'BilalHashmi', 'BILAL12345', 'User', '2024-10-16 14:34:39', '2024-10-16 16:24:07'),
+(19, 18, 'Wajid Arain', 'ジョン・ドウ', 'Male', 'American', '2024-10-23', 3103506305, 'wajidahmed907@gmail.com', 'House # L 307/1 Bufferzone, Karachi', '20', 'Full-Time Contract', 'Full Stack Developer', '2024-10-22', 'Weekly', 'Wednesday', 54000, 12.00, 6480, 423423423423, 3242342342332, 3423423432434, 42, 12, 'Medical Leave', 4, '2024-10-25', 'This is a Note', 'employees/WajidAhmed/employment_contract/BJryovlINOsKXIIs58YDpIrsLIbrgeRA2xHE4QQb.jpg', 'employees/WajidAhmed/personal_information/I7XcU3oBaDhwY3C1eg1d8Rh50apy3TsmcrmpBqnu.jpg', 'employees/WajidAhmed/resume/L6ERLh57rWnSwUbSfsiwJNuOFaoufyyEJubjgkli.pdf', 'WajidAhmed', 'WAJID12345', 'Administrator', '2024-10-16 14:33:09', '2024-10-31 15:06:43'),
+(20, 23, 'Bilal Hashmi', 'ジョン・ドウ', 'Female', 'American', '2024-10-19', 3103506303, 'wajidahmed907@gmail.com', 'House # L 307/1 Bufferzone, Karachi', '0', 'Part-Time Contract', 'Full Stack Developer', '2024-10-25', 'Weekly', 'Wednesday', 54000, 20.00, 6480, 34324234324234, 3424234234234, 893243983298, 42, 12, 'Medical leave', 4, '2024-10-30', 'This is me', 'employees/BilalHashmi/employment_contract/Noj2fNJkTM8oQDTIxKLcxk1T9b0lA0SidpIauGJd.jpg', 'employees/BilalHashmi/personal_information/xzxaX2y2SX6T9KgwHRYj1pGThpM3rb8MWkaoUtBr.jpg', 'employees/BilalHashmi/resume/VZ3UV4g265GkgjTu1W3bVI8Vsl6eVOH0nWUfCEca.jpg', 'BilalHashmi', 'BILAL12345', 'User', '2024-10-16 14:34:39', '2024-10-30 15:22:03'),
 (21, 23, 'John Doe', 'ジョン・ドウ', 'Male', 'American', '2024-10-18', 3103506305, 'wajidahmed907@gmail.com', 'House # L 307/1 Bufferzone, Karachi', '0', 'Part-Time Contract', 'Full Stack Developer', '2024-10-18', 'Weekly', 'Wednesday', 56000, 13.00, 6720, 343242342344442, 454543535345345, 3253453453534543, 64, 23, 'Sick Leave', 3, '2024-10-25', 'This is me', 'employees/JohnDoe/employment_contract/XbRgad40CWBWTptMvBpt1DXutfRb231nQeWioUgD.jpg', 'employees/JohnDoe/personal_information/vNbYRElkUUjGTUTHIXvmmP5Rs7IGC1AXYzfnmV69.jpg', 'employees/JohnDoe/resume/pN710pD9EFHaZsKyR8qOJofujx1x5jXqTOFmjTN8.jpg', 'JohnDoe', 'JOH12345', 'User', '2024-10-16 15:05:54', '2024-10-16 16:24:01'),
-(22, 24, 'Marium Azhars', 'ジョン・ドウ', 'Female', 'American', '2024-10-19', 3103506305, 'wajidahmed907@gmail.com', 'House # L 307/1 Bufferzone, Karachi', '0', 'Full-Time Contract', 'Full Stack Developer', '2024-10-18', 'Weekly', 'Tuesday', 54000, 24.00, 12960, 545345345345, 3253254534, 4334534544, 39, 12, 'Medical', 7, '2024-10-19', 'Nioyre', 'employees/MariumAzhar/employment_contract/SlgQ2SWnxgvNHMCU43cPyHKFj9NoINwPTesse1pI.jpg', 'employees/MariumAzhar/personal_information/gXtcFyg1ZLpyR6wHiRiGk87nardxEWffClqaQnXW.jpg', 'employees/MariumAzhar/resume/zmE6J3kVyHvI3LaLNMNCixj6lU7JrcMFWjJHjGqb.txt', 'MariumAzhar', 'Marium12345', 'Moderator', '2024-10-16 15:10:27', '2024-10-16 15:11:00');
+(22, 24, 'Marium Azhars', 'ジョン・ドウ', 'Female', 'American', '2024-10-19', 3103506305, 'wajidahmed907@gmail.com', 'House # L 307/1 Bufferzone, Karachi', '0', 'Full-Time Contract', 'Full Stack Developer', '2024-10-18', 'Weekly', 'Tuesday', 54000, 24.00, 12960, 545345345345, 3253254534, 4334534544, 39, 12, 'Medical', 7, '2024-10-19', 'Nioyre', 'employees/MariumAzhar/employment_contract/SlgQ2SWnxgvNHMCU43cPyHKFj9NoINwPTesse1pI.jpg', 'employees/MariumAzhar/personal_information/gXtcFyg1ZLpyR6wHiRiGk87nardxEWffClqaQnXW.jpg', 'employees/MariumAzhar/resume/zmE6J3kVyHvI3LaLNMNCixj6lU7JrcMFWjJHjGqb.txt', 'MariumAzhar', 'Marium12345', 'Moderator', '2024-10-16 15:10:27', '2024-10-16 15:11:00'),
+(23, 18, 'John Does', 'ジョン・ドウ', 'Male', 'American', '2024-11-20', 3103506305, 'wajidahmed907@gmail.coms', 'House # L 307/1 Bufferzone, Karachi', '0', 'Full-Time Contract', 'Full Stack Developer', '2024-11-11', 'Weekly', 'Friday', 775242, 1.00, 7752, 432423423424, 5345435345435, 543534534543543, 32, 13, 'Medical', 4, '2024-11-11', 'Hi', 'employees/JohnDoe/employment_contract/7xUQIlA59HPdy1rQg6Uvzb7VDO7O7pqoNnLOqqMf.txt', 'employees/JohnDoe/personal_information/0r0y7nNou1RctPglvrwHIUOM8jI867sZ3MnATdO6.txt', 'employees/JohnDoe/resume/YCMpog51Bxy1vBsSgfQmo8Rpt5CfM6rAorM7YWCD.pdf', 'JohnDoe', 'JOHN12345', 'Administrator', '2024-10-31 15:08:43', '2024-10-31 15:08:43');
 
 -- --------------------------------------------------------
 
@@ -198,7 +197,8 @@ INSERT INTO `employees_daily_attendance` (`id`, `employee_id`, `todays_joining_t
 (13, 21, '16:34:00', '18:36:00', 0.00, '2024-10-17', '2024-10-16 16:32:26', '2024-10-16 16:32:26'),
 (14, 20, '16:58:00', '19:00:00', 1.00, '2024-10-16', '2024-10-16 16:55:36', '2024-10-16 16:55:36'),
 (15, 19, '12:11:00', '15:14:00', 1.00, '2024-10-22', '2024-10-17 13:09:59', '2024-10-17 13:09:59'),
-(16, 22, '23:28:00', '14:30:00', 1.00, '2024-10-18', '2024-10-17 13:29:05', '2024-10-17 13:29:05');
+(16, 22, '23:28:00', '14:30:00', 1.00, '2024-10-18', '2024-10-17 13:29:05', '2024-10-17 13:29:05'),
+(17, 20, '15:13:00', '03:12:00', 1.00, '2024-10-31', '2024-10-31 15:09:54', '2024-10-31 15:09:54');
 
 -- --------------------------------------------------------
 
@@ -225,10 +225,10 @@ CREATE TABLE `employees_timesheet` (
 --
 
 INSERT INTO `employees_timesheet` (`TimeSheet_ID`, `Employee_ID`, `Number_of_Working_Days`, `Number_of_Days_Absent`, `Reason_for_Absence`, `start_time`, `end_time`, `Week`, `timesheets_created`, `created_at`, `updated_at`) VALUES
-(14, 21, 53, 13, 'Yes', NULL, NULL, '2024-10-16', '2024-10-17', '2024-10-16 16:15:44', '2024-10-16 16:15:44'),
-(16, 19, 64, 3, 'Accident', NULL, NULL, '2024-10-16', '2024-10-17', '2024-10-16 16:31:47', '2024-10-17 12:36:14'),
+(16, 19, 64, 11, 'Accident', NULL, NULL, '2024-10-16', '2024-10-17', '2024-10-16 16:31:47', '2024-10-31 15:10:17'),
 (17, 20, 54, 12, 'Medical Leave', NULL, NULL, '2024-10-16', '2024-10-17', '2024-10-16 16:55:18', '2024-10-17 12:35:36'),
-(19, 22, 23, 4, 'no', NULL, NULL, '2024-10-17', '2024-10-17', '2024-10-17 13:28:36', '2024-10-17 13:28:36');
+(19, 22, 23, 4, 'no', NULL, NULL, '2024-10-17', '2024-10-17', '2024-10-17 13:28:36', '2024-10-17 13:28:36'),
+(20, 23, 42, 12, 'Medical', NULL, NULL, '2024-10-31', '2024-11-01', '2024-10-31 15:10:32', '2024-10-31 15:10:32');
 
 -- --------------------------------------------------------
 
@@ -281,7 +281,10 @@ CREATE TABLE `otps` (
 
 INSERT INTO `otps` (`id`, `email`, `otp`, `created_at`, `updated_at`) VALUES
 (4, 'wajidsaleem693@gmail.com', '883234', '2024-09-28 17:07:28', '2024-09-28 17:07:28'),
-(5, 'ahsanzafar300@gmail.com', '754860', '2024-10-21 12:48:14', '2024-10-21 12:48:14');
+(5, 'ahsanzafar300@gmail.com', '754860', '2024-10-21 12:48:14', '2024-10-21 12:48:14'),
+(6, 'wajidsaleem693@gmail.com', '389886', '2024-10-30 15:18:59', '2024-10-30 15:18:59'),
+(7, 'wajidsaleem693@gmail.com', '735093', '2024-10-30 15:46:47', '2024-10-30 15:46:47'),
+(8, 'wajidsaleem693@gmail.com', '351042', '2024-10-30 15:53:58', '2024-10-30 15:53:58');
 
 -- --------------------------------------------------------
 
@@ -375,37 +378,37 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `admin_info`
 --
 ALTER TABLE `admin_info`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `customer_management`
 --
 ALTER TABLE `customer_management`
-  MODIFY `Customer_ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `Customer_ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `departments`
 --
 ALTER TABLE `departments`
-  MODIFY `Department_ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `Department_ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `Employee_ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `Employee_ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `employees_daily_attendance`
 --
 ALTER TABLE `employees_daily_attendance`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `employees_timesheet`
 --
 ALTER TABLE `employees_timesheet`
-  MODIFY `TimeSheet_ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `TimeSheet_ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -417,7 +420,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `otps`
 --
 ALTER TABLE `otps`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
