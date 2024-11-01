@@ -23,11 +23,12 @@ import Trans_Btn from './Navbar/Trans_Btn';
 
 import { I18nextProvider } from 'react-i18next';
 import i18n from './i18n';
+import Product_Management from './Modules/Product_Management/Product_Management';
 
 
 function App() {
   return (
-    // <I18nextProvider i18n={i18n}>
+    <I18nextProvider i18n={i18n}>
       
 <Router>
 <Navbar/>
@@ -41,9 +42,16 @@ function App() {
         <Route path='/customer_management' element={<Customer_Management/>}/>
         <Route path='/employee_management' element={<Employee_Management/>}/>
         <Route path='/timesheet_management' element={<TimeSheet_Management/>}/>
+        <Route path='/product_management' element={<Product_Management/>}/>
+
+
+
         <Route path='/create_excel' element={<Download_TimeSheet/>}/>
         <Route path='/add_attendance' element={<TimeSheet_Management2/>}/>
         <Route path='/add_employee' element={<Add_Employee/>}/>
+
+
+
 
         <Route path='/admin_login' element={<Admin_Login/>}/>
         <Route path='/admin_dashboard' element={<Admin_Dashboard/>}/>
@@ -51,7 +59,7 @@ function App() {
  <Footer/>
 </Router>
 
-// </I18nextProvider>
+ </I18nextProvider>
   );
 }
 

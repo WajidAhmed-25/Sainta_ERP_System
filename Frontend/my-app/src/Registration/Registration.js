@@ -66,6 +66,8 @@ export default function Registration() {
       }
       const userData = await response.json();
       
+      console.log(userData)
+      
       // Check if the email already exists
       const emailExists = userData.some(user => user.email === email);
       if (emailExists) {
@@ -75,13 +77,16 @@ export default function Registration() {
   
       // If email is unique, proceed with OTP verification
       console.log('Sending OTP to email:', email);
+
+      console.log(name)
   
-      const otpResponse = await fetch('http://localhost:8000/api/send-otp', {
+      const otpResponse = await fetch('http://127.0.0.1:8000/api/send-otp', {
         method: 'POST',
+     //  mode: 'no-cors',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email,name }),
       });
   
       const responseText = await otpResponse.text();
@@ -112,25 +117,115 @@ export default function Registration() {
 
   
 
+  // const handleOtpSubmit = async (e) => {
+  //   e.preventDefault();
+
+  //   try {
+  //     // Verify OTP
+  //     const otpResponse = await fetch('http://127.0.0.1:8000/api/verify-otp', {
+  //       method: 'POST',
+  //       // mode: 'no-cors',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify({ email, otp }),
+  //     });
+
+  //     const otpResult = await otpResponse.json();
+  //     if (otpResponse.ok) {
+  //       console.log(otpResult.message);
+  //       toast.success('OTP Verified successfully!');
+
+  //       const hashedPassword = await hashPassword(password);
+  //       const registrationData = {
+  //         name,
+  //         email,
+  //         contact,
+  //         password: hashedPassword,
+  //         selectedService,
+  //         period,
+  //         contactEmail
+  //       };
+
+  //       // Register user
+  //       const registrationResponse = await fetch('http://localhost:8000/api/admin-info', {
+  //         method: 'POST',
+  //         // mode: 'no-cors',
+  //         headers: {
+  //           'Content-Type': 'application/json',
+  //         },
+  //         body: JSON.stringify(registrationData),
+  //       });
+
+  //       if (registrationResponse.ok) {
+  //         const registrationResult = await registrationResponse.json();
+  //         console.log('Registration Successful:', registrationResult);
+          
+  //         // Send email with user details
+  //         const sendDetailsResponse = await fetch('http://127.0.0.1:8000/api/send-user-details', {
+  //           method: 'POST',
+  //           // mode: 'no-cors',
+  //           headers: {
+  //             'Content-Type': 'application/json',
+  //             'Accept': 'application/json',
+  //           },
+  //           body: JSON.stringify({
+              
+  //             email,
+  //             password,
+  //             businessId: registrationResult.data.business_id,
+
+  //           }),
+  //         });
+
+  //         if (sendDetailsResponse.ok) {
+  //           toast.success('Registered Successfully! Check your email for login details.');
+  //         } else {
+  //           console.error('Failed to send user details email');
+  //           toast.warning('Registered successfully, but failed to send email with details.');
+  //         }
+
+  //         setTimeout(() => {
+  //           navigate('/login');
+  //         }, 2000);
+  //       } else {
+  //         console.error('Registration failed. Status:', registrationResponse.status);
+  //         toast.error('Registration failed. Please try again.');
+  //       }
+  //     } else {
+  //       console.error(otpResult.message);
+  //       toast.error('OTP verification failed. Please try again.');
+  //     }
+  //   } catch (error) {
+  //     console.error('Error during registration process:', error);
+  //     toast.error('An error occurred. Please try again later.');
+  //   }
+  // };
+
+  
+
+
+
+
+
   const handleOtpSubmit = async (e) => {
     e.preventDefault();
-
+  
     try {
       // Verify OTP
-      const otpResponse = await fetch('http://localhost:8000/api/verify-otp', {
+      const otpResponse = await fetch('http://127.0.0.1:8000/api/verify-otp', {
         method: 'POST',
-        // mode: 'no-cors',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ email, otp }),
       });
-
+  
       const otpResult = await otpResponse.json();
       if (otpResponse.ok) {
         console.log(otpResult.message);
         toast.success('OTP Verified successfully!');
-
+  
         const hashedPassword = await hashPassword(password);
         const registrationData = {
           name,
@@ -141,43 +236,42 @@ export default function Registration() {
           period,
           contactEmail
         };
-
+  
         // Register user
         const registrationResponse = await fetch('http://localhost:8000/api/admin-info', {
           method: 'POST',
-          // mode: 'no-cors',
           headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify(registrationData),
         });
-
+  
         if (registrationResponse.ok) {
           const registrationResult = await registrationResponse.json();
           console.log('Registration Successful:', registrationResult);
           
-          // Send email with user details
-          const sendDetailsResponse = await fetch('http://localhost:8000/api/send-user-details', {
+          // Send email with user details, including 'name'
+          const sendDetailsResponse = await fetch('http://127.0.0.1:8000/api/send-user-details', {
             method: 'POST',
-            // mode: 'no-cors',
             headers: {
               'Content-Type': 'application/json',
               'Accept': 'application/json',
             },
             body: JSON.stringify({
               email,
-              password,
-              businessId: registrationResult.data.business_id // Use business_id instead of Bussiness_ID
+              password, // Consider sending hashed password instead for security
+              businessId: registrationResult.data.business_id,
+              name, // Added name here
             }),
           });
-
+  
           if (sendDetailsResponse.ok) {
             toast.success('Registered Successfully! Check your email for login details.');
           } else {
             console.error('Failed to send user details email');
             toast.warning('Registered successfully, but failed to send email with details.');
           }
-
+  
           setTimeout(() => {
             navigate('/login');
           }, 2000);
@@ -194,8 +288,29 @@ export default function Registration() {
       toast.error('An error occurred. Please try again later.');
     }
   };
-
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
