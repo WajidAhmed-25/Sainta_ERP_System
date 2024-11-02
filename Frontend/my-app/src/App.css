@@ -1,0 +1,10 @@
+/* Import Kaisei Tokumin */
+@import url('https://fonts.googleapis.com/css2?family=Kaisei+Tokumin:wght@500&display=swap');
+
+* {
+    font-family: 'Kaisei Tokumin', serif;
+}
+
+body {
+    background-color: #f0f0f0;
+}

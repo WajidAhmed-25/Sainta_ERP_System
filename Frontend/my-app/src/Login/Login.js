@@ -32,7 +32,7 @@ export default function Login() {
     const handleBusinessIdChange = (e) => {
         const value = e.target.value;
         if (!/^\d*$/.test(value) || value.length > 6) {
-            toast.error("Please enter a valid 6-digit integer for BUSINESS ID.");
+            toast.error("ビジネスIDには6桁の整数を入力してください。");
             return;
         }
         setBusinessId(value);
@@ -41,7 +41,7 @@ export default function Login() {
         e.preventDefault();
         const hash = await hashPassword(password);
         if (!service || !businessId || !username || !password) {
-            toast.error("Please fill all fields.");
+            toast.error("全てのフィルドを入力してください。");
             return;
         }
         try {
@@ -79,22 +79,27 @@ export default function Login() {
                     return isBusinessIdMatch && isUsernameMatch && isPasswordMatch && isServiceMatch;
                 });
                 if (matchingUser) {
+
+                    console.log('Data from API:', matchingUser);
+                    toast.success('ログインに成功しました。');
+
                 //    console.log('Data from API:', matchingUser);
                     toast.success('Login successful!');
 
                     localStorage.setItem('username', matchingUser.name);
+
                     navigate('/modules');
                     window.location.reload()
                 } else {
-                    toast.error('Invalid credentials. Please check your input.');
+                    toast.error('ログインに失敗しました。もう一度お試しください。');
                 }
             } else {
                 console.error('Unexpected API response format.');
-                toast.error('Invalid API response.');
+                toast.error('データの取得中にエラーが発生しました。');
             }
         } catch (error) {
             console.error('Error fetching data from API:', error);
-            toast.error('An error occurred while fetching data.');
+            toast.error('データの取得中にエラーが発生しました。');
         }
     };
     const hashPassword = async (password) => {
@@ -108,58 +113,58 @@ export default function Login() {
     return (
         <>
             <ToastContainer />
-            <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-    <div className='text-black bg-green-300 w-[46%] font-semibold p-4 -mt-16 mb-8 flex items-center'>
-      <FontAwesomeIcon icon={faLock} className="mr-4 text-black" />
-      <p>Enter the Credentials you received on the email you entered. And Login to the System!!!</p>
-    </div>
+            {/* Follow a similar style to the previous pages */}
+            <div className="flex flex-col items-center justify-center min-h-screen">
                 <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-md">
-                    <div className="flex items-center mb-6">
+                    <div className="flex items-center mb-8">
                         <div className="flex items-center justify-center w-10 h-10 mr-2 border-2 rounded-full">
-                            <img src={lock} className="" alt="Lock Icon" />
+                            <img src={lock} className="" alt="ロックアイコン" />
                         </div>
-                        <h2 className="text-2xl font-semibold">Login</h2>
+                        <h2 className="text-2xl font-semibold">ログイン</h2>
                     </div>
-                    <p className="mb-6 text-gray-600">Enter your login details.</p>
+
+                    <p className="mb-6 text-gray-600">ログイン情報を入力してください。もしご登録いただいたばかりの場合は、電子メールでお送りした情報をご参照ください。</p>
                     <form onSubmit={handleSubmit}>
                         <div className="space-y-4">
                             <div className="relative">
                                 <select
-                                    className="w-full p-3 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-2 focus:ring-[#007AAF]"
+                                    className="w-full p-3 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500"
                                     value={service}
                                     onChange={(e) => setService(e.target.value)}
                                 >
-                                    <option value="" className='text-[#007AAF] '>YOUR SERVICE</option>
-                                    <option value="Business" className='text-[#007AAF] hover:bg-[#007AAF]'>Business</option>
-                                    <option value="Recruitment" className='text-[#007AAF]'>Recruitment</option>
-                                    <option value="Lab" className='text-[#007AAF]'>Lab</option>
+                                    <option value="">サービスを選択</option>
+                                    <option value="service1">サインタ・業務</option>
+                                    <option value="service3">サインタ・ラボ</option>
                                 </select>
                                 <ChevronDown className="absolute w-5 h-5 text-gray-400 transform -translate-y-1/2 pointer-events-none right-3 top-1/2" />
                             </div>
+
                             <div className="relative">
                                 <input
                                     type="text"
-                                    placeholder="BUSINESS ID"
+                                    placeholder="サインタ・ビジネスID"
                                     className="w-full p-3 pl-12 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                                     value={businessId}
                                     onChange={handleBusinessIdChange}
                                 />
                                 <Building2 className="absolute w-5 h-5 text-gray-400 transform -translate-y-1/2 left-3 top-1/2" />
                             </div>
+
                             <div className="relative">
                                 <input
                                     type="email"
-                                    placeholder="USER EMAIL"
+                                    placeholder="ユーザー名"
                                     className="w-full p-3 pl-10 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                                     value={username}
                                     onChange={(e) => setUsername(e.target.value)}
                                 />
                                 <User className="absolute w-5 h-5 text-gray-400 transform -translate-y-1/2 left-3 top-1/2" />
                             </div>
+
                             <div className="relative">
                                 <input
                                     type={passwordVisible ? "text" : "password"}
-                                    placeholder="PASSWORD"
+                                    placeholder="パスワード"
                                     className="w-full p-3 pl-10 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
@@ -174,32 +179,22 @@ export default function Login() {
                                 </button>
                             </div>
                         </div>
+
                         <button
                             type="submit"
                             className="w-full px-4 py-2 mt-4 font-semibold text-black border-[#007AAFF7] border-2 pt-4 pb-4 bg-white rounded-md hover:bg-[#007AAFF7] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#007AAFF7] focus:ring-offset-2"
                         >
-                            LOGIN
+                            ログイン
                         </button>
                     </form>
+
+
                     <div className="mt-4 text-end">
                       
                     </div>
+
                 </div>
             </div>
         </>
     );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
