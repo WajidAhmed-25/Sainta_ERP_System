@@ -17,8 +17,8 @@ const ContactInformation = ({ formData, handleChange }) => {
 
   return (
     <div className='bg-transparent w-full md:w-[31%] p-4 '>
-    <h2 className='text-[#007AAF] text-center text-3xl tracking-normal font-bold mb-8'>Contact Information</h2>
-    <div className="mb-4">
+    <h2 className='text-[#007AAF] text-center text-2xl mt-6 tracking-normal font-bold mb-8'>Contact Information</h2>
+    {/* <div className="mb-4">
     <label className="block text-md font-semibold text-[#007AAF] mb-2">Telephone Number</label>
     <input
     type="tel"
@@ -28,7 +28,9 @@ const ContactInformation = ({ formData, handleChange }) => {
     className="w-full px-3 py-2 border rounded border-[#007AAF]"
     required
     />
-    </div>
+    </div> */}
+
+    
     <div className="mb-4">
     <label className="block text-md font-semibold text-[#007AAF] mb-2">Email Address</label>
     <input
@@ -40,7 +42,7 @@ const ContactInformation = ({ formData, handleChange }) => {
     required
     />
     </div>
-    <div className="mb-4">
+    {/* <div className="mb-4">
     <label className="block text-md font-semibold text-[#007AAF] mb-2">Address</label>
     <input
     type="text"
@@ -50,7 +52,9 @@ const ContactInformation = ({ formData, handleChange }) => {
     className="w-full px-3 py-2 border rounded border-[#007AAF]"
     required
     />
-    </div>
+    </div> */}
+
+    
     </div>
   );
 };
@@ -79,7 +83,7 @@ const InsuranceInformation = ({ formData, handleChange }) => {
           value={formData.Health_Insurance_Number}
           onChange={validateNumericInput}
           className="w-full px-3 py-2 border rounded border-[#007AAF]"
-          required
+        
         />
       </div>
       <div className="mb-4">
@@ -90,7 +94,7 @@ const InsuranceInformation = ({ formData, handleChange }) => {
           value={formData.Employee_Pension_Insurance_Number}
           onChange={validateNumericInput}
           className="w-full px-3 py-2 border rounded border-[#007AAF]"
-          required
+      
         />
       </div>
       <div className="mb-4">
@@ -101,7 +105,7 @@ const InsuranceInformation = ({ formData, handleChange }) => {
           value={formData.Employment_Insurance_Number}
           onChange={validateNumericInput}
           className="w-full px-3 py-2 border rounded border-[#007AAF]"
-          required
+     
         />
       </div>
     </div>
@@ -154,7 +158,7 @@ const Add_Employee = () => {
   useEffect(() => {
     const fetchDepartments = async () => {
       try {
-        const response = await axios.get('https://apisanta.devcir.co/api/departments');
+        const response = await axios.get('http://localhost:8000/api/departments');
         setDepartments(response.data);
       } catch (error) {
         console.error('Error fetching departments:', error);
@@ -223,7 +227,7 @@ const Add_Employee = () => {
 
     try {
       console.log(files)
-      const response = await axios.post('https://apisanta.devcir.co/api/employees', formDataToSend, {
+      const response = await axios.post('http://localhost:8000/api/employees', formDataToSend, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -250,7 +254,7 @@ const Add_Employee = () => {
           <div className='flex flex-col gap-6 md:flex-row '>
             {/* Basic Information */}
             <div className='bg-transparent w-full md:w-[31%] p-4'>
-              <h2 className='text-[#007AAF] text-center text-3xl tracking-normal font-bold mb-8'>Basic Information</h2>
+              <h2 className='text-[#007AAF] text-center text-2xl mt-6 tracking-normal font-bold mb-8'>Basic Information</h2>
               <div className="mb-4">
                 <label className="block mb-2 text-md font-semibold text-[#007AAF]">Department Name</label>
                 <select
@@ -294,7 +298,9 @@ const Add_Employee = () => {
               </div>
             </div>
             {/* Personal Information */}
-            <div className='bg-transparent w-full md:w-[31%] p-4 '>
+         
+         
+            {/* <div className='bg-transparent w-full md:w-[31%] p-4 '>
               <h2 className='text-[#007AAF] text-center text-3xl tracking-normal font-bold mb-8'>Personal Information</h2>
               <div className="mb-4">
                 <label className="block text-md font-semibold text-[#007AAF] mb-2">Gender</label>
@@ -332,305 +338,362 @@ const Add_Employee = () => {
                   required
                 />
               </div>
-            </div>
+            </div> */}
+
+
             {/* Contact Information */}
             <ContactInformation formData={formData} handleChange={handleChange} />
+
+
+
+
+               <div className='bg-transparent w-full md:w-[32%] p-4 rounded-lg'>
+               <h2 className='text-[#007AAF] text-center text-2xl mt-6 tracking-normal font-bold mb-8'>Account Information</h2>
+               <div className="mb-4">
+                 <label className="block text-md font-semibold text-[#007AAF] mb-2">Username</label>
+                 <input
+                   type="text"
+                   name="Username"
+                   value={formData.Username}
+                   onChange={handleChange}
+                   className="w-full px-3 py-2 border rounded border-[#007AAF]"
+                   required
+                 />
+               </div>
+               <div className="mb-4">
+                 <label className="block text-md font-semibold text-[#007AAF] mb-2">Password</label>
+                 <input
+                   type="password"
+                   name="Password"
+                   value={formData.Password}
+                   onChange={handleChange}
+                   className="w-full px-3 py-2 border rounded border-[#007AAF]"
+                   required
+                 />
+               </div>
+               <div className="mb-4">
+                 <label className="block text-md font-semibold text-[#007AAF] mb-2">Authority</label>
+                 <select
+                   name="Authority"
+                   value={formData.Authority}
+                   onChange={handleChange}
+                   className="w-full px-3 py-2 border rounded border-[#007AAF]"
+                   required
+                 >
+                   <option value="">Enter Authority</option>
+                   <option value="Moderator">Moderator</option>
+                   <option value="Administrator">Administrator</option>
+                   <option value="User">User</option>
+                 </select>
+               </div>
+             </div>
+
+
+
+
+
+
           </div>
         );
       case 2:
         return (
-          <div className='flex flex-col gap-6 md:flex-row'>
-            {/* Work Information */}
-            <div className='bg-transparent w-full md:w-[31%] p-4 '>
-              <h2 className='text-[#007AAF] text-center text-3xl tracking-normal font-bold mb-8'>Work Information</h2>
-              <div className="mb-4">
-                <label className="block text-md font-semibold text-[#007AAF] mb-2">Employment Status</label>
-                <select
-                  name="Employment_Status"
-                  value={formData.Employment_Status}
-                  onChange={handleChange}
-                  className="w-full px-3 py-2 border rounded border-[#007AAF]"
-                  required
-                >
-                  <option value="">Enter Contract Type</option>
-                  <option value="Full-Time Contract">Full-Time Contract</option>
-                  <option value="Part-Time Contract">Part-Time Contract</option>
-                </select>
-              </div>
-              <div className="mb-4">
-                <label className="block mb-2 text-sm font-medium text-[#007AAF]">Post</label>
-                <input
-                  type="text"
-                  name="Post"
-                  placeholder='Enter Post Name here'
-                  value={formData.Post}
-                  onChange={handleChange}
-                  className="w-full px-3 py-2 border rounded border-[#007AAF]"
-                  required
-                />
-              </div>
-            </div>
-            {/* Salary Information */}
-            <div className='bg-transparent w-full md:w-[31%] p-4 '>
-              <h2 className='text-[#007AAF] text-center text-3xl tracking-normal font-bold mb-8'>Salary Information</h2>
-              <div className="mb-4">
-                <label className="block text-md font-semibold text-[#007AAF] mb-2">Hiring Date</label>
-                <input
-                  type="date"
-                  name="Hiring_Date"
-                  value={formData.Hiring_Date}
-                  onChange={handleChange}
-                  className="w-full px-3 py-2 border rounded border-[#007AAF]"
-                  required
-                />
-              </div>
-              <div className="mb-4">
-                <label className="block text-md font-semibold text-[#007AAF] mb-2">Payroll Interval</label>
-                <select
-                  name="Payroll_Interval"
-                  value={formData.Payroll_Interval}
-                  onChange={handleChange}
-                  className="w-full px-3 py-2 border rounded border-[#007AAF]"
-                  required
-                >
-                  <option value="">Enter Payroll Interval</option>
-                  <option value="Daily">Daily</option>
-                  <option value="Weekly">Weekly</option>
-                  <option value="Monthly">Monthly</option>
-                </select>
-              </div>
-              <div className="mb-4">
-                <label className="block text-md font-semibold text-[#007AAF] mb-2">Payday</label>
-                <select
-                  name="Payday"
-                  value={formData.Payday}
-                  onChange={handleChange}
-                  className="w-full px-3 py-2 border rounded border-[#007AAF]"
-                  required
-                >
-                  <option value="">Enter Payday</option>
-                  <option value="Monday">Monday</option>
-                  <option value="Tuesday">Tuesday</option>
-                  <option value="Wednesday">Wednesday</option>
-                  <option value="Thursday">Thursday</option>
-                  <option value="Friday">Friday</option>
-                  <option value="Saturday">Saturday</option>
-                </select>
-              </div>
-            </div>
-            {/* Economic Information */}
-            <div className='bg-transparent w-full md:w-[31%] p-4 '>
-              <h2 className='text-[#007AAF] text-center text-3xl tracking-normal font-bold mb-8'>Economic Information</h2>
-              <div className="mb-4">
-                <label className="block text-md font-semibold text-[#007AAF] mb-2">Salary</label>
-                <input
-                  type="number"
-                  name="Salary"
-                  min={0}
-                  value={formData.Salary}
-                  onChange={handleChange}
-                  className="w-full px-3 py-2 border rounded border-[#007AAF]"
-                  required
-                />
-              </div>
-              <div className="mb-4">
-                <label className="block text-md font-semibold text-[#007AAF] mb-2">Deduction Rate</label>
-                <input
-                  type="number"
-                  name="Deduction_rate"
-                  min={0}
-                  value={formData.Deduction_rate}
-                  onChange={handleChange}
-                  className="w-full px-3 py-2 border rounded border-[#007AAF]"
-                  required
-                />
-              </div>
-              {/* <div className="mb-4">
-                <label className="block text-md font-semibold text-[#007AAF] mb-2">Total Deduction Amount</label>
-                <input
-                  type="number"
-                  name="Total_Deduction_Amount"
-                  value={formData.Salary*formData.Deduction_rate/100}
-                  onChange={handleChange}
-                  min={0}
-                  className="w-full px-3 py-2 border rounded border-[#007AAF]"
-                  readOnly
-                />
-              </div> */}
-                 <div className="mb-4">
-        <label className="block text-md font-semibold text-[#007AAF] mb-2">Total Deduction Amount</label>
-        <input
-          type="number"
-          name="Total_Deduction_Amount"
-          value={formData.Total_Deduction_Amount}
-          readOnly
-          className="w-full px-3 py-2 border rounded border-[#007AAF]"
-        />
-      </div>
-            </div>
-          </div>
+      //     <div className='flex flex-col gap-6 md:flex-row'>
+      //       {/* Work Information */}
+      //       <div className='bg-transparent w-full md:w-[31%] p-4 '>
+      //         <h2 className='text-[#007AAF] text-center text-3xl tracking-normal font-bold mb-8'>Work Information</h2>
+      //         <div className="mb-4">
+      //           <label className="block text-md font-semibold text-[#007AAF] mb-2">Employment Status</label>
+      //           <select
+      //             name="Employment_Status"
+      //             value={formData.Employment_Status}
+      //             onChange={handleChange}
+      //             className="w-full px-3 py-2 border rounded border-[#007AAF]"
+      //             required
+      //           >
+      //             <option value="">Enter Contract Type</option>
+      //             <option value="Full-Time Contract">Full-Time Contract</option>
+      //             <option value="Part-Time Contract">Part-Time Contract</option>
+      //           </select>
+      //         </div>
+      //         <div className="mb-4">
+      //           <label className="block mb-2 text-sm font-medium text-[#007AAF]">Post</label>
+      //           <input
+      //             type="text"
+      //             name="Post"
+      //             placeholder='Enter Post Name here'
+      //             value={formData.Post}
+      //             onChange={handleChange}
+      //             className="w-full px-3 py-2 border rounded border-[#007AAF]"
+      //             required
+      //           />
+      //         </div>
+      //       </div>
+      //       {/* Salary Information */}
+      //       <div className='bg-transparent w-full md:w-[31%] p-4 '>
+      //         <h2 className='text-[#007AAF] text-center text-3xl tracking-normal font-bold mb-8'>Salary Information</h2>
+      //         <div className="mb-4">
+      //           <label className="block text-md font-semibold text-[#007AAF] mb-2">Hiring Date</label>
+      //           <input
+      //             type="date"
+      //             name="Hiring_Date"
+      //             value={formData.Hiring_Date}
+      //             onChange={handleChange}
+      //             className="w-full px-3 py-2 border rounded border-[#007AAF]"
+      //             required
+      //           />
+      //         </div>
+      //         <div className="mb-4">
+      //           <label className="block text-md font-semibold text-[#007AAF] mb-2">Payroll Interval</label>
+      //           <select
+      //             name="Payroll_Interval"
+      //             value={formData.Payroll_Interval}
+      //             onChange={handleChange}
+      //             className="w-full px-3 py-2 border rounded border-[#007AAF]"
+      //             required
+      //           >
+      //             <option value="">Enter Payroll Interval</option>
+      //             <option value="Daily">Daily</option>
+      //             <option value="Weekly">Weekly</option>
+      //             <option value="Monthly">Monthly</option>
+      //           </select>
+      //         </div>
+      //         <div className="mb-4">
+      //           <label className="block text-md font-semibold text-[#007AAF] mb-2">Payday</label>
+      //           <select
+      //             name="Payday"
+      //             value={formData.Payday}
+      //             onChange={handleChange}
+      //             className="w-full px-3 py-2 border rounded border-[#007AAF]"
+      //             required
+      //           >
+      //             <option value="">Enter Payday</option>
+      //             <option value="Monday">Monday</option>
+      //             <option value="Tuesday">Tuesday</option>
+      //             <option value="Wednesday">Wednesday</option>
+      //             <option value="Thursday">Thursday</option>
+      //             <option value="Friday">Friday</option>
+      //             <option value="Saturday">Saturday</option>
+      //           </select>
+      //         </div>
+      //       </div>
+      //       {/* Economic Information */}
+      //       {/* <div className='bg-transparent w-full md:w-[31%] p-4 '>
+      //         <h2 className='text-[#007AAF] text-center text-3xl tracking-normal font-bold mb-8'>Economic Information</h2> 
+      //         <div className="mb-4">
+      //           <label className="block text-md font-semibold text-[#007AAF] mb-2">Salary</label>
+      //           <input
+      //             type="number"
+      //             name="Salary"
+      //             min={0}
+      //             value={formData.Salary}
+      //             onChange={handleChange}
+      //             className="w-full px-3 py-2 border rounded border-[#007AAF]"
+      //             required
+      //           />
+      //         </div> 
+      //         <div className="mb-4">
+      //           <label className="block text-md font-semibold text-[#007AAF] mb-2">Deduction Rate</label>
+      //           <input
+      //             type="number"
+      //             name="Deduction_rate"
+      //             min={0}
+      //             value={formData.Deduction_rate}
+      //             onChange={handleChange}
+      //             className="w-full px-3 py-2 border rounded border-[#007AAF]"
+      //             required
+      //           />
+      //         </div> 
+      //        <div className="mb-4">
+      //           <label className="block text-md font-semibold text-[#007AAF] mb-2">Total Deduction Amount</label>
+      //           <input
+      //             type="number"
+      //             name="Total_Deduction_Amount"
+      //             value={formData.Salary*formData.Deduction_rate/100}
+      //             onChange={handleChange}
+      //             min={0}
+      //             className="w-full px-3 py-2 border rounded border-[#007AAF]"
+      //             readOnly
+      //           />
+      //         </div> 
+            
+      //           <div className="mb-4">
+      //   <label className="block text-md font-semibold text-[#007AAF] mb-2">Total Deduction Amount</label>
+      //   <input
+      //     type="number"
+      //     name="Total_Deduction_Amount"
+      //     value={formData.Total_Deduction_Amount}
+      //     readOnly
+      //     className="w-full px-3 py-2 border rounded border-[#007AAF]"
+      //   />
+      // </div> 
+      //       </div> */}
+      //     </div>
+      <></>
         );
       case 3:
         return (
-          <div className='flex flex-col gap-6 md:flex-row'>
-            <InsuranceInformation formData={formData} handleChange={handleChange} />
-            {/* Attendance Information */}
-            <div className='bg-transparent w-full md:w-[31%] p-4 '>
-              <h2 className='text-[#007AAF] text-center text-3xl tracking-normal font-bold mb-8'>Attendance Information</h2>
-              <div className="mb-4">
-                <label className="block text-md font-semibold text-[#007AAF] mb-2">Number of Working Days</label>
-                <input
-                  type="number"
-                  name="Working_Days_Count"
-                  value={formData.Working_Days_Count}
-                  onChange={handleChange}
-                  className="w-full px-3 py-2 border rounded border-[#007AAF]"
-                  required
-                />
-              </div>
-              <div className="mb-4">
-                <label className="block text-md font-semibold text-[#007AAF] mb-2">Number of Days Absent</label>
-                <input
-                  type="number"
-                  name="Absent_Days_Count"
-                  value={formData.Absent_Days_Count}
-                  onChange={handleChange}
-                  className="w-full px-3 py-2 border rounded border-[#007AAF]"
-                  required
-                />
-              </div>
-              <div className="mb-4">
-              <label className="block text-md font-semibold text-[#007AAF] mb-2">Absence History</label>
-                <textarea
-                  name="Absence_History"
-                  value={formData.Absence_History}
-                  onChange={handleChange}
-                  className="w-full px-3 py-2 border rounded border-[#007AAF]"
-                  required
-                />
-              </div>
-            </div>
-            {/* Achievement Records */}
-            <div className='bg-transparent w-full md:w-[31%] p-4 '>
-              <h2 className='text-[#007AAF] text-center text-3xl tracking-normal font-bold mb-8'>Achievement Records</h2>
+          // <div className='flex flex-col gap-6 md:flex-row'>
+          //   <InsuranceInformation formData={formData} handleChange={handleChange} />
+          //   {/* Attendance Information */}
+          //   <div className='bg-transparent w-full md:w-[31%] p-4 '>
+          //     <h2 className='text-[#007AAF] text-center text-3xl tracking-normal font-bold mb-8'>Attendance Information</h2>
+          //     <div className="mb-4">
+          //       <label className="block text-md font-semibold text-[#007AAF] mb-2">Number of Working Days</label>
+          //       <input
+          //         type="number"
+          //         name="Working_Days_Count"
+          //         value={formData.Working_Days_Count}
+          //         onChange={handleChange}
+          //         className="w-full px-3 py-2 border rounded border-[#007AAF]"
+          //         required
+          //       />
+          //     </div>
+          //     <div className="mb-4">
+          //       <label className="block text-md font-semibold text-[#007AAF] mb-2">Number of Days Absent</label>
+          //       <input
+          //         type="number"
+          //         name="Absent_Days_Count"
+          //         value={formData.Absent_Days_Count}
+          //         onChange={handleChange}
+          //         className="w-full px-3 py-2 border rounded border-[#007AAF]"
+          //         required
+          //       />
+          //     </div>
+          //     <div className="mb-4">
+          //     <label className="block text-md font-semibold text-[#007AAF] mb-2">Absence History</label>
+          //       <textarea
+          //         name="Absence_History"
+          //         value={formData.Absence_History}
+          //         onChange={handleChange}
+          //         className="w-full px-3 py-2 border rounded border-[#007AAF]"
+          //         required
+          //       />
+          //     </div>
+          //   </div>
+          //   {/* Achievement Records */}
+          //   <div className='bg-transparent w-full md:w-[31%] p-4 '>
+          //     <h2 className='text-[#007AAF] text-center text-3xl tracking-normal font-bold mb-8'>Achievement Records</h2>
            
-              <div className="mb-4">
-                <label className="block text-md font-semibold text-[#007AAF] mb-2">Performance Evaluation  <span className="text-sm text-[#007AAF]">(out of 10)</span></label>
-                <input
-                  type="number"
-                  name="Performance_Evaluation"
-                  min={0}
-                  max={10}
-                  value={formData.Performance_Evaluation}
-                  onChange={handleChange}
-                  className="w-full px-3 py-2 border rounded border-[#007AAF]"
-                  required
-                />
-              </div>
+          //     <div className="mb-4">
+          //       <label className="block text-md font-semibold text-[#007AAF] mb-2">Performance Evaluation  <span className="text-sm text-[#007AAF]">(out of 10)</span></label>
+          //       <input
+          //         type="number"
+          //         name="Performance_Evaluation"
+          //         min={0}
+          //         max={10}
+          //         value={formData.Performance_Evaluation}
+          //         onChange={handleChange}
+          //         className="w-full px-3 py-2 border rounded border-[#007AAF]"
+          //         required
+          //       />
+          //     </div>
               
-              <div className="mb-4">
-                <label className="block text-md font-semibold text-[#007AAF] mb-2">Last Meeting Date</label>
-                <input
-                  type="date"
-                  name="Last_Meeting_Date"
-                  value={formData.Last_Meeting_Date}
-                  onChange={handleChange}
-                  className="w-full px-3 py-2 border rounded border-[#007AAF]"
-                  required
-                />
-              </div>
-              <div className="mb-4">
-                <label className="block text-md font-semibold text-[#007AAF] mb-2">Other Notes</label>
-                <textarea
-                  name="Other_Notes"
-                  value={formData.Other_Notes}
-                  onChange={handleChange}
-                  className="w-full px-3 py-2 border rounded border-[#007AAF]"
-                  required
-                />
-              </div>
-            </div>
-          </div>
+          //     <div className="mb-4">
+          //       <label className="block text-md font-semibold text-[#007AAF] mb-2">Last Meeting Date</label>
+          //       <input
+          //         type="date"
+          //         name="Last_Meeting_Date"
+          //         value={formData.Last_Meeting_Date}
+          //         onChange={handleChange}
+          //         className="w-full px-3 py-2 border rounded border-[#007AAF]"
+          //         required
+          //       />
+          //     </div>
+          //     <div className="mb-4">
+          //       <label className="block text-md font-semibold text-[#007AAF] mb-2">Other Notes</label>
+          //       <textarea
+          //         name="Other_Notes"
+          //         value={formData.Other_Notes}
+          //         onChange={handleChange}
+          //         className="w-full px-3 py-2 border rounded border-[#007AAF]"
+          //         required
+          //       />
+          //     </div>
+          //   </div>
+          // </div>
+          <></>
         );
       case 4:
         return (
-          <div className='flex flex-col justify-center gap-12 md:flex-row'>
-            {/* Attachment Files */}
-            <div className='bg-transparent w-full md:w-[32%] p-4 rounded-lg'>
-              <h2 className='text-[#007AAF] text-center text-3xl tracking-normal font-bold mb-8'>Attachment Files</h2>
-              <div className="mb-4">
-                <label className="block text-md font-semibold text-[#007AAF] mb-2">Employment Contract</label>
-                <input
-                  type="file"
-                  name="Employment_Contract"
-                  onChange={handleFileChange}
-                  className="w-full px-3 py-2 border rounded border-[#007AAF]"
-                  required
-                />
-              </div>
-              <div className="mb-4">
-                <label className="block text-md font-semibold text-[#007AAF] mb-2">Personal Information</label>
-                <input
-                  type="file"
-                  name="Personal_Information"
-                  onChange={handleFileChange}
-                  className="w-full px-3 py-2 border rounded border-[#007AAF]"
-                  required
-                />
-              </div>
-              <div className="mb-4">
-                <label className="block text-md font-semibold text-[#007AAF] mb-2">Resume</label>
-                <input
-                  type="file"
-                  name="Resume"
-                  onChange={handleFileChange}
-                  className="w-full px-3 py-2 border rounded border-[#007AAF]"
-                  required
-                />
-              </div>
-            </div>
-            {/* Account Information */}
-            <div className='bg-transparent w-full md:w-[32%] p-4 rounded-lg'>
-              <h2 className='text-[#007AAF] text-center text-3xl tracking-normal font-bold mb-8'>Account Information</h2>
-              <div className="mb-4">
-                <label className="block text-md font-semibold text-[#007AAF] mb-2">Username</label>
-                <input
-                  type="text"
-                  name="Username"
-                  value={formData.Username}
-                  onChange={handleChange}
-                  className="w-full px-3 py-2 border rounded border-[#007AAF]"
-                  required
-                />
-              </div>
-              <div className="mb-4">
-                <label className="block text-md font-semibold text-[#007AAF] mb-2">Password</label>
-                <input
-                  type="password"
-                  name="Password"
-                  value={formData.Password}
-                  onChange={handleChange}
-                  className="w-full px-3 py-2 border rounded border-[#007AAF]"
-                  required
-                />
-              </div>
-              <div className="mb-4">
-                <label className="block text-md font-semibold text-[#007AAF] mb-2">Authority</label>
-                <select
-                  name="Authority"
-                  value={formData.Authority}
-                  onChange={handleChange}
-                  className="w-full px-3 py-2 border rounded border-[#007AAF]"
-                  required
-                >
-                  <option value="">Enter Authority</option>
-                  <option value="Moderator">Moderator</option>
-                  <option value="Administrator">Administrator</option>
-                  <option value="User">User</option>
-                </select>
-              </div>
-            </div>
-          </div>
+          // <div className='flex flex-col justify-center gap-12 md:flex-row'>
+          //   {/* Attachment Files */}
+          //   <div className='bg-transparent w-full md:w-[32%] p-4 rounded-lg'>
+          //     <h2 className='text-[#007AAF] text-center text-3xl tracking-normal font-bold mb-8'>Attachment Files</h2>
+          //     <div className="mb-4">
+          //       <label className="block text-md font-semibold text-[#007AAF] mb-2">Employment Contract</label>
+          //       <input
+          //         type="file"
+          //         name="Employment_Contract"
+          //         onChange={handleFileChange}
+          //         className="w-full px-3 py-2 border rounded border-[#007AAF]"
+          //         required
+          //       />
+          //     </div>
+          //     <div className="mb-4">
+          //       <label className="block text-md font-semibold text-[#007AAF] mb-2">Personal Information</label>
+          //       <input
+          //         type="file"
+          //         name="Personal_Information"
+          //         onChange={handleFileChange}
+          //         className="w-full px-3 py-2 border rounded border-[#007AAF]"
+          //         required
+          //       />
+          //     </div>
+          //     <div className="mb-4">
+          //       <label className="block text-md font-semibold text-[#007AAF] mb-2">Resume</label>
+          //       <input
+          //         type="file"
+          //         name="Resume"
+          //         onChange={handleFileChange}
+          //         className="w-full px-3 py-2 border rounded border-[#007AAF]"
+          //         required
+          //       />
+          //     </div>
+          //   </div>
+          //   {/* Account Information */}
+          //   <div className='bg-transparent w-full md:w-[32%] p-4 rounded-lg'>
+          //     <h2 className='text-[#007AAF] text-center text-3xl tracking-normal font-bold mb-8'>Account Information</h2>
+          //     <div className="mb-4">
+          //       <label className="block text-md font-semibold text-[#007AAF] mb-2">Username</label>
+          //       <input
+          //         type="text"
+          //         name="Username"
+          //         value={formData.Username}
+          //         onChange={handleChange}
+          //         className="w-full px-3 py-2 border rounded border-[#007AAF]"
+          //         required
+          //       />
+          //     </div>
+          //     <div className="mb-4">
+          //       <label className="block text-md font-semibold text-[#007AAF] mb-2">Password</label>
+          //       <input
+          //         type="password"
+          //         name="Password"
+          //         value={formData.Password}
+          //         onChange={handleChange}
+          //         className="w-full px-3 py-2 border rounded border-[#007AAF]"
+          //         required
+          //       />
+          //     </div>
+          //     <div className="mb-4">
+          //       <label className="block text-md font-semibold text-[#007AAF] mb-2">Authority</label>
+          //       <select
+          //         name="Authority"
+          //         value={formData.Authority}
+          //         onChange={handleChange}
+          //         className="w-full px-3 py-2 border rounded border-[#007AAF]"
+          //         required
+          //       >
+          //         <option value="">Enter Authority</option>
+          //         <option value="Moderator">Moderator</option>
+          //         <option value="Administrator">Administrator</option>
+          //         <option value="User">User</option>
+          //       </select>
+          //     </div>
+          //   </div>
+          // </div>
+
+          <></>
         );
       default:
         return null;
@@ -647,7 +710,10 @@ const Add_Employee = () => {
         <FontAwesomeIcon icon={faPlus} /> Add Employee
       </button>
       {showPopup && (
-        <div className="absolute  items-center justify-center w-[320%]  -ml-[680px] -mt-40 bg-black/20 bg-opacity-30 z-99999999">
+        <div className='absolute w-full bg-black/20 h-100vh'>
+       
+       
+        <div className=" absolute items-center justify-center w-[320%]  -ml-[680px] -mt-32 bg-black/20 bg-opacity-30 z-99999999">
           <div className="p-4 m-4 bg-white rounded-lg shadow-lg">
             <div className='flex flex-row items-center justify-between gap-2'>
               <h2 className="text-3xl font-bold text-[#007AAF]">Add New Employee</h2>
@@ -660,7 +726,7 @@ const Add_Employee = () => {
               </button>
             </div>
 
-            <div className="flex items-center justify-center mt-6 mb-12">
+            {/* <div className="flex items-center justify-center mt-6 mb-12">
               <div className="text-xl font-bold text-[#007AAF]">
                 Page
               </div>
@@ -672,7 +738,7 @@ const Add_Employee = () => {
               <div className="text-xl font-bold text-[#007AAF]">
                 / 4
               </div>
-            </div>
+            </div> */}
 
             <form onSubmit={handleSubmit}>
               {renderFormFields()}
@@ -686,7 +752,7 @@ const Add_Employee = () => {
                     Previous
                   </button>
                 )}
-                {page < 4 && (
+                {/* {page == 4 && (
                   <button
                     type="button"
                     onClick={nextPage}
@@ -694,8 +760,8 @@ const Add_Employee = () => {
                   >
                     Next
                   </button>
-                )}
-                {page === 4 && (
+                )} */}
+                {page === 1 && (
                   <button
                     type="submit"
                     className="px-4 py-2 bg-[#007AAF] text-white font-semibold rounded-lg hover:scale-125 hover:transition-all hover:duration-300 hover:cursor-pointer"
@@ -706,6 +772,9 @@ const Add_Employee = () => {
               </div>
             </form>
           </div>
+        </div>
+
+
         </div>
       )}
     </div>

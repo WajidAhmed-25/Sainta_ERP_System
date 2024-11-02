@@ -29,7 +29,6 @@ Route::post('/verify-otp', [OtpController::class, 'verifyOtp']);
 
 
 
-
 use App\Http\Controllers\CustomerManagementController;
 
 Route::get('/customers', [CustomerManagementController::class, 'index']);          
