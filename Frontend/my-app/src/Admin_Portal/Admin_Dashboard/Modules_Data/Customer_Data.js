@@ -15,7 +15,7 @@ const CustomerTable = () => {
   const [formData, setFormData] = useState({});
 
   useEffect(() => {
-    axios.get('http://localhost:8000/api/customers')
+    axios.get('https://api.sainta-erp.xyz/api/customers')
       .then((response) => {
         setCustomers(response.data);
       })
@@ -38,7 +38,7 @@ const CustomerTable = () => {
   };
 
   const handleUpdate = (customerId) => {
-    axios.put(`http://localhost:8000/api/customers/${customerId}`, formData)
+    axios.put(`https://api.sainta-erp.xyz/api/customers/${customerId}`, formData)
       .then(() => {
         toast.success('Customer updated successfully!', {
           position: "top-right",
@@ -58,7 +58,7 @@ const CustomerTable = () => {
 
   const handleDelete = () => {
     if (selectedCustomer) {
-      axios.delete(`http://localhost:8000/api/customers/${selectedCustomer.Customer_ID}`)
+      axios.delete(`https://api.sainta-erp.xyz/api/customers/${selectedCustomer.Customer_ID}`)
         .then(() => {
           toast.success('Customer deleted successfully!', {
             position: "top-right",

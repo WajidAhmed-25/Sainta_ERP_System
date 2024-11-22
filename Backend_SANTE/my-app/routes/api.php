@@ -72,8 +72,6 @@ Route::delete('/employees_timesheets/delete-employee/{employee_id}', [EmployeesT
 
 
 
-
-
 use App\Http\Controllers\EmployeeDailyAttendanceController;
 
 
@@ -87,6 +85,76 @@ Route::delete('/attendance/employee/{employee_id}', [EmployeeDailyAttendanceCont
 
 
 
+
+use App\Http\Controllers\SupplierController;
+
+
+Route::get('/suppliers', [SupplierController::class, 'index']);
+Route::get('/suppliers/{id}', [SupplierController::class, 'show']);
+Route::post('/suppliers', [SupplierController::class, 'store']);
+Route::put('/suppliers/{id}', [SupplierController::class, 'update']);
+Route::delete('/suppliers/{id}', [SupplierController::class, 'destroy']);
+
+
+
+use App\Http\Controllers\ProductTypeController;
+
+Route::get('/product_types', [ProductTypeController::class, 'index']);
+Route::get('/product_types/{id}', [ProductTypeController::class, 'show']);
+Route::post('/product_types', [ProductTypeController::class, 'store']);
+Route::put('/product_types/{id}', [ProductTypeController::class, 'update']);
+Route::delete('/product_types/{id}', [ProductTypeController::class, 'destroy']);
+
+
+
+use App\Http\Controllers\StockTypeController;
+
+Route::get('/stock_types', [StockTypeController::class, 'index']);
+Route::get('/stock_types/{id}', [StockTypeController::class, 'show']);
+Route::post('/stock_types', [StockTypeController::class, 'store']);
+Route::put('/stock_types/{id}', [StockTypeController::class, 'update']);
+Route::delete('/stock_types/{id}', [StockTypeController::class, 'destroy']);
+
+
+
+
+use App\Http\Controllers\StockController;
+
+Route::get('/stocks', [StockController::class, 'index']);
+Route::get('/stocks/{id}', [StockController::class, 'show']);
+Route::post('/stocks', [StockController::class, 'store']);
+Route::put('/stocks/{id}', [StockController::class, 'update']);
+Route::delete('/stocks/{id}', [StockController::class, 'destroy']);
+// Get by Stock Type ID
+Route::get('/stocks/stock_type/{stockTypeId}', [StockController::class, 'showByStockType']);
+
+
+
+
+
+use App\Http\Controllers\ProductController;
+
+Route::get('/products', [ProductController::class, 'index']);
+Route::get('/products/{id}', [ProductController::class, 'show']);
+Route::post('/products', [ProductController::class, 'store']);
+Route::put('/products/{id}', [ProductController::class, 'update']);
+Route::delete('/products/{id}', [ProductController::class, 'destroy']);
+// Get by Stock ID
+Route::get('/products/stock/{stock_id}', [ProductController::class, 'showByStockID']);
+
+Route::get('/products/product-type/{product_type_id}', [ProductController::class, 'showByProductTypeID']);
+
+
+
+
+
+use App\Http\Controllers\AllTransactionController;
+
+Route::get('transactions', [AllTransactionController::class, 'index']);
+Route::get('transactions/{id}', [AllTransactionController::class, 'show']);
+Route::post('transactions', [AllTransactionController::class, 'store']);
+Route::put('transactions/{id}', [AllTransactionController::class, 'update']);
+Route::delete('transactions/{id}', [AllTransactionController::class, 'destroy']);
 
 
 /*

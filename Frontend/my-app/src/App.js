@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Navbar from './Navbar/Navbar';
@@ -18,7 +17,6 @@ import Download_TimeSheet from './Modules/TimeSheet_Management/Download_TimeShee
 import TimeSheet_Management2 from './Modules/TimeSheet_Management/Add_Attendance';
 import Admin_Login from './Admin_Portal/Admin_Login/Admin_Login';
 import Admin_Dashboard from './Admin_Portal/Admin_Dashboard/Admin_Dashboard';
-import Trans_Btn from './Navbar/Trans_Btn';
 
 
 import { I18nextProvider } from 'react-i18next';
@@ -26,15 +24,23 @@ import i18n from './i18n';
 import Product_Management from './Modules/Product_Management/Product_Management';
 
 
+import { useState } from 'react';
+import Model_Management from './Model_Management/Model_Management';
+
 function App() {
+
+  // Current LandingPage Element
+  const [currentElement, setCurrentElement] = useState("default");
+
   return (
     <I18nextProvider i18n={i18n}>
       
 <Router>
 <Navbar/>
 
+{/* <Navbar setCurrentElement={setCurrentElement} currentElement={currentElement}/> */}
     <Routes>
-        <Route path="/" element={<Sainta_Homepage />} />
+        <Route path="/" element={<Sainta_Homepage currentElement={currentElement} />} />
         <Route path="/test" element={<Testing_Class/>}/>
         <Route path="/register" element={<Registration/>}/>
         <Route path='/login' element={<Login/>}/>
@@ -55,6 +61,10 @@ function App() {
 
         <Route path='/admin_login' element={<Admin_Login/>}/>
         <Route path='/admin_dashboard' element={<Admin_Dashboard/>}/>
+
+
+<Route path='/model_management' element={<Model_Management/>}/>
+
       </Routes>
  <Footer/>
 </Router>

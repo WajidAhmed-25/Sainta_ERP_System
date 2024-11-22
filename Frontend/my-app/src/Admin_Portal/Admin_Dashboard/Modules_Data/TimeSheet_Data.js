@@ -15,7 +15,7 @@ const TimeSheet_Data = () => {
   const [timesheetToDelete, setTimesheetToDelete] = useState(null);
 
   useEffect(() => {
-    axios.get('http://localhost:8000/api/employees_timesheets')
+    axios.get('https://api.sainta-erp.xyz/api/employees_timesheets')
       .then((response) => {
         setTimesheets(response.data);
       })
@@ -38,7 +38,7 @@ const TimeSheet_Data = () => {
   };
 
   const handleUpdate = (timesheetId) => {
-    axios.put(`http://localhost:8000/api/employees_timesheets/${timesheetId}`, formData)
+    axios.put(`https://api.sainta-erp.xyz/api/employees_timesheets/${timesheetId}`, formData)
       .then(() => {
         toast.success('Timesheet updated successfully!', {
           position: "top-right",
@@ -64,7 +64,7 @@ const TimeSheet_Data = () => {
   const handleDelete = () => {
     if (!timesheetToDelete) return;
 
-    axios.delete(`http://localhost:8000/api/employees_timesheets/${timesheetToDelete.TimeSheet_ID}`)
+    axios.delete(`https://api.sainta-erp.xyz/api/employees_timesheets/${timesheetToDelete.TimeSheet_ID}`)
       .then(() => {
         toast.success('Timesheet deleted successfully!', {
           position: "top-right",

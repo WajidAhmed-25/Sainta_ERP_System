@@ -42,6 +42,7 @@ import { useTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGlobe } from '@fortawesome/free-solid-svg-icons'; // Import the translate/globe icon
 
+
 const Trans_Btn = () => {
   const { i18n, t } = useTranslation();
 
@@ -51,17 +52,31 @@ const Trans_Btn = () => {
   };
 
   return (
-    <div>
-      <div className='flex items-end justify-end w-full pt-8 bg-orage-400'>
-        <button 
-          onClick={toggleLanguage}
-          className='flex items-center px-6 py-2.5 mr-12 bg-[#007AAF] text-white rounded hover:scale-125 hover:transition-all hover:duration-300 hover:cursor-pointer'
-        >
-          <FontAwesomeIcon icon={faGlobe} className="mr-2" /> 
-          {t('Translate')} ({i18n.language === 'en' ? '日本語' : 'English'})
-        </button>
-      </div>
+    // <div>
+    //   <div className='flex items-end justify-end w-full pt-8 bg-orage-400'>
+    //     <button 
+    //       onClick={toggleLanguage}
+    //       className='flex items-center px-6 py-2.5 mr-12 bg-[#007AAF] text-white rounded hover:scale-125 hover:transition-all hover:duration-300 hover:cursor-pointer'
+    //     >
+    //       <FontAwesomeIcon icon={faGlobe} className="mr-2" /> 
+    //       {t('Translate')} ({i18n.language === 'en' ? '日本語' : 'English'})
+    //     </button>
+    //   </div>
+    // </div>
+
+
+
+    <div className='flex items-end justify-end w-full pt-8 '>
+    <div 
+      onClick={toggleLanguage}
+      className='flex items-center px-4 py-2.5 mr-12  text-white rounded hover:scale-125 hover:transition-all hover:duration-300 hover:cursor-pointer'
+    >
+      <FontAwesomeIcon icon={faGlobe} size="2xl" className="mr-2 text-[#007AAF]" /> 
+      {/* <span>{i18n.language === 'en' ? '日本語' : 'English'}</span> */}
     </div>
+  </div>
+
+
   );
 };
 

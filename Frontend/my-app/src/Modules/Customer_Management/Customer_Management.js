@@ -62,7 +62,7 @@ const useCustomerModal = (formFields) => {
       e.preventDefault();
       try {
         const response = await axios.post(
-          "http://localhost:8000/api/customers",
+          "https://api.sainta-erp.xyz/api/customers",
           formDataa
         );
         onAddCustomer(response.data);
@@ -137,7 +137,7 @@ const Customer_Management = () => {
   useEffect(() => {
     const fetchCustomers = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/api/customers");
+        const response = await axios.get("https://api.sainta-erp.xyz/api/customers");
         setCustomers(response.data);
         if (response.data.length > 0) {
           selectCustomer(response.data[0]);
@@ -223,7 +223,7 @@ const Customer_Management = () => {
         Note: formData["Other Information"].Note,
       };
       await axios.put(
-        `http://localhost:8000/api/customers/${selectedCustomer.Customer_ID}`,
+        `https://api.sainta-erp.xyz/api/customers/${selectedCustomer.Customer_ID}`,
         updatedCustomer
       );
       setCustomers((prevCustomers) =>
@@ -240,7 +240,7 @@ const Customer_Management = () => {
   };
   const handleDeleteCustomer = async (Customer_ID, Customer_name) => {
     try {
-      await axios.delete(`http://localhost:8000/api/customers/${Customer_ID}`);
+      await axios.delete(`https://api.sainta-erp.xyz/api/customers/${Customer_ID}`);
       setCustomers((prevCustomers) =>
         prevCustomers.filter((customer) => customer.Customer_ID !== Customer_ID)
       );

@@ -36,7 +36,7 @@ const Employee_Management1 = () => {
   useEffect(() => {
     const fetchDepartments = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/api/departments');
+        const response = await axios.get('https://api.sainta-erp.xyz/api/departments');
         setDepartmentsData(response.data);
       } catch (error) {
         console.error('Error fetching departments:', error);
@@ -668,7 +668,7 @@ const Employee_Management1 = () => {
   };
   const handleDeleteDepartment = async (departmentId, departmentName) => {
     try {
-      await axios.delete(`http://localhost:8000/api/departments/${departmentId}`);
+      await axios.delete(`https://api.sainta-erp.xyz/api/departments/${departmentId}`);
       setDepartments((prevDepartments) =>
         prevDepartments.filter((dept) => dept.Department_ID !== departmentId)
       );
@@ -681,7 +681,7 @@ const Employee_Management1 = () => {
   useEffect(() => {
     const fetchDepartments = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/api/departments");
+        const response = await axios.get("https://api.sainta-erp.xyz/api/departments");
         setDepartments(response.data);
       } catch (error) {
         toast.error("Failed to load departments");
@@ -692,7 +692,7 @@ const Employee_Management1 = () => {
   useEffect(() => {
     const fetchEmployees = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/api/employees");
+        const response = await axios.get("https://api.sainta-erp.xyz/api/employees");
         setEmployees(response.data);
       } catch (error) {
         toast.error("Failed to load employees");
@@ -709,7 +709,7 @@ const Employee_Management1 = () => {
   };
   const addDepartment = async () => {
     try {
-      const response = await axios.post("http://localhost:8000/api/departments", {
+      const response = await axios.post("https://api.sainta-erp.xyz/api/departments", {
         Department_Name: newDepartmentName,
         Department_Description: newDepartmentDescription,
       });
@@ -730,7 +730,7 @@ const Employee_Management1 = () => {
       return;
     }
     try {
-      const response = await axios.put(`http://localhost:8000/api/departments/${editingDepartment.Department_ID}`, {
+      const response = await axios.put(`https://api.sainta-erp.xyz/api/departments/${editingDepartment.Department_ID}`, {
         Department_Name: editDepartmentName,
         Department_Description: editDepartmentDescription,
       });
@@ -782,7 +782,7 @@ const Employee_Management1 = () => {
 
       console.log("Data to Update: ",formData)
   
-      const response = await axios.put(`http://localhost:8000/api/employees/${formData.Employee_ID}`, formData);
+      const response = await axios.put(`https://api.sainta-erp.xyz/api/employees/${formData.Employee_ID}`, formData);
       
       setEmployees(employees.map(emp => 
         emp.Employee_ID === formData.Employee_ID ? response.data : emp

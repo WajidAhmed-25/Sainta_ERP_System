@@ -15,7 +15,7 @@ const Employee_Data = () => {
   const [employeeToDelete, setEmployeeToDelete] = useState(null);
 
   useEffect(() => {
-    axios.get('http://localhost:8000/api/employees')
+    axios.get('https://api.sainta-erp.xyz/api/employees')
       .then((response) => {
         setEmployees(response.data);
       })
@@ -45,7 +45,7 @@ const Employee_Data = () => {
   };
 
   const handleUpdate = (employeeId) => {
-    axios.put(`http://localhost:8000/api/employees/${employeeId}`, formData)
+    axios.put(`https://api.sainta-erp.xyz/api/employees/${employeeId}`, formData)
       .then(() => {
         toast.success('Employee updated successfully!', {
           position: "top-right",
@@ -70,7 +70,7 @@ const Employee_Data = () => {
 
   const handleDelete = () => {
     const employeeId = employeeToDelete.Employee_ID;
-    axios.delete(`http://localhost:8000/api/employees/${employeeId}`)
+    axios.delete(`https://api.sainta-erp.xyz/api/employees/${employeeId}`)
       .then(() => {
         toast.success('Employee deleted successfully!', {
           position: "top-right",

@@ -32,7 +32,7 @@ export default function Login() {
     const handleBusinessIdChange = (e) => {
         const value = e.target.value;
         if (!/^\d*$/.test(value) || value.length > 6) {
-            toast.error("Please enter a valid 6-digit integer for BUSINESS ID.");
+            toast.error("ビジネスIDには6桁の整数を入力してください。");
             return;
         }
         setBusinessId(value);
@@ -40,43 +40,46 @@ export default function Login() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const hash = await hashPassword(password);
+        console.log("My hash: ",hash)
         if (!service || !businessId || !username || !password) {
-            toast.error("Please fill all fields.");
+            toast.error("全てのフィルドを入力してください。");
             return;
         }
         try {
-            const response = await fetch('http://localhost:8000/api/admin-info');
+            const response = await fetch('https://api.sainta-erp.xyz/api/admin-info');
+            console.log("Wadsa")
             const apiData = await response.json();
+            console.log("Api: ",apiData)
             if (Array.isArray(apiData) && apiData.length > 0) {
                 const matchingUser = apiData.find(userData => {
                     const isBusinessIdMatch = userData.business_id.toString() === businessId;
                     const isUsernameMatch = userData.email === username;
                     const isPasswordMatch = userData.password === hash;
                     const isServiceMatch = userData.selectedService === service;
-                 //   console.log(`Checking data for user: ${userData.email}`);
+              console.log(`Checking data for user: ${userData.email}`);
                     if (isBusinessIdMatch) {
-                     //   console.log("Business ID matches.");
+                     console.log("Business ID matches.");
                     } else {
-                     //   console.log(`Business ID does not match. Entered: ${businessId}, Expected: ${userData.business_id}`);
+                     console.log(`Business ID does not match. Entered: ${businessId}, Expected: ${userData.business_id}`);
                     }
                     if (isUsernameMatch) {
-                    //    console.log("Username matches.");
+                     console.log("Username matches.");
                     } else {
-                     //   console.log(`Username does not match. Entered: ${username}, Expected: ${userData.email}`);
+                      console.log(`Username does not match. Entered: ${username}, Expected: ${userData.email}`);
                     }
                     if (isPasswordMatch) {
-                     //   console.log("Password matches.");
-                      //  console.log("Entered Password Hash:", hash);
-                       // console.log("DB Password Hash:", userData.password);
+                   console.log("Password matches.");
+                     console.log("Entered Password Hash:", hash);
+                     console.log("DB Password Hash:", userData.password);
                     } else {
-                  //      console.log(`Password does not match. Entered Hash: ${hash}, Expected Hash: ${userData.password}`);
+                  console.log(`Password does not match. Entered Hash: ${hash}, Expected Hash: ${userData.password}`);
                     }
                     if (isServiceMatch) {
-                     //   console.log("Service matches.");
+                      console.log("Service matches.");
                     } else {
-                    //    console.log(`Service does not match. Entered: ${service}, Expected: ${userData.selectedService}`);
+                      console.log(`Service does not match. Entered: ${service}, Expected: ${userData.selectedService}`);
                     }
-                    return isBusinessIdMatch && isUsernameMatch && isPasswordMatch && isServiceMatch;
+                    return isBusinessIdMatch && isUsernameMatch && isPasswordMatch ;
                 });
                 if (matchingUser) {
                 //    console.log('Data from API:', matchingUser);
@@ -86,15 +89,15 @@ export default function Login() {
                     navigate('/modules');
                     window.location.reload()
                 } else {
-                    toast.error('Invalid credentials. Please check your input.');
+                    toast.error('ログインに失敗しました。もう一度お試しください。');
                 }
             } else {
                 console.error('Unexpected API response format.');
-                toast.error('Invalid API response.');
+                toast.error('データの取得中にエラーが発生しました。');
             }
         } catch (error) {
             console.error('Error fetching data from API:', error);
-            toast.error('An error occurred while fetching data.');
+            toast.error('データの取得中にエラーが発生しました。');
         }
     };
     const hashPassword = async (password) => {
@@ -104,62 +107,62 @@ export default function Login() {
         const hashArray = Array.from(new Uint8Array(hashBuffer));
         const hashHex = hashArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
         return hashHex;
-    };
+      };
     return (
         <>
             <ToastContainer />
-            <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-    <div className='text-black bg-green-300 w-[46%] font-semibold p-4 -mt-16 mb-8 flex items-center'>
-      <FontAwesomeIcon icon={faLock} className="mr-4 text-black" />
-      <p>Enter the Credentials you received on the email you entered. And Login to the System!!!</p>
-    </div>
+            {/* Follow a similar style to the previous pages */}
+            <div className="flex flex-col items-center justify-center min-h-screen pt-12">
                 <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-md">
-                    <div className="flex items-center mb-6">
+                    <div className="flex items-center mb-8">
                         <div className="flex items-center justify-center w-10 h-10 mr-2 border-2 rounded-full">
-                            <img src={lock} className="" alt="Lock Icon" />
+                            <img src={lock} className="" alt="ロックアイコン" />
                         </div>
-                        <h2 className="text-2xl font-semibold">Login</h2>
+                        <h2 className="text-2xl font-semibold">ログイン</h2>
                     </div>
-                    <p className="mb-6 text-gray-600">Enter your login details.</p>
+
+                    <p className="mb-6 text-gray-600">ログイン情報を入力してください。もしご登録いただいたばかりの場合は、電子メールでお送りした情報をご参照ください。</p>
                     <form onSubmit={handleSubmit}>
                         <div className="space-y-4">
                             <div className="relative">
                                 <select
-                                    className="w-full p-3 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-2 focus:ring-[#007AAF]"
+                                    className="w-full p-3 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500"
                                     value={service}
                                     onChange={(e) => setService(e.target.value)}
                                 >
-                                    <option value="" className='text-[#007AAF] '>YOUR SERVICE</option>
-                                    <option value="Business" className='text-[#007AAF] hover:bg-[#007AAF]'>Business</option>
-                                    <option value="Recruitment" className='text-[#007AAF]'>Recruitment</option>
-                                    <option value="Lab" className='text-[#007AAF]'>Lab</option>
+                                    <option value="">サービスを選択</option>
+                                    <option value="service1">サインタ・業務</option>
+                                    <option value="service3">サインタ・ラボ</option>
                                 </select>
                                 <ChevronDown className="absolute w-5 h-5 text-gray-400 transform -translate-y-1/2 pointer-events-none right-3 top-1/2" />
                             </div>
+
                             <div className="relative">
                                 <input
                                     type="text"
-                                    placeholder="BUSINESS ID"
+                                    placeholder="サインタ・ビジネスID"
                                     className="w-full p-3 pl-12 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                                     value={businessId}
                                     onChange={handleBusinessIdChange}
                                 />
                                 <Building2 className="absolute w-5 h-5 text-gray-400 transform -translate-y-1/2 left-3 top-1/2" />
                             </div>
+
                             <div className="relative">
                                 <input
-                                    type="email"
-                                    placeholder="USER EMAIL"
+                                    type="text"
+                                    placeholder="ユーザー名"
                                     className="w-full p-3 pl-10 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                                     value={username}
                                     onChange={(e) => setUsername(e.target.value)}
                                 />
                                 <User className="absolute w-5 h-5 text-gray-400 transform -translate-y-1/2 left-3 top-1/2" />
                             </div>
+
                             <div className="relative">
                                 <input
                                     type={passwordVisible ? "text" : "password"}
-                                    placeholder="PASSWORD"
+                                    placeholder="パスワード"
                                     className="w-full p-3 pl-10 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
@@ -174,11 +177,12 @@ export default function Login() {
                                 </button>
                             </div>
                         </div>
+
                         <button
                             type="submit"
                             className="w-full px-4 py-2 mt-4 font-semibold text-black border-[#007AAFF7] border-2 pt-4 pb-4 bg-white rounded-md hover:bg-[#007AAFF7] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#007AAFF7] focus:ring-offset-2"
                         >
-                            LOGIN
+                            faasdas
                         </button>
                     </form>
                     <div className="mt-4 text-end">
@@ -189,17 +193,3 @@ export default function Login() {
         </>
     );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -62,7 +62,7 @@
 //   useEffect(() => {
 //     const fetchData = async () => {
 //       try {
-//         const response = await axios.get('http://localhost:8000/api/attendance');
+//         const response = await axios.get('https://api.sainta-erp.xyz/api/attendance');
 //         setAttendanceData(response.data);
 //         // Extract unique employees
 //         const employees = [...new Set(response.data.map(item => item.employee.Employee_Name))];
@@ -252,7 +252,7 @@ const Download_TimeSheet = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/api/attendance');
+        const response = await axios.get('https://api.sainta-erp.xyz/api/attendance');
         setAttendanceData(response.data);
         // Extract unique employees
         const employees = [...new Set(response.data.map(item => item.employee.Employee_Name))];

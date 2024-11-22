@@ -1,13 +1,14 @@
 // ------------------------------------------------- Second time------------------------------------------------------------------//
 
 
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { Pen } from 'lucide-react';
 import imagee from './rk1.png';
 import bcrypt from 'bcryptjs'; 
 import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
-import { ChevronDown, Building2, User, Lock, Eye, EyeOff } from 'lucide-react';
+import { ChevronDown, Building2, User, Lock, Eye, EyeOff, UserRoundPlus } from 'lucide-react';
+// import registration icon from 'lucide-react';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function Registration() {
@@ -30,8 +31,7 @@ export default function Registration() {
 
   const [hashedPassword, setHashedPassword] = useState('');
 
-
- const hashPassword = async (password) => {
+  const hashPassword = async (password) => {
     const encoder = new TextEncoder();
     const data = encoder.encode(password);
     const hashBuffer = await crypto.subtle.digest('SHA-256', data);
@@ -40,11 +40,10 @@ export default function Registration() {
     return hashHex;
   };
 
-  
 
   const navigate = useNavigate(); 
 
-  const services = ['Business', 'Recruitment', 'Lab'];
+  const services = ['サインタ・業務', 'サインタ・ラボ']
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -53,13 +52,13 @@ export default function Registration() {
     console.log('Hashed password:', hash);
     
     if (!name || !email || !contact || !password || !selectedService || !period || !contactEmail) {
-      toast.error('Please fill in all fields before submitting.');
+      toast.error('全てのフィールドを入力してください。');
       return;
     }
   
     // Fetch all existing user data
     try {
-      const response = await fetch('http://localhost:8000/api/admin-info');
+      const response = await fetch('https://api.sainta-erp.xyz/api/admin-info');
       
       if (!response.ok) {
         throw new Error('Failed to fetch user data');
@@ -71,7 +70,7 @@ export default function Registration() {
       // Check if the email already exists
       const emailExists = userData.some(user => user.email === email);
       if (emailExists) {
-        toast.error('Email already exists. Please use a different email.');
+        toast.error('入力されたメールアドレスは既に登録されています。');
         return;
       }
   
@@ -80,7 +79,7 @@ export default function Registration() {
 
       console.log(name)
   
-      const otpResponse = await fetch('http://127.0.0.1:8000/api/send-otp', {
+      const otpResponse = await fetch('https://api.sainta-erp.xyz/api/send-otp', {
         method: 'POST',
      //  mode: 'no-cors',
         headers: {
@@ -95,19 +94,19 @@ export default function Registration() {
       if (otpResponse.ok) {
         try {
           const result = JSON.parse(responseText);
-          toast.success('OTP sent successfully!');
+          toast.success('ワン・タイム・コードが正常にメールに送信されました。');
           console.log(result.message);
           setShowOtpForm(true);
         } catch (error) {
           console.error('Error parsing JSON:', error);
-          toast.error('Unexpected server response. Please try again.');
+          toast.error('サーバーからの応答を解析できませんでした。');
         }
       } else {
-        toast.error('Failed to send OTP. Please try again.');
+        toast.error('ワン・タイム・コードの送信に失敗しました。');
       }
     } catch (error) {
       console.error('Error:', error);
-      toast.error('An error occurred. Please try again later.');
+      toast.error('エラーが発生しました。後でもう一度お試しください。');
     }
   };
   
@@ -122,7 +121,7 @@ export default function Registration() {
 
   //   try {
   //     // Verify OTP
-  //     const otpResponse = await fetch('http://127.0.0.1:8000/api/verify-otp', {
+  //     const otpResponse = await fetch('https://api.sainta-erp.xyz/api/verify-otp', {
   //       method: 'POST',
   //       // mode: 'no-cors',
   //       headers: {
@@ -148,7 +147,7 @@ export default function Registration() {
   //       };
 
   //       // Register user
-  //       const registrationResponse = await fetch('http://localhost:8000/api/admin-info', {
+  //       const registrationResponse = await fetch('https://api.sainta-erp.xyz/api/admin-info', {
   //         method: 'POST',
   //         // mode: 'no-cors',
   //         headers: {
@@ -162,7 +161,7 @@ export default function Registration() {
   //         console.log('Registration Successful:', registrationResult);
           
   //         // Send email with user details
-  //         const sendDetailsResponse = await fetch('http://127.0.0.1:8000/api/send-user-details', {
+  //         const sendDetailsResponse = await fetch('https://api.sainta-erp.xyz/api/send-user-details', {
   //           method: 'POST',
   //           // mode: 'no-cors',
   //           headers: {
@@ -213,7 +212,7 @@ export default function Registration() {
   
     try {
       // Verify OTP
-      const otpResponse = await fetch('http://127.0.0.1:8000/api/verify-otp', {
+      const otpResponse = await fetch('https://api.sainta-erp.xyz/api/verify-otp', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -238,7 +237,7 @@ export default function Registration() {
         };
   
         // Register user
-        const registrationResponse = await fetch('http://localhost:8000/api/admin-info', {
+        const registrationResponse = await fetch('https://api.sainta-erp.xyz/api/admin-info', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -251,7 +250,7 @@ export default function Registration() {
           console.log('Registration Successful:', registrationResult);
           
           // Send email with user details, including 'name'
-          const sendDetailsResponse = await fetch('http://127.0.0.1:8000/api/send-user-details', {
+          const sendDetailsResponse = await fetch('https://api.sainta-erp.xyz/api/send-user-details', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -266,10 +265,10 @@ export default function Registration() {
           });
   
           if (sendDetailsResponse.ok) {
-            toast.success('Registered Successfully! Check your email for login details.');
+            toast.success('登録が成功しました。メールで詳細を送信しましたので、ご確認ください。');
           } else {
             console.error('Failed to send user details email');
-            toast.warning('Registered successfully, but failed to send email with details.');
+            toast.warning('ユーザー詳細のメール送信に失敗しました。');
           }
   
           setTimeout(() => {
@@ -277,15 +276,15 @@ export default function Registration() {
           }, 2000);
         } else {
           console.error('Registration failed. Status:', registrationResponse.status);
-          toast.error('Registration failed. Please try again.');
+          toast.error('登録に失敗しました。もう一度お試しください。');
         }
       } else {
         console.error(otpResult.message);
-        toast.error('OTP verification failed. Please try again.');
+        toast.error('ワン・タイム・コードの検証に失敗しました。');
       }
     } catch (error) {
       console.error('Error during registration process:', error);
-      toast.error('An error occurred. Please try again later.');
+      toast.error('エラーが発生しました。後でもう一度お試しください。');
     }
   };
   
@@ -321,7 +320,7 @@ export default function Registration() {
       <div>
         <input
           type="text"
-          placeholder="Name"
+          placeholder="氏名"
           value={name}
           onChange={(e) => setName(e.target.value)}
           className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#007AAFF7]"
@@ -330,7 +329,7 @@ export default function Registration() {
       <div>
         <input
           type="email"
-          placeholder="Email"
+          placeholder="メールアドレス"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#007AAFF7]"
@@ -339,26 +338,17 @@ export default function Registration() {
       <div>
         <input
           type="tel"
-          placeholder="Contact"
+          placeholder="電話番号"
           value={contact}
           onChange={(e) => setContact(e.target.value)}
           className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#007AAFF7]"
         />
       </div>
-      {/* <div>
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#007AAFF7]"
-        />
-      </div> */}
 
 <div className="relative">
                                 <input
                                     type={passwordVisible ? "text" : "password"} // Toggle password visibility
-                                    placeholder="PASSWORD"
+                                    placeholder="パスワード"
                                     className="w-full px-3 py-2 border border-gray-300 placeholder:pl-4 pl-12 rounded-md focus:outline-none focus:ring-2 focus:ring-[#007AAFF7]"
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
@@ -373,7 +363,7 @@ export default function Registration() {
                                 </button>
                             </div>
       <div className="mb-4">
-        <h2 className="mb-2 text-lg font-semibold">Choose a Service</h2>
+        <h2 className="mb-2 text-lg font-semibold">サービスを選択</h2>
         <div className="flex space-x-4">
           {services.map((service) => (
             <label key={service} className="flex items-center">
@@ -399,19 +389,19 @@ export default function Registration() {
         onChange={(e) => setPeriod(e.target.value)} 
         className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#007AAFF7]"
       >
-        <option value="" disabled>Select contract period</option> 
-        <option value="Monthly Contract">Monthly Contract</option>
-        <option value="Weekly Contract">Weekly Contract</option>
-        <option value="Yearly Contract">Yearly Contract</option>
+        <option value="" disabled>契約期間を選択</option>
+        <option value="Monthly Contract">月額契約</option>
+        <option value="Weekly Contract">週額契約</option>
+        <option value="Yearly Contract">年間契約</option>
       </select>
     </div>
       <div className="mb-8">
         <label className="block mb-1 text-sm font-medium text-gray-700">
-          Contact Email Address
+          メールアドレス
         </label>
         <input
           type="email"
-          placeholder="Email"
+          placeholder="メールアドレス"
           value={contactEmail}
           onChange={(e) => setContactEmail(e.target.value)}
           className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#007AAFF7]"
@@ -421,7 +411,7 @@ export default function Registration() {
         type="submit"
         className="w-full px-4 py-2 mt-4 font-semibold text-black border-[#007AAFF7] border-2 pt-4 pb-4 bg-white rounded-md hover:bg-[#007AAFF7] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#007AAFF7] focus:ring-offset-2"
       >
-        Verify Me
+        登録
       </button>
     </form>
   );
@@ -430,11 +420,11 @@ export default function Registration() {
     <form className="space-y-4" onSubmit={handleOtpSubmit}>
       <div className="mb-4">
         <p className="mb-2 text-sm text-gray-600">
-          An OTP has been sent to your email address. Please enter it below to verify your account.
+          入力されたメールアドレスに送信されたワン・タイム・コードを入力してください。
         </p>
         <input
           type="text"
-          placeholder="Enter OTP"
+          placeholder="ワン・タイム・コードを入力"
           value={otp}
           onChange={(e) => setOtp(e.target.value)}
           className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#007AAFF7]"
@@ -444,22 +434,22 @@ export default function Registration() {
         type="submit"
         className="w-full px-4 py-2 mt-4 font-semibold text-black border-[#007AAFF7] border-2 pt-4 pb-4 bg-white rounded-md hover:bg-[#007AAFF7] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#007AAFF7] focus:ring-offset-2"
       >
-        VERIFY OTP
+        ワン・タイム・コードを検証
       </button>
     </form>
   );
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex items-center justify-center min-h-screen">
       <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-md shadow-lg">
-        <div className="text-center">
-          <h1 className="text-3xl font-bold text-gray-800">
-            Register Now!
-          </h1>
-          <p className="mt-2 text-sm text-gray-600">
-            Please fill in the details to create your account.
-          </p>
+        <div className="flex items-center mb-8">
+              <div className="flex items-center justify-center w-10 h-10 mr-2 border-2 rounded-full">
+              <UserRoundPlus className="w-6 h-6 text-[#007AAFF7]" />
+            </div>
+          <h2 className="text-2xl font-semibold">登録</h2>
         </div>
+
+        <p className="mb-6 text-gray-600">アカウントを作成する際に、以下の情報を入力してください。</p>
         {showOtpForm ? renderOtpForm() : renderInitialForm()}
       </div>
       <ToastContainer />
