@@ -107,18 +107,18 @@ const Add_Product = () => {
   };
 
   return (
-    <div className="container min-h-screen pt-6 pb-[72px] mx-auto">
-      <Back_Btn />
+    <div className="">
+
       <ToastContainer />
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={() => setModalIsOpen(false)}
         contentLabel="Add Stock"
-        className="absolute p-8 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg shadow-lg top-1/2 left-1/2 w-11/12"
+        className="absolute w-11/12 p-8 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg shadow-lg top-1/2 left-1/2"
       >
         <h2 className="text-2xl font-bold text-[#007AAF] mb-4">Add Product</h2>
         <div className="flex flex-col gap-6 md:flex-row">
-          {/* Basic Information */}
+      
           <div className="bg-transparent w-full md:w-[31%] p-4">
             <h2 className="text-[#007AAF] text-center text-2xl mt-6 tracking-normal font-bold mb-8">
               Basic Information
@@ -293,21 +293,14 @@ const Add_Product = () => {
           </button>
         </div>
       </Modal>
-      <div className="grid flex-col gap-4 py-4 -mt-6 md:gap-16 md:flex-row md:flex">
-        <div className="col-span-1 p-6 mt-12 mb-12 md:ml-8 rounded-lg shadow-md md:w-[30%] w-[98%] ml-2">
-          <div className="flex justify-between mb-4">
-            <h1 className="md:text-3xl text-2xl font-bold text-[#007AAF]">
-              Product
-            </h1>
+
             <button
               onClick={() => setModalIsOpen(true)}
               className="md:px-4 px-2.5 py-2 md:ml-0 ml-2 bg-[#007AAF] text-white font-semibold rounded-lg hover:cursor-pointer hover:scale-110 hover:transition-all hover:duration-300"
             >
               <FontAwesomeIcon icon={faPlus} /> Add Product
             </button>
-          </div>
-        </div>
-      </div>
+
     </div>
   );
 };

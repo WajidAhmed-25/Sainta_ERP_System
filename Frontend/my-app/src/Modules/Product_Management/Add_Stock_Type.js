@@ -1890,7 +1890,7 @@ const Add_Stock_Type = () => {
 {selectedStock &&  (
         <div className="w-[35%] p-6 mt-4 -ml-6">
           <div className="p-6 bg-white rounded-lg shadow-md">
-            <h2 className="mb-6 text-2xl font-bold text-[#007AAF]">Products</h2>
+            <h2 className="mb-6 text-2xl font-bold text-center text-[#007AAF]">Products</h2>
 
             {products && products.length > 0 ? (
             <div className="overflow-x-auto">

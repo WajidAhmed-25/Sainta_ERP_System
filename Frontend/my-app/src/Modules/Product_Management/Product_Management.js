@@ -6,6 +6,7 @@ import Add_Supplier from './Add_Supplier'
 import Add_Product from './Add_Product'
 import StockManagement from './Add_Stock'
 import Model_Management from '../../Model_Management/Model_Management'
+import AddProductType from './product_page'
 
 const Product_Management = () => {
   return (
@@ -13,11 +14,16 @@ const Product_Management = () => {
       {/* <Add_Stock_Type /> */}
       {/* <StockManagement/> */}
       {/* <Add_Stock /> */}
-      <Add_Product_Type />
+
+      {/* <Add_Product_Type /> */}
+
+
+      {/* <AddProductType/> */}
+
       {/* <Add_Supplier /> */}
       {/* <Add_Product /> */}
 
-      {/* <Model_Management/> */}
+      <Model_Management/>
     </div>
   )
 }

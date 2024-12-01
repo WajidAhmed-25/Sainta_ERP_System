@@ -16,8 +16,6 @@ class AllTransaction extends Model
     // Define the fillable fields
     protected $fillable = [
         'product_id',
-        'product_quantity',
-        'product_price',
         'transaction_date',
     ];
 

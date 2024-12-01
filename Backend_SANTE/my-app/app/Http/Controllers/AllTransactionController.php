@@ -33,8 +33,6 @@ class AllTransactionController extends Controller
         // Validate the request data
         $validator = Validator::make($request->all(), [
             'product_id' => 'required|exists:products,product_id',
-            'product_quantity' => 'required|integer',
-            'product_price' => 'required|numeric',
             'transaction_date' => 'required|date',
         ]);
 
@@ -45,8 +43,6 @@ class AllTransactionController extends Controller
         // Create the transaction
         $transaction = AllTransaction::create([
             'product_id' => $request->product_id,
-            'product_quantity' => $request->product_quantity,
-            'product_price' => $request->product_price,
             'transaction_date' => $request->transaction_date,
         ]);
 
@@ -65,8 +61,7 @@ class AllTransactionController extends Controller
         // Validate the request data
         $validator = Validator::make($request->all(), [
             'product_id' => 'sometimes|required|exists:products,product_id',
-            'product_quantity' => 'sometimes|required|integer',
-            'product_price' => 'sometimes|required|numeric',
+          
             'transaction_date' => 'sometimes|required|date',
         ]);
 
@@ -77,8 +72,7 @@ class AllTransactionController extends Controller
         // Update the transaction
         $transaction->update([
             'product_id' => $request->product_id,
-            'product_quantity' => $request->product_quantity,
-            'product_price' => $request->product_price,
+           
             'transaction_date' => $request->transaction_date,
         ]);
 
