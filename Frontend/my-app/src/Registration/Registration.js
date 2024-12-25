@@ -223,7 +223,8 @@ export default function Registration() {
       const otpResult = await otpResponse.json();
       if (otpResponse.ok) {
         console.log(otpResult.message);
-        toast.success('OTP Verified successfully!');
+
+        toast.success('ワン・タイム・コードが正常に検証されました。');
   
         const hashedPassword = await hashPassword(password);
         const registrationData = {
@@ -287,34 +288,24 @@ export default function Registration() {
       toast.error('エラーが発生しました。後でもう一度お試しください。');
     }
   };
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   const renderInitialForm = () => (
     <form className="space-y-4" onSubmit={handleSubmit}>
       <div>

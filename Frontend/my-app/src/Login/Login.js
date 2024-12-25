@@ -82,10 +82,15 @@ export default function Login() {
                     return isBusinessIdMatch && isUsernameMatch && isPasswordMatch ;
                 });
                 if (matchingUser) {
+
+                    console.log('Data from API:', matchingUser);
+                    toast.success('ログインに成功しました。');
+
                 //    console.log('Data from API:', matchingUser);
                     toast.success('Login successful!');
 
                     localStorage.setItem('username', matchingUser.name);
+
                     navigate('/modules');
                     window.location.reload()
                 } else {
@@ -185,9 +190,12 @@ export default function Login() {
                             faasdas
                         </button>
                     </form>
+
+
                     <div className="mt-4 text-end">
                       
                     </div>
+
                 </div>
             </div>
         </>
