@@ -7,6 +7,7 @@ import Testing_Class from './Testing/Test';
 import Registration from './Registration/Registration';
 import Login from './Login/Login';
 import Module from './Modules/Module';
+
 import Customer_Management from './Modules/Customer_Management/Customer_Management';
 import Customer_Management1 from './Modules/Customer_Management/Backup';
 import Employee_Management from './Modules/Employee_Management/Employee_Management';
