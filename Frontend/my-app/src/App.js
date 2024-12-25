@@ -7,7 +7,6 @@ import Testing_Class from './Testing/Test';
 import Registration from './Registration/Registration';
 import Login from './Login/Login';
 import Module from './Modules/Module';
-
 import Customer_Management from './Modules/Customer_Management/Customer_Management';
 import Customer_Management1 from './Modules/Customer_Management/Backup';
 import Employee_Management from './Modules/Employee_Management/Employee_Management';
@@ -15,7 +14,6 @@ import Add_Employee from './Modules/Employee_Management/Add_Employee';
 import Employee_Management1 from './Modules/Employee_Management/Backup_EM';
 import TimeSheet_Management from './Modules/TimeSheet_Management/TimeSheet_Management';
 import Download_TimeSheet from './Modules/TimeSheet_Management/Download_TimeSheet';
-
 import TimeSheet_Management2 from './Modules/TimeSheet_Management/Add_Attendance';
 import Admin_Login from './Admin_Portal/Admin_Login/Admin_Login';
 import Admin_Dashboard from './Admin_Portal/Admin_Dashboard/Admin_Dashboard';
