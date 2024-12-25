@@ -1,41 +1,83 @@
 import { useTranslation } from 'react-i18next';
 import Logo from '../assets/img/landing/mainlogo.png';
 import LogoSmall from '../assets/img/landing/logosmall.png';
-
-// Use react browser router to navigate to different pages
 import { useNavigate } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 
+// Define dropdown items
+const dropdownHome = [
+  { label: "About Us", path: "/about" },
+  { label: "Our Mission", path: "/mission" }
+];
+
+const dropdownStrengths = [
+  { label: "Features", path: "/features" },
+  { label: "Benefits", path: "/benefits" }
+];
+
+const dropdownSupport = [
+  { label: "Help Center", path: "/help" },
+  { label: "Contact Us", path: "/contact" }
+];
+
+// Dropdown component
+const Dropdown = ({ isOpen, items, setCurrentElement, handleMouseLeave, targetElement }) => {
+  if (!isOpen) return null;
+  
+  return (
+    <div 
+      className="absolute left-0 w-48 py-2 mt-2 bg-white rounded-lg shadow-xl"
+      onMouseLeave={handleMouseLeave}
+    >
+      {items.map((item, index) => (
+        <a
+          key={index}
+          href={item.path}
+          className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+          onClick={() => setCurrentElement(targetElement)}
+        >
+          {item.label}
+        </a>
+      ))}
+    </div>
+  );
+};
+
 const Navbar = ({ setCurrentElement }) => {
-  // const toggleMenu = () => setIsOpen(!isOpen);
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [hoveredElement, setHoveredElement] = useState("");
   const { t } = useTranslation();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  // Add console.log to debug
+  // Add the missing event handlers
+  const handleMouseEnter = (event) => {
+    setHoveredElement(event.target.innerText);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredElement("");
+  };
+
   useEffect(() => {
     const username = localStorage.getItem('username');
-    console.log('Username from localStorage:', username); // Debug log
+    console.log('Username from localStorage:', username);
     if (username) {
       setIsAuthenticated(true);
-      console.log('Authentication state set to:', true); // Debug log
+      console.log('Authentication state set to:', true);
     } else {
       setIsAuthenticated(false);
-      console.log('Authentication state set to:', false); // Debug log
+      console.log('Authentication state set to:', false);
     }
-  }, []); // Empty dependency array means this runs once on mount
+  }, []);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  // Add console.log to check current state
-  console.log('Current authentication state:', isAuthenticated); // Debug log
+  console.log('Current authentication state:', isAuthenticated);
 
   return (
-
     <nav className="bg-white shadow-md">
         <div className="container flex items-center justify-between p-4 mx-auto">
           <a href="/" className="flex items-center" onClick={() => setCurrentElement("default")}>
@@ -58,17 +100,12 @@ const Navbar = ({ setCurrentElement }) => {
             <div
               className="relative group"
               onMouseEnter={() => {
-                // Keep the dropdown open
                 setIsOpen(true);
                 handleMouseEnter({ target: { innerText: "サインタとは？" } });
-  
-                // Close the dropdown after 2 seconds
                 setTimeout(() => {
                   setIsOpen(false);
-                }
-                , 2000);
-              }
-              }
+                }, 2000);
+              }}
             >
               <a className="flex items-center px-4 py-2 text-gray-700 transition-colors duration-300 cursor-pointer hover:text-blue-500" onClick={() => setCurrentElement("default")}>
                 <img src={LogoSmall} alt="Logo Small" className="mr-2 h-7" />
@@ -83,17 +120,12 @@ const Navbar = ({ setCurrentElement }) => {
             <div
               className="relative group"
               onMouseEnter={() => {
-                // Keep the dropdown open
                 setIsOpen(true);
                 handleMouseEnter({ target: { innerText: "我々の強み" } });
-  
-                // Close the dropdown after 2 seconds
                 setTimeout(() => {
                   setIsOpen(false);
-                }
-                , 2000);
-              }
-              }
+                }, 2000);
+              }}
             >
               <a className="flex items-center px-4 py-2 text-gray-700 transition-colors duration-300 cursor-pointer hover:text-blue-500" onClick={() => {
                 setCurrentElement("strengths");
@@ -148,7 +180,6 @@ const Navbar = ({ setCurrentElement }) => {
           </a>
         </div>
       </div>
-
     </nav>
   );
 };
