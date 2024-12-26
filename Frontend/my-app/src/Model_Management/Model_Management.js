@@ -11,10 +11,10 @@ import { Download } from "lucide-react";
 
 // Images //
 
-import stock_img from './stock.png';
-import product_img from './product.png';
-import transaction_img from './transaction.png';
-import supplier_img from './supplier.png';
+import stock_img from '../Icons/sainta product-management stock.png';
+import product_img from '../Icons/sainta product-management product.png';
+import transaction_img from '../Icons/sainta product-management expenses.png';
+// import supplier_img from './supplier.png';
 
 
 
@@ -239,66 +239,66 @@ const TransactionPage = ({ onBack }) => {
 
 // --------------------------------- Suppliers Page -------------------------------- //
 
-const SuppliersPage = ({ onBack }) => {
-  const handleDownload = async () => {
-    try {
-      const response = await fetch("http://localhost:8000/api/suppliers");
-      if (!response.ok) {
-        throw new Error("Failed to fetch supplier data");
-      }
-      const data = await response.json();
+// const SuppliersPage = ({ onBack }) => {
+//   const handleDownload = async () => {
+//     try {
+//       const response = await fetch("http://localhost:8000/api/suppliers");
+//       if (!response.ok) {
+//         throw new Error("Failed to fetch supplier data");
+//       }
+//       const data = await response.json();
 
-      // Transform data for Excel
-      const formattedData = data.map((item) => ({
-        "Supplier ID": item.supplier_id,
-        "Supplier Name": item.supplier_name,
-        "Contact Details": item.contact_details,
-        Address: item.address,
-        "Created At": item.created_at,
-        "Updated At": item.updated_at,
-      }));
+//       // Transform data for Excel
+//       const formattedData = data.map((item) => ({
+//         "Supplier ID": item.supplier_id,
+//         "Supplier Name": item.supplier_name,
+//         "Contact Details": item.contact_details,
+//         Address: item.address,
+//         "Created At": item.created_at,
+//         "Updated At": item.updated_at,
+//       }));
 
-      // Create worksheet
-      const worksheet = XLSX.utils.json_to_sheet(formattedData);
-      const workbook = XLSX.utils.book_new();
-      XLSX.utils.book_append_sheet(workbook, worksheet, "Suppliers");
+//       // Create worksheet
+//       const worksheet = XLSX.utils.json_to_sheet(formattedData);
+//       const workbook = XLSX.utils.book_new();
+//       XLSX.utils.book_append_sheet(workbook, worksheet, "Suppliers");
 
-      // Convert to binary and save
-      const excelBuffer = XLSX.write(workbook, { bookType: "xlsx", type: "array" });
-      const blob = new Blob([excelBuffer], { type: "application/octet-stream" });
-      saveAs(blob, "Suppliers.xlsx");
-    } catch (error) {
-      console.error("Error downloading suppliers:", error);
-      alert("Failed to download suppliers");
-    }
-  };
+//       // Convert to binary and save
+//       const excelBuffer = XLSX.write(workbook, { bookType: "xlsx", type: "array" });
+//       const blob = new Blob([excelBuffer], { type: "application/octet-stream" });
+//       saveAs(blob, "Suppliers.xlsx");
+//     } catch (error) {
+//       console.error("Error downloading suppliers:", error);
+//       alert("Failed to download suppliers");
+//     }
+//   };
 
-  return (
-    <div className="flex flex-col min-h-screen rounded-lg">
-      <div className="flex flex-row justify-between w-full mt-6 space-x-2 ">
-        <button
-          className="px-4 py-2 flex flex-row space-x-2 text-white bg-[#017ab0] rounded hover:bg-[#0179b0b4] focus:outline-none"
-          onClick={onBack}
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
-          </svg>
-          <span> Back</span>
-        </button>
-        <button
-  className="flex flex-row px-4 py-2 mt-6 space-x-2 text-white bg-[#017ab0] rounded hover:bg-[#0179b0b4] focus:outline-none"
-  onClick={handleDownload}
->
-  <Download className="w-6 h-6" /> 
-  <span>Download Suppliers</span>
-</button>
-      </div>
-      <div className="w-full mt-8 ">
-        <Supplier />
-      </div>
-    </div>
-  );
-};
+//   return (
+//     <div className="flex flex-col min-h-screen rounded-lg">
+//       <div className="flex flex-row justify-between w-full mt-6 space-x-2 ">
+//         <button
+//           className="px-4 py-2 flex flex-row space-x-2 text-white bg-[#017ab0] rounded hover:bg-[#0179b0b4] focus:outline-none"
+//           onClick={onBack}
+//         >
+//           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
+//             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+//           </svg>
+//           <span> Back</span>
+//         </button>
+//         <button
+//   className="flex flex-row px-4 py-2 mt-6 space-x-2 text-white bg-[#017ab0] rounded hover:bg-[#0179b0b4] focus:outline-none"
+//   onClick={handleDownload}
+// >
+//   <Download className="w-6 h-6" /> 
+//   <span>Download Suppliers</span>
+// </button>
+//       </div>
+//       <div className="w-full mt-8 ">
+//         <Supplier />
+//       </div>
+//     </div>
+//   );
+// };
 
 
 
@@ -330,10 +330,10 @@ const Model_Management = () => {
         return <StockPage onBack={handleBack} />;
       case 'Product':
           return <ProductPage onBack={handleBack} />;
-      case 'Transaction':
+      case 'Expense':
         return <TransactionPage onBack={handleBack} />;
-      case 'Suppliers':
-        return <SuppliersPage onBack={handleBack} />;
+      // case 'Suppliers':
+      //   return <SuppliersPage onBack={handleBack} />;
       default:
         return null;
     }
@@ -347,8 +347,8 @@ const Model_Management = () => {
     {selected ? (
       <div className="w-full max-w-8xl h-[90%]">{renderContent()}</div>
     ) : (
-      <div className="grid gap-24 mt-8 sm:-mt-20 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4">
-        {['Stock','Product', 'Transaction', 'Suppliers'].map((item) => (
+      <div className="grid gap-24 mt-8 sm:-mt-20 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
+        {['Stock','Product', 'Expense'].map((item) => (
           <div
             key={item}
             onClick={() => handleClick(item)}
@@ -362,12 +362,10 @@ const Model_Management = () => {
               {item === 'Product' && (
                 <img src={product_img} alt="Product" className="w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28" />
               )}
-              {item === 'Transaction' && (
+              {item === 'Expense' && (
                 <img src={transaction_img} alt="Transaction" className="w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28" />
               )}
-              {item === 'Suppliers' && (
-                <img src={supplier_img} alt="Suppliers" className="w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28" />
-              )}
+        
             </div>
             <span className="pt-2 text-base font-medium text-gray-700 sm:text-lg lg:text-xl">{item}</span>
           </div>

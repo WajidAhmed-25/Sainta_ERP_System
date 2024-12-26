@@ -7,8 +7,8 @@
       "costs": "Costs"
     },
     "modules": {
-        "title": "Services",
-        "forYou": "For You",
+        "title": "",
+        "forYou": "",
         "services": {
           "customerManagement": "Customer Management",
           "salesManagement": "Sales Management",

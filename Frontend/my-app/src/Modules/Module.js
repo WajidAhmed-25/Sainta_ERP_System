@@ -97,15 +97,15 @@
 
 
 
-import img1 from './g1.png';
-import img2 from './g2.png';
-import img3 from './g3.png';
-import img4 from './g4.png';
-import img5 from './g5.png';
-import img6 from './g6.png';
-import img7 from './g7.png';
-import img8 from './g8.png';
-import img9 from './g9.png';
+import img1 from "../Icons/sainta customer-management.png";
+import img2 from '../Icons/sainta sales-management.png';
+import img3 from '../Icons/sainta employee-management.png';
+import img4 from '../Icons/sainta invoices.png';
+import img5 from '../Icons/sainta analysis.png';
+import img6 from '../Icons/sainta timesheet.png';
+import img7 from '../Icons/sainta inventory-management.png';
+import img8 from '../Icons/sainta product-management.png';
+import img9 from '../Icons/sainta expenses.png';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Trans_Btn from '../Navbar/Trans_Btn';
@@ -158,7 +158,7 @@ export default function Module() {
     { 
       image: img7, 
       labelKey: 'modules.services.inventoryManagement', 
-      route: '/inventory_management' 
+      route: '/inventory-management' 
     },
     { 
       image: img8, 

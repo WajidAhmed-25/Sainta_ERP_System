@@ -27,6 +27,7 @@ import Product_Management from './Modules/Product_Management/Product_Management'
 
 import { useState } from 'react';
 import Model_Management from './Model_Management/Model_Management';
+import Inventory_Model_Management from './Inventory_Model_Management/Inventory_Model_Management';
 
 function App() {
 
@@ -50,6 +51,7 @@ function App() {
         <Route path='/employee_management' element={<Employee_Management/>}/>
         <Route path='/timesheet_management' element={<TimeSheet_Management/>}/>
         <Route path='/product_management' element={<Product_Management/>}/>
+        <Route path="/inventory-management" element={<Inventory_Model_Management/>}/>
 
 
 
