@@ -12,6 +12,7 @@ const Supplier = () => {
   const [search, setSearch] = useState("");
   const [selectedSupplier, setSelectedSupplier] = useState(null);
   const [editModalOpen, setEditModalOpen] = useState(false);
+  const [addModalOpen, setAddModalOpen] = useState(false);
   const [editFormData, setEditFormData] = useState({
     supplier_name: "",
     contact_details: "",
@@ -94,6 +95,50 @@ const Supplier = () => {
       toast.error("Failed to update supplier");
     });
   };
+
+  // ________ add supplier __________
+
+  const handleAddSupplier = () => {
+    fetch("http://localhost:8000/api/suppliers", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(editFormData)
+    })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(() => {
+      toast.success("Supplier added successfully");
+      setAddModalOpen(false);
+      setEditFormData({
+        supplier_name: "",
+        contact_details: "",
+        address: "",
+      });
+      fetchSuppliers(); // Refresh the list
+    })
+    .catch((error) => {
+      console.error("Error adding supplier:", error);
+      toast.error("Failed to add supplier");
+    });
+  };
+
+  const handleOpenAddModal = () => {
+    // Reset form data when opening add modal
+    setEditFormData({
+      supplier_name: "",
+      contact_details: "",
+      address: "",
+    });
+    setAddModalOpen(true);
+  };
+
+  // ________ add supplier ______________
 
   const handleSearch = (e) => {
     const query = e.target.value.toLowerCase();
@@ -197,18 +242,28 @@ const Supplier = () => {
 </div>
       ) : (
         <div className="mt-4">
-          <div className="flex items-end justify-end mb-4">
-            <div className="relative w-full max-w-xs">
-              <input
-                type="text"
-                placeholder="Search Supplier Name..."
-                value={search}
-                onChange={handleSearch}
-                className="w-full px-4 py-2 pl-10 border border-gray-300 rounded-md"
-              />
-              <FaSearch className="absolute text-gray-500 transform -translate-y-1/2 left-3 top-1/2" />
-            </div>
-          </div>
+
+<div className="flex items-center justify-between mb-4 p-4">
+<button
+    className="flex flex-row px-4 py-2 space-x-2 text-white bg-[#017ab0] rounded hover:bg-[#0179b0b4] focus:outline-none"
+    onClick={handleOpenAddModal}
+  >
+    <span>Add Supplier</span>
+  </button>
+  <div className="relative w-full max-w-xs">
+    <input
+      type="text"
+      placeholder="Search Supplier Name..."
+      value={search}
+      onChange={handleSearch}
+      className="w-full px-4 py-2 pl-10 border border-gray-300 rounded-md"
+    />
+    <FaSearch className="absolute text-gray-500 transform -translate-y-1/2 left-3 top-1/2" />
+  </div>
+</div>
+
+
+
           <table className="w-full mt-6">
             <thead>
               <tr className="bg-gray-200">
@@ -374,6 +429,87 @@ const Supplier = () => {
               </div>
             </div>
           )}
+
+          {/* add supplier custom modal  */}
+
+          {addModalOpen && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto bg-black bg-opacity-50 outline-none focus:outline-none">
+              <div className="relative w-auto max-w-3xl mx-auto my-6">
+                <div className="relative flex flex-col w-full bg-white border-0 rounded-lg shadow-lg outline-none focus:outline-none">
+                  <div className="flex items-start justify-between p-5 border-b border-solid rounded-t border-blueGray-200">
+                    <h3 className="text-3xl font-semibold text-[#007AAF]">Add Supplier</h3>
+                    <button
+                      className="float-right p-1 ml-auto text-3xl font-semibold leading-none text-black border-0 outline-none opacity-5 focus:outline-none"
+                      onClick={() => setAddModalOpen(false)}
+                    >
+                      <FaTimes className="w-6 h-6 text-pink-400" />
+                    </button>
+                  </div>
+                  <div className="relative flex-auto p-6">
+                    <div className="mb-4">
+                      <label className="block mb-2 text-sm font-bold text-[#007AAF]">
+                        Supplier Name
+                      </label>
+                      <input
+                        type="text"
+                        className="w-full px-3 py-2 border rounded"
+                        value={editFormData.supplier_name}
+                        onChange={(e) => setEditFormData({
+                          ...editFormData, 
+                          supplier_name: e.target.value
+                        })}
+                      />
+                    </div>
+                    <div className="mb-4">
+                      <label className="block mb-2 text-sm font-bold text-[#007AAF]">
+                        Contact Details
+                      </label>
+                      <input
+                        type="text"
+                        className="w-full px-3 py-2 border rounded"
+                        value={editFormData.contact_details}
+                        onChange={(e) => setEditFormData({
+                          ...editFormData, 
+                          contact_details: e.target.value
+                        })}
+                      />
+                    </div>
+                    <div className="mb-4">
+                      <label className="block mb-2 text-sm font-bold text-[#007AAF]">
+                        Address
+                      </label>
+                      <input
+                        type="text"
+                        className="w-full px-3 py-2 border rounded"
+                        value={editFormData.address}
+                        onChange={(e) => setEditFormData({
+                          ...editFormData, 
+                          address: e.target.value
+                        })}
+                      />
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-end p-6 border-t border-solid rounded-b border-blueGray-200">
+                    <button
+                      className="px-6 py-2 mb-1 mr-1 text-sm font-bold text-red-500 uppercase transition-all duration-150 ease-linear outline-none background-transparent focus:outline-none"
+                      type="button"
+                      onClick={() => setAddModalOpen(false)}
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      className="px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-[#007AAF] active:bg-[#007AAF] hover:shadow-lg focus:outline-none"
+                      type="button"
+                      onClick={handleAddSupplier}
+                    >
+                      Add Supplier
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
         </div>
       )}
 

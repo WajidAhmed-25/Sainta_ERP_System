@@ -156,10 +156,10 @@ Route::delete('transactions/{id}', [AllTransactionController::class, 'destroy'])
 
 use App\Http\Controllers\WarehouseController;
 
-Route::get('warehouses', [WarehouseController::class, 'index']);
-Route::get('warehouses/{id}', [WarehouseController::class, 'show']);
-Route::post('warehouses', [WarehouseController::class, 'store']);
-Route::put('warehouses/{id}', [WarehouseController::class, 'update']);
+Route::get('/warehouses', [WarehouseController::class, 'index']);
+Route::get('/warehouses/{id}', [WarehouseController::class, 'show']);
+Route::post('/warehouses', [WarehouseController::class, 'store']);
+Route::put('/warehouses/{id}', [WarehouseController::class, 'update']);
 Route::delete('/warehouses/{id}', [WarehouseController::class, 'destroy']);
 
 
