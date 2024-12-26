@@ -15,6 +15,7 @@ class Stock extends Model
     protected $fillable = [
         'stock_type_id',
         'quantity',
+        'warehouse_Id',
         'location',
         'stocked_date',
         'stock_name',
@@ -23,5 +24,9 @@ class Stock extends Model
     public function stockType()
     {
         return $this->belongsTo(StockType::class, 'stock_type_id', 'stock_type_id');
+    }
+    public function warehouse()
+    {
+        return $this->belongsTo(Warehouse::class, 'warehouse_Id', 'id');
     }
 }

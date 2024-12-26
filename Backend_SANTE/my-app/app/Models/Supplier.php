@@ -17,4 +17,9 @@ class Supplier extends Model
         'contact_details',
         'address',
     ];
+
+    public function warehouses()
+    {
+        return $this->belongsToMany(Warehouse::class, 'supplier_warehouse', 'supplier_id', 'warehouse_id');
+    }
 }

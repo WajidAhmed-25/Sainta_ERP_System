@@ -145,9 +145,6 @@ Route::get('/products/stock/{stock_id}', [ProductController::class, 'showByStock
 Route::get('/products/product-type/{product_type_id}', [ProductController::class, 'showByProductTypeID']);
 
 
-
-
-
 use App\Http\Controllers\AllTransactionController;
 
 Route::get('transactions', [AllTransactionController::class, 'index']);
@@ -155,6 +152,23 @@ Route::get('transactions/{id}', [AllTransactionController::class, 'show']);
 Route::post('transactions', [AllTransactionController::class, 'store']);
 Route::put('transactions/{id}', [AllTransactionController::class, 'update']);
 Route::delete('transactions/{id}', [AllTransactionController::class, 'destroy']);
+
+
+use App\Http\Controllers\WarehouseController;
+
+Route::get('warehouses', [WarehouseController::class, 'index']);
+Route::get('warehouses/{id}', [WarehouseController::class, 'show']);
+Route::post('warehouses', [WarehouseController::class, 'store']);
+Route::put('warehouses/{id}', [WarehouseController::class, 'update']);
+Route::delete('/warehouses/{id}', [WarehouseController::class, 'destroy']);
+
+
+use App\Http\Controllers\SupplierWarehouseController;
+
+Route::get('/supplier-warehouse', [SupplierWarehouseController::class, 'index']);
+Route::post('/supplier-warehouse', [SupplierWarehouseController::class, 'store']);
+Route::put('/supplier-warehouse/{id}', [SupplierWarehouseController::class, 'update']);
+Route::delete('/supplier-warehouse', [SupplierWarehouseController::class, 'destroy']);
 
 
 /*

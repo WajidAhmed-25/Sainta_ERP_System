@@ -12,7 +12,7 @@ class StockController extends Controller
     public function index()
     {
         try {
-            $stocks = Stock::with('stockType')->get();
+            $stocks = Stock::with('stockType','warehouse')->get();
             return response()->json($stocks, Response::HTTP_OK);
         } catch (\Exception $e) {
             return response()->json([
