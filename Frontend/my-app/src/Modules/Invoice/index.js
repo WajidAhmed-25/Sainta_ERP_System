@@ -156,8 +156,8 @@ const InvoiceForm = () => {
   );
 
   return (
-    <div className="flex flex-col justify-between gap-20 pb-12 pl-32 bg-gray-200 lg:flex-row lg:justify-between">
-      <div className=" w-[50%] mt-12 shadow-2xl bg-white">
+    <div className="flex flex-col justify-between gap-20 pt-12 pb-12 pl-32 bg-gray-200 lg:flex-row lg:justify-between">
+      <div className=" w-[50%] mt-12 shadow-2xl bg-white mb-12">
         <div className="border border-gray-200 p-6 relative min-h-[900px]">
           <h1 className="mb-24 text-xl font-semibold text-center">請求書</h1>
 
