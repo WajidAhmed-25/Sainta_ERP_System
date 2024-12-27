@@ -29,6 +29,8 @@ import { useState } from 'react';
 import Model_Management from './Model_Management/Model_Management';
 import Inventory_Model_Management from './Inventory_Model_Management/Inventory_Model_Management';
 
+import Invoices from './Modules/Invoice/index';
+
 function App() {
 
   // Current LandingPage Element
@@ -47,11 +49,14 @@ function App() {
         <Route path="/register" element={<Registration/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path="/modules" element={<Module/>}/>
+     
         <Route path='/customer_management' element={<Customer_Management/>}/>
         <Route path='/employee_management' element={<Employee_Management/>}/>
         <Route path='/timesheet_management' element={<TimeSheet_Management/>}/>
         <Route path='/product_management' element={<Product_Management/>}/>
         <Route path="/inventory-management" element={<Inventory_Model_Management/>}/>
+
+        <Route path='/invoice' element={<Invoices/>} />
 
 
 

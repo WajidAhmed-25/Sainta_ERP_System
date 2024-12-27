@@ -462,7 +462,7 @@ const AddProductType = () => {
           <div className="space-y-3">
             <div className="flex justify-between">
               <span className="font-semibold text-gray-600">Description:</span>
-              <span className="w-64 text-center">{product.product_description || 'N/A'}</span>
+              <span className="w-64 text-right">{product.product_description || 'N/A'}</span>
             </div>
             <div className="flex justify-between">
               <span className="font-semibold text-gray-600">Unit Quantity:</span>

@@ -16,6 +16,8 @@ import warehouse_img from '../Icons/sainta inventory-management warehouse.png';
 import transaction_img from '../Icons/sainta inventory.png';
 import supplier_img from '../Icons/sainta inventory-management supplier.png';
 
+import AddWarehouse from '../Modules/Inventory_Management/Add_Warehouse';
+
 
 
 // Animation //
@@ -36,21 +38,20 @@ import * as XLSX from "xlsx";
 const WarehousePage = ({ onBack }) => {
   const handleDownload = async () => {
     try {
-      const response = await fetch("http://localhost:8000/api/stocks");
+      const response = await fetch("http://127.0.0.1:8000/api/warehouses");
       if (!response.ok) {
-        throw new Error("Failed to fetch stock data");
+        throw new Error("Failed to fetch warehouse data");
       }
       const data = await response.json();
 
       // Format data for Excel
       const formattedData = data.map((item) => ({
-        "Stock ID": item.stock_id,
-        "Stock Name": item.stock_name,
-        "Stock Type": item.stock_type?.type_name || "N/A",
-        Quantity: item.quantity,
-        Location: item.location,
-        "Stocked Date": item.stocked_date,
-        "Type Description": item.stock_type?.description || "N/A",
+        "Warehouse ID": item.id,
+        "Warehouse Name": item.name,
+        "Address": item.address,
+        "Owner Name": item.owner_name,
+        "Last Updated": item.datelastupdatedstock,
+        "Number of Workers": item.number_of_workers,
         "Created At": item.created_at,
         "Updated At": item.updated_at,
       }));
@@ -58,15 +59,15 @@ const WarehousePage = ({ onBack }) => {
       // Create Excel worksheet
       const worksheet = XLSX.utils.json_to_sheet(formattedData);
       const workbook = XLSX.utils.book_new();
-      XLSX.utils.book_append_sheet(workbook, worksheet, "Stocks");
+      XLSX.utils.book_append_sheet(workbook, worksheet, "Warehouses");
 
       // Convert to binary and save as file
       const excelBuffer = XLSX.write(workbook, { bookType: "xlsx", type: "array" });
       const blob = new Blob([excelBuffer], { type: "application/octet-stream" });
-      saveAs(blob, "Stocks.xlsx");
+      saveAs(blob, "Warehouses.xlsx");
     } catch (error) {
-      console.error("Error downloading stocks:", error);
-      alert("Failed to download stocks");
+      console.error("Error downloading warehouses:", error);
+      alert("Failed to download warehouses");
     }
   };
 
@@ -88,12 +89,12 @@ const WarehousePage = ({ onBack }) => {
           onClick={handleDownload}
         >
           <Download className="w-6 h-6" />
-          <span>Download Stocks</span>
+          <span>Download Warehouses</span>
         </button>
       </div>
 
       <div className="w-full">
-        <Stock />
+      <AddWarehouse />
       </div>
     </div>
   );
@@ -255,7 +256,7 @@ const Inventory_Model_Management = () => {
 
       case 'Warehouse':
         return <WarehousePage onBack={handleBack} />;
-      case 'Transaction':
+      case 'Inventory':
         return <TransactionPage onBack={handleBack} />;
       case 'Suppliers':
         return <SuppliersPage onBack={handleBack} />;
@@ -273,7 +274,7 @@ const Inventory_Model_Management = () => {
         <div className="w-full max-w-8xl h-[90%]">{renderContent()}</div>
       ) : (
         <div className="grid gap-24 mt-8 sm:-mt-20 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
-          {['Warehouse', 'Transaction', 'Suppliers'].map((item) => (
+          {['Warehouse', 'Inventory', 'Suppliers'].map((item) => (
             <div
               key={item}
               onClick={() => handleClick(item)}
@@ -285,7 +286,7 @@ const Inventory_Model_Management = () => {
                   <img src={warehouse_img} alt="Warehouse" className="w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28" />
                 )}
 
-                {item === 'Transaction' && (
+                {item === 'Inventory' && (
                   <img src={transaction_img} alt="Transaction" className="w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28" />
                 )}
                 {item === 'Suppliers' && (

@@ -218,7 +218,7 @@ const Add_Product = () => {
                 <option value="">Select Stock</option>
                 {stocks.map((stock) => (
                   <option key={stock.id} value={stock.stock_id}>
-                    {stock.stock_type.type_name}
+                    {stock.stock_type ? stock.stock_type.type_name : "No Stock Type" }
                   </option>
                 ))}
               </select>

@@ -431,7 +431,7 @@ export default function Registration() {
   );
 
   return (
-    <div className="flex items-center justify-center min-h-screen">
+    <div className="flex items-center justify-center min-h-screen mt-12">
       <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-md shadow-lg">
         <div className="flex items-center mb-8">
               <div className="flex items-center justify-center w-10 h-10 mr-2 border-2 rounded-full">
