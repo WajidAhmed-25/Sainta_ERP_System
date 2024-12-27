@@ -421,6 +421,7 @@ const InvoiceForm = () => {
         </div>
   
         <div className=" w-[50%] pt-56 bg-[#e6e7eb]  ">
+          <h2 className='w-[72%] pb-4 text-2xl font-bold text-center text-semibold'>Preview</h2>
           <PreviewComponent data={formData} />
         </div>
       </div>

@@ -18,6 +18,7 @@ const Expense = () => {
     const [editModalIsOpen, setEditModalIsOpen] = useState(false);
     const [selectedWarehouseId, setSelectedWarehouseId] = useState(null);
     const [expenses, setExpenses] = useState([]);
+    const [totalExpense, setTotalExpense] = useState(0);
 
     const [newExpense, setNewExpense] = useState({
         expenseName: "",
@@ -47,6 +48,7 @@ const Expense = () => {
         try {
             const response = await axios.get("http://127.0.0.1:8000/api/expenses");
             setExpenses(response.data);
+            calculateTotal(response.data);
             setTimeout(() => {
                 AOS.refresh();
             }, 100);
@@ -54,6 +56,11 @@ const Expense = () => {
             console.error("Error fetching expenses:", error);
             toast.error("Failed to load expenses");
         }
+    };
+
+    const calculateTotal = (data) => {
+        const total = data.reduce((acc, expense) => acc + parseFloat(expense.expenseCost), 0);
+        setTotalExpense(total);
     };
 
     const handleDeleteExpense = async (warehouseId, warehouseName) => {
@@ -456,6 +463,13 @@ const Expense = () => {
                                 ))}
                             </tbody>
                         </table>
+
+                        <div>
+                            {/* Display total expense */}
+                            <div className="mt-4 p-4 font-semibold text-lg text-gray-800 bg-gray-200 rounded-md">
+                                Total Expense: ${totalExpense.toFixed(2)}
+                            </div>
+                        </div>
                     </div>
 
                     {filteredWarehouses.length === 0 && (
