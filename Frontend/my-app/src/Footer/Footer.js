@@ -49,7 +49,7 @@ export default function Footer() {
     <>
       {username ? (
         // Content to show when username is present
-        <div className="flex items-center justify-center w-full mb-4 p-4 bg-[#c2c2c2] items">
+        <div className="flex items-center justify-center w-full mb-4 p-4 bg-[#c2c2c2] items ">
         <div className="flex flex-wrap items-center justify-between gap-4  w-[45%]">
           {/* User Profile Button */}
           <button className="flex items-center gap-2 px-4 py-2 text-gray-800 bg-[#d5d5d5] rounded-md">
