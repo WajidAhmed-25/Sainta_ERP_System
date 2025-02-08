@@ -75,20 +75,20 @@ function googleTranslateElementInit() {
 }
 </script> -->
 
-    <!-- Google Translate Script -->
+  
     <script type="text/javascript">
       function googleTranslateElementInit() {
         new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
       }
 
       function toggleLanguage() {
-        // Get the select element created by Google Translate
+      
         const select = document.querySelector("#google_translate_element select");
         
         if (select) {
-          // Toggle between English ('en') and Japanese ('ja') based on the current selection
+         
           select.value = select.value === 'en' ? 'ja' : 'en';
-          select.dispatchEvent(new Event('change')); // Trigger the change event
+          select.dispatchEvent(new Event('change')); 
         }
       }
     </script>

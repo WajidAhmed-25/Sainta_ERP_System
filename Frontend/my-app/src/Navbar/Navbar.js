@@ -1,3 +1,4 @@
+// src/components/Navbar.jsx
 import { useTranslation } from 'react-i18next';
 import Logo from '../assets/img/landing/mainlogo.png';
 import LogoSmall from '../assets/img/landing/logosmall.png';
@@ -20,7 +21,7 @@ const dropdownSupport = [
   { label: "Contact Us", path: "/contact" }
 ];
 
-// Dropdown component with prop type checking
+// Dropdown component
 const Dropdown = ({ isOpen, items, setCurrentElement = () => {}, handleMouseLeave, targetElement }) => {
   const navigate = useNavigate();
   
@@ -51,7 +52,7 @@ const Dropdown = ({ isOpen, items, setCurrentElement = () => {}, handleMouseLeav
   );
 };
 
-const Navbar = ({ setCurrentElement = () => {} }) => {
+const Navbar = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [hoveredElement, setHoveredElement] = useState("");
@@ -68,27 +69,36 @@ const Navbar = ({ setCurrentElement = () => {} }) => {
 
   useEffect(() => {
     const username = localStorage.getItem('username');
-    console.log('Username from localStorage:', username);
     if (username) {
       setIsAuthenticated(true);
-      console.log('Authentication state set to:', true);
     } else {
       setIsAuthenticated(false);
-      console.log('Authentication state set to:', false);
     }
   }, []);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
   const handleElementClick = (element, path = '/') => {
-    if (setCurrentElement) {
-      setCurrentElement(element);
-    }
     navigate(path);
   };
 
+  // Authenticated user navbar
+  if (isAuthenticated) {
+    return (
+      <nav className="bg-white shadow-md">
+        <div className="container p-4 mx-auto">
+          <div className="flex justify-center">
+            <a href="/" className="flex items-center" onClick={(e) => {
+              e.preventDefault();
+              navigate('/');
+            }}>
+              <img src={Logo} alt="Logo" className="h-14" />
+            </a>
+          </div>
+        </div>
+      </nav>
+    );
+  }
+
+  // Non-authenticated user navbar
   return (
     <nav className="bg-white shadow-md">
       <div className="container flex items-center justify-between p-4 mx-auto">
@@ -101,7 +111,7 @@ const Navbar = ({ setCurrentElement = () => {} }) => {
 
         <div className="lg:hidden">
           <button
-            onClick={toggleMenu}
+            onClick={() => setIsOpen(!isOpen)}
             className="text-gray-700 focus:outline-none"
             aria-label="Toggle menu"
             aria-expanded={isOpen}
@@ -111,6 +121,7 @@ const Navbar = ({ setCurrentElement = () => {} }) => {
             </svg>
           </button>
         </div>
+
         <div className={`lg:flex lg:items-center lg:w-auto ${isOpen ? 'block' : 'hidden'}`}>
           <div
             className="relative group"
@@ -122,10 +133,7 @@ const Navbar = ({ setCurrentElement = () => {} }) => {
               }, 2000);
             }}
           >
-            <a className="flex items-center px-4 py-2 text-gray-700 transition-colors duration-300 cursor-pointer hover:text-blue-500" onClick={(e) => {
-              e.preventDefault();
-              handleElementClick("default", "/");
-            }}>
+            <a className="flex items-center px-4 py-2 text-gray-700 transition-colors duration-300 cursor-pointer hover:text-blue-500">
               <img src={LogoSmall} alt="Logo Small" className="mr-2 h-7" />
               サインタとは？
               <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -134,10 +142,9 @@ const Navbar = ({ setCurrentElement = () => {} }) => {
             </a>
             <Dropdown 
               isOpen={hoveredElement === "サインタとは？"} 
-              items={dropdownHome} 
-              setCurrentElement={handleElementClick} 
-              handleMouseLeave={handleMouseLeave} 
-              targetElement="default" 
+              items={dropdownHome}
+              handleMouseLeave={handleMouseLeave}
+              targetElement="default"
             />
           </div>
 
@@ -151,10 +158,7 @@ const Navbar = ({ setCurrentElement = () => {} }) => {
               }, 2000);
             }}
           >
-            <a className="flex items-center px-4 py-2 text-gray-700 transition-colors duration-300 cursor-pointer hover:text-blue-500" onClick={(e) => {
-              e.preventDefault();
-              handleElementClick("strengths", "/features");
-            }}>
+            <a className="flex items-center px-4 py-2 text-gray-700 transition-colors duration-300 cursor-pointer hover:text-blue-500">
               <img src={LogoSmall} alt="Logo Small" className="mr-2 h-7" />
               我々の強み
               <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -163,10 +167,9 @@ const Navbar = ({ setCurrentElement = () => {} }) => {
             </a>
             <Dropdown 
               isOpen={hoveredElement === "我々の強み"} 
-              items={dropdownStrengths} 
-              setCurrentElement={handleElementClick} 
-              handleMouseLeave={handleMouseLeave} 
-              targetElement="strengths" 
+              items={dropdownStrengths}
+              handleMouseLeave={handleMouseLeave}
+              targetElement="strengths"
             />
           </div>
 
@@ -180,10 +183,7 @@ const Navbar = ({ setCurrentElement = () => {} }) => {
               }, 2000);
             }}
           >
-            <a className="flex items-center px-4 py-2 text-gray-700 transition-colors duration-300 cursor-pointer hover:text-blue-500" onClick={(e) => {
-              e.preventDefault();
-              handleElementClick("register", "/register");
-            }}>
+            <a className="flex items-center px-4 py-2 text-gray-700 transition-colors duration-300 cursor-pointer hover:text-blue-500">
               <img src={LogoSmall} alt="Logo Small" className="mr-2 h-7" />
               登録・相談・サポート
               <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -192,27 +192,34 @@ const Navbar = ({ setCurrentElement = () => {} }) => {
             </a>
             <Dropdown 
               isOpen={hoveredElement === "登録・相談・サポート"} 
-              items={dropdownSupport} 
-              setCurrentElement={handleElementClick} 
-              handleMouseLeave={handleMouseLeave} 
-              targetElement="register" 
+              items={dropdownSupport}
+              handleMouseLeave={handleMouseLeave}
+              targetElement="register"
             />
           </div>
 
-          <a href="/login" className="px-4 py-2 text-gray-700 transition-colors duration-300 hover:text-blue-500" onClick={(e) => {
-            e.preventDefault();
-            handleElementClick("login", "/login");
-          }}>
+          <a 
+            href="/login" 
+            className="px-4 py-2 text-gray-700 transition-colors duration-300 hover:text-blue-500"
+            onClick={(e) => {
+              e.preventDefault();
+              handleElementClick("login", "/login");
+            }}
+          >
             <div className="flex items-center">
               <img src={LogoSmall} alt="Logo Small" className="mr-2 h-7" />
               ログイン
             </div>
           </a>
 
-          <a href="/register" className="px-4 py-2 text-gray-700 transition-colors duration-300 hover:text-blue-500" onClick={(e) => {
-            e.preventDefault();
-            handleElementClick("register", "/register");
-          }}>
+          <a 
+            href="/register" 
+            className="px-4 py-2 text-gray-700 transition-colors duration-300 hover:text-blue-500"
+            onClick={(e) => {
+              e.preventDefault();
+              handleElementClick("register", "/register");
+            }}
+          >
             <div className="flex items-center">
               <img src={LogoSmall} alt="Logo Small" className="mr-2 h-7" />
               登録

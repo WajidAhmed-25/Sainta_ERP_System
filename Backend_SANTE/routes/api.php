@@ -59,6 +59,9 @@ Route::delete('/employees/{id}', [EmployeeController::class, 'destroy']);
 
 
 
+
+
+
 use App\Http\Controllers\EmployeesTimesheetController;
 
 Route::get('/employees_timesheets', [EmployeesTimesheetController::class, 'index']);            
@@ -156,10 +159,10 @@ Route::delete('transactions/{id}', [AllTransactionController::class, 'destroy'])
 
 use App\Http\Controllers\WarehouseController;
 
-Route::get('/warehouses', [WarehouseController::class, 'index']);
-Route::get('/warehouses/{id}', [WarehouseController::class, 'show']);
-Route::post('/warehouses', [WarehouseController::class, 'store']);
-Route::put('/warehouses/{id}', [WarehouseController::class, 'update']);
+Route::get('warehouses', [WarehouseController::class, 'index']);
+Route::get('warehouses/{id}', [WarehouseController::class, 'show']);
+Route::post('warehouses', [WarehouseController::class, 'store']);
+Route::put('warehouses/{id}', [WarehouseController::class, 'update']);
 Route::delete('/warehouses/{id}', [WarehouseController::class, 'destroy']);
 
 
@@ -171,11 +174,102 @@ Route::put('/supplier-warehouse/{id}', [SupplierWarehouseController::class, 'upd
 Route::delete('/supplier-warehouse', [SupplierWarehouseController::class, 'destroy']);
 
 
+use App\Http\Controllers\ExpenseController;
+
+Route::get('/expenses', [ExpenseController::class, 'index']); // GET all expenses
+Route::get('/expenses/{id}', [ExpenseController::class, 'show']); // GET specific expense by ID
+Route::post('/expenses', [ExpenseController::class, 'store']); // POST a new expense
+Route::put('/expenses/{id}', [ExpenseController::class, 'update']); // PUT to update an expense
+Route::delete('/expenses/{id}', [ExpenseController::class, 'destroy']); // DELETE an expense
+
+
+
+
+use App\Http\Controllers\SaleController;
+
+Route::prefix('sales')->group(function () {
+   Route::get('/', [SaleController::class, 'index']);
+   Route::post('/', [SaleController::class, 'store']);
+   Route::get('/{id}', [SaleController::class, 'show']);
+   Route::put('/{id}', [SaleController::class, 'update']);
+   Route::delete('/{id}', [SaleController::class, 'destroy']);
+   Route::get('/status/{status}', [SaleController::class, 'getByStatus']);
+   Route::get('/payment-status/{paymentStatus}', [SaleController::class, 'getByPaymentStatus']);
+
+});
+
+
+
+use App\Http\Controllers\SalesProductController;
+
+Route::post('/sales-products', [SalesProductController::class, 'store']); 
+Route::get('/sales-products', [SalesProductController::class, 'index']); 
+Route::get('/sales-products/{id}', [SalesProductController::class, 'show']); 
+Route::put('/sales-products/{id}', [SalesProductController::class, 'update']); 
+Route::delete('/sales-products/{id}', [SalesProductController::class, 'destroy']); 
+
+
+
+
+
+use App\Http\Controllers\PaymentController;
+
+Route::get('/payments', [PaymentController::class, 'index']);
+Route::get('/payments/{id}', [PaymentController::class, 'show']);
+Route::post('/payments', [PaymentController::class, 'store']);
+Route::put('/payments/{id}', [PaymentController::class, 'update']);
+Route::delete('/payments/{id}', [PaymentController::class, 'destroy']);
+
+
+
+
+
+
+
+use App\Http\Controllers\ExpenseCategoryController;
+
+
+Route::get('expense-categories', [ExpenseCategoryController::class, 'index']);
+Route::post('expense-categories', [ExpenseCategoryController::class, 'store']);
+Route::get('expense-categories/{id}', [ExpenseCategoryController::class, 'show']);
+Route::put('expense-categories/{id}', [ExpenseCategoryController::class, 'update']);
+Route::delete('expense-categories/{id}', [ExpenseCategoryController::class, 'destroy']);
+
+
+
+
+
+use App\Http\Controllers\SubExpenseController;
+
+
+Route::get('sub-expenses', [SubExpenseController::class, 'index']);
+Route::post('sub-expenses', [SubExpenseController::class, 'store']);
+Route::get('sub-expenses/{id}', [SubExpenseController::class, 'show']);
+Route::put('sub-expenses/{id}', [SubExpenseController::class, 'update']);
+Route::delete('sub-expenses/{id}', [SubExpenseController::class, 'destroy']);
+
+
+
+
+use App\Http\Controllers\SubExpenseCalculationController;
+
+
+Route::post('/sub-expense-calculations', [SubExpenseCalculationController::class, 'store']);
+Route::get('/sub-expense-calculations', [SubExpenseCalculationController::class, 'index']);
+Route::get('/sub-expense-calculations/{id}', [SubExpenseCalculationController::class, 'show']);
+Route::put('/sub-expense-calculations/{id}', [SubExpenseCalculationController::class, 'update']);
+Route::delete('/sub-expense-calculations/{id}', [SubExpenseCalculationController::class, 'destroy']);
+Route::get('/sub-expense-calculations/sub-expense/{sub_expense_id}/details', [SubExpenseCalculationController::class, 'getBySubExpenseId']);
+
+Route::post('/expense/{receiverEmail}/review', [SubExpenseCalculationController::class, 'sendReviewNotification']);
+
+
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
 |--------------------------------------------------------------------------
-|
+|f
 | Here is where you can register API routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
 | is assigned the "api" middleware group. Enjoy building your API!

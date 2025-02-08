@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Stock from './Stock';
-import Transactions from '../Modules/Product_Management/Transaction';
+import Transactions from '../Modules/Product_Management/Inventory';
 
 // Download //
 
@@ -8,9 +8,7 @@ import { Download } from "lucide-react";
 
 // Images //
 
-// import warehouse_img from '../../Icons/sainta inventory-management warehouse.png';
-// import transaction_img from '../../Icons/sainta inventory.png';
-// import supplier_img from '../../Icons/sainta inventory-management supplier.png';
+
 
 import warehouse_img from '../Icons/sainta inventory-management warehouse.png';
 import transaction_img from '../Icons/sainta inventory.png';
@@ -31,6 +29,7 @@ import Supplier from '../Modules/Product_Management/Supplier';
 
 import { saveAs } from "file-saver";
 import * as XLSX from "xlsx";
+import Inventroy from '../Modules/Product_Management/Inventory';
 
 
 // --------------------------------- warehouse Page -------------------------------- //
@@ -102,6 +101,7 @@ const WarehousePage = ({ onBack }) => {
 
 // --------------------------------- Transaction Page -------------------------------- //
 
+
 const TransactionPage = ({ onBack }) => {
   const handleDownload = async () => {
     try {
@@ -117,7 +117,7 @@ const TransactionPage = ({ onBack }) => {
         "Product ID": item.product_id,
         "Transaction Date": item.transaction_date,
         "Product Name": item.product.product_name,
-        "Product Type": item.product.product_type_id,
+         "Product Type": item.product.product_type_id,
         "Unit Quantity": item.product.unit_quantity,
         "Unit Type": item.product.unit_type,
         "Cost": item.product.cost,
@@ -159,11 +159,13 @@ const TransactionPage = ({ onBack }) => {
         </button>
       </div>
       <div className="w-full mt-8">
-        <Transactions />
+        <Inventroy />
       </div>
     </div>
   );
 };
+
+
 
 // --------------------------------- Suppliers Page -------------------------------- //
 

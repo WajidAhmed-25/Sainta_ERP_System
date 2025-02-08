@@ -26,50 +26,6 @@ class EmployeeController extends Controller
         }
     }
 
-    // Create a new employee
-    // public function store(Request $request)
-    // {
-    //     $employee = Employee::create($request->all());
-    //     return response()->json($employee, 201);
-    // }
-
-
-
-
-    // public function store(Request $request)
-    // {
-    //     // $employee = Employee::create($request->all());
-    //     $requestss=$request->all();
-
-    //     $username = $request->input('Username');
-    //     $basePath = "employees/{$username}";
-
-    //     $filePaths = [];
-
-    //     // Define the file types and their corresponding folder names
-    //     $fileTypes = [
-    //         'Employment_Contract' => 'employment_contract',
-    //         'Personal_Information' => 'personal_information',
-    //         'Resume' => 'resume'
-    //     ];
-
-    //     foreach ($fileTypes as $fileKey => $folderName) {
-    //         if ($request->hasFile($fileKey)) {
-    //             $file = $request->file($fileKey);
-    //             $filePaths[$fileKey] = $this->storeFile($file, "{$basePath}/{$folderName}");
-    //         }
-    //     }
-    //     $requestss["Employment_Contract"]=$filePaths['Employment_Contract'];
-    //     $requestss["Personal_Information"]=$filePaths['Personal_Information'];
-    //     $requestss["Resume"]=$filePaths['Resume'];
-    //     Employee::create($requestss);
-    //     return response()->json([
-    //         'message' => 'Employee added successfully',
-    //         'filePaths' => $filePaths
-    //     ]);
-    // }
-
-
 
 
 

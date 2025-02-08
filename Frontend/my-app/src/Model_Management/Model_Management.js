@@ -11,9 +11,9 @@ import { Download } from "lucide-react";
 
 // Images //
 
-import stock_img from './stock.png';
-import product_img from './product.png';
-import transaction_img from './transaction.png';
+import stock_img from '../Icons/sainta product-management stock.png';
+import product_img from '../Icons/sainta product-management product.png';
+import transaction_img from '../Icons/sainta expenses.png';
 
 
 // Animation //

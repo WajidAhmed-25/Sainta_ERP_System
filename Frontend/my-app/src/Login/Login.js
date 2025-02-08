@@ -138,9 +138,9 @@ export default function Login() {
                                     value={service}
                                     onChange={(e) => setService(e.target.value)}
                                 >
-                                    <option value="">サービスを選択</option>
-                                    <option value="service1">サインタ・業務</option>
-                                    <option value="service3">サインタ・ラボ</option>
+                                    <option value="サービスを選択">サービスを選択</option>
+                                    <option value="サインタ・業務">サインタ・業務</option>
+                                    <option value="サインタ・ラボ">サインタ・ラボ</option>
                                 </select>
                                 <ChevronDown className="absolute w-5 h-5 text-gray-400 transform -translate-y-1/2 pointer-events-none right-3 top-1/2" />
                             </div>
@@ -190,7 +190,7 @@ export default function Login() {
                             type="submit"
                             className="w-full px-4 py-2 mt-4 font-semibold text-black border-[#007AAFF7] border-2 pt-4 pb-4 bg-white rounded-md hover:bg-[#007AAFF7] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#007AAFF7] focus:ring-offset-2"
                         >
-                            faasdas
+                           Login
                         </button>
                     </form>
 

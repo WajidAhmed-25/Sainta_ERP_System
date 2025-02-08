@@ -71,7 +71,7 @@ const Trans_Btn = () => {
       onClick={toggleLanguage}
       className='flex items-center px-4 py-2.5 mr-12  text-white rounded hover:scale-125 hover:transition-all hover:duration-300 hover:cursor-pointer'
     >
-      <FontAwesomeIcon icon={faGlobe} size="2xl" className="mr-2 text-[#007AAF]" /> 
+      <FontAwesomeIcon icon={faGlobe} size="2xl" className="mr-2 text-black" /> 
       {/* <span>{i18n.language === 'en' ? '日本語' : 'English'}</span> */}
     </div>
   </div>

@@ -28,8 +28,16 @@ import Product_Management from './Modules/Product_Management/Product_Management'
 import { useState } from 'react';
 import Model_Management from './Model_Management/Model_Management';
 import Inventory_Model_Management from './Inventory_Model_Management/Inventory_Model_Management';
+import Sales_Management from './Modules/Sales_Management';
+
+import Expense_Module from './Modules/Expense/index';
+
 
 import Invoices from './Modules/Invoice/index';
+
+
+import Otp from './Modules/Expense/Internal Pages/All Expense/OtpPage'
+import DropFileAndUpload from './Modules/Expense/Internal Pages/All Expense/DropFile_and_Upload';
 
 function App() {
 
@@ -55,8 +63,13 @@ function App() {
         <Route path='/timesheet_management' element={<TimeSheet_Management/>}/>
         <Route path='/product_management' element={<Product_Management/>}/>
         <Route path="/inventory-management" element={<Inventory_Model_Management/>}/>
+        
+
+        <Route path='/sales-management' element={<Sales_Management/>}/>
 
         <Route path='/invoice' element={<Invoices/>} />
+
+        <Route path='/expenses' element={<Expense_Module/>}/>
 
 
 
@@ -72,6 +85,9 @@ function App() {
 
 
 <Route path='/model_management' element={<Model_Management/>}/>
+
+<Route path='/review_otp' element={<Otp/>}/>
+<Route path='/upload_files' element={<DropFileAndUpload/>}/>
 
       </Routes>
     <Footer/>
